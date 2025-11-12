@@ -1,13 +1,11 @@
 'use client';
-
-import { EnvelopeSimple } from "@phosphor-icons/react";
-import { MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-white pt-24 pb-14 border-t border-white/10">
+    <footer className="bg-black text-white pt-24 pb-14 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-14 mb-16">
@@ -23,7 +21,7 @@ export default function Footer() {
             <div className="flex flex-wrap gap-4">
               <a href="mailto:info@essarenterprises.in" className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center
   hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                <EnvelopeSimple size={22} weight="duotone" />
+                <Mail size={22}  />
               </a>
               <a href="tel:+91XXXXXXXXXX" className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center
   hover:bg-white/20 transition-all duration-300 cursor-pointer">

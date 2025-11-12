@@ -12,12 +12,14 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.unsplash.com/photo-1637177937457-27543b0327aa?auto=format&fit=crop&w=2000&q=80"
-          alt="Industrial water treatment facility"
-          className="w-full h-full object-cover opacity-60"
-          priority
-        />
+         <Image
+    src="https://images.unsplash.com/photo-1637177937457-27543b0327aa?auto=format&fit=crop&w=2000&q=80"
+    alt="Industrial water treatment facility"
+    fill
+    className="object-cover opacity-60"
+    priority
+    unoptimized
+  />
         {/* Light Overlay (fixed to allow image visibility) */}
         <div className="absolute inset-0 bg-linear-to-br from-slate-950/40 via-slate-900/50 to-slate-800/40" />
       </div>
@@ -70,40 +72,7 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Stats */}
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {[
-            { number: "50+", label: "Active Plants" },
-            { number: "20+", label: "Years Experience" },
-            { number: "100%", label: "Client Satisfaction" },
-          ].map((item, i) => (
-            <div
-              key={i}
-              className="p-8 rounded-2xl backdrop-blur-xl bg-white/5 border border-white/10
-              hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
-            >
-              <div className="text-4xl font-bold bg-linear-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text mb-2">
-                {item.number}
-              </div>
-              <div className="text-gray-200 font-medium text-lg">{item.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 inset-x-0 text-center z-10 animate-bounce">
-        <svg
-          className="w-6 h-6 text-gray-300"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          viewBox="0 0 24 24"
-        >
-          <path d="M19 14l-7 7-7-7m7 7V3" />
-        </svg>
+        
       </div>
     </section>
   );
