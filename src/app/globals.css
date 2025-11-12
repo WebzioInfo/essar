@@ -16,9 +16,9 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
+  --color-background: varbackground;
+  --color-foreground: varforeground;
+  --color-primary: varprimary;
   --color-primary-dark: var(--primary-dark);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
@@ -36,8 +36,8 @@
 } */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: varbackground;
+  color: varforeground;
   font-family: var(--font-body);
 }
 
@@ -70,7 +70,7 @@ body {
 }
 
 @utility gradient-text {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  background: linear-gradient(135deg, varprimary 0%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

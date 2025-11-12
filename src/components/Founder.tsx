@@ -35,15 +35,15 @@ export default function Founder() {
   ];
 
   return (
-    <section id="founder" ref={sectionRef} className="py-24 md:py-40 bg-(--background)">
+    <section id="founder" ref={sectionRef} className="py-24 md:py-40 bg-background">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-block px-6 py-3 bg-(--primary)/10 rounded-full mb-8 border border-(--primary)/20">
-            <span className="text-(--primary) body-md font-bold tracking-wide">LEADERSHIP</span>
+          <div className="inline-block px-6 py-3 bg-primary/10 rounded-full mb-8 border border-primary/20">
+            <span className="text-primary body-md font-bold tracking-wide">LEADERSHIP</span>
           </div>
-          <h2 className="heading-lg text-(--foreground) mb-4">
+          <h2 className="heading-lg text-foreground mb-4">
             Meet Our <span className="gold-accent">Founder</span>
           </h2>
         </div>
@@ -72,17 +72,17 @@ export default function Founder() {
 
               {/* Name + Titles */}
               <div>
-                <h3 className="heading-lg font-bold text-(--foreground)">Mr. Shareef</h3>
+                <h3 className="heading-lg font-bold text-foreground">Mr. Shareef</h3>
                 <p className="body-lg gold-accent font-semibold mt-1">
                   Founder & Chairman, Essar Enterprises
                 </p>
-                <p className="body-md text-(--text-secondary)">
+                <p className="body-md text-text-secondary">
                   Chairman, Biofix Technology LLP
                 </p>
               </div>
 
               {/* Bio */}
-              <div className="premium-card rounded-3xl p-10 border border-(--gold)/10 leading-relaxed text-(--text-secondary) body-lg">
+              <div className="premium-card rounded-3xl p-10 border border-(--gold)/10 leading-relaxed text-text-secondary body-lg">
                 With over 20 years of dedicated industry experience, Mr. Shareef has designed and
                 successfully managed packaged drinking water plants across South India. His
                 expertise spans plant establishment, process optimization, water quality systems,
@@ -96,20 +96,20 @@ export default function Founder() {
                     key={idx}
                     className="premium-card rounded-2xl p-6 flex items-center gap-4 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                   >
-                    <div className="text-(--primary)">{item.icon}</div>
-                    <div className="body-md font-semibold text-(--foreground)">{item.label}</div>
+                    <div className="text-primary">{item.icon}</div>
+                    <div className="body-md font-semibold text-foreground">{item.label}</div>
                   </div>
                 ))}
               </div>
 
               {/* Quote */}
-              <div className="border-l-4 border-(--gold) pl-8">
-                <p className="body-lg italic text-(--text-secondary) leading-relaxed mb-4">
+              <div className="border-l-4 border-gold pl-8">
+                <p className="body-lg italic text-text-secondary leading-relaxed mb-4">
                   &quot;We don’t just install machinery — we build sustainable businesses.
                   Every project is delivered with the expertise and foundation required for
                   long-term growth and quality assurance.&quot;
                 </p>
-                <p className="body-md text-(--foreground) font-bold">— Mr. Shareef</p>
+                <p className="body-md text-foreground font-bold">— Mr. Shareef</p>
               </div>
 
             </div>

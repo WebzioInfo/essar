@@ -21,9 +21,9 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-6 left-0 right-0 z-[99] flex justify-center pointer-events-none">
+    <nav className="fixed top-6 left-0 right-0 z-99 flex justify-center pointer-events-none">
       <div
-        className={`relative flex items-center gap-8 px-12 py-4 rounded-full pointer-events-auto transition-all duration-[800ms]
+        className={`relative flex items-center gap-8 px-12 py-4 rounded-full pointer-events-auto transition-all duration-800
         
         backdrop-blur-2xl border border-white/20
         bg-[linear-gradient(135deg,rgba(0,60,140,0.18),rgba(0,20,45,0.12))]
@@ -40,7 +40,7 @@ export default function Navigation() {
 
         {/* Liquid Shine sweep */}
         <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
-          <div className="absolute inset-0 translate-x-[-100%] shimmer" />
+          <div className="absolute inset-0 -translate-x-full shimmer" />
         </div>
 
         {links.map((link) => (

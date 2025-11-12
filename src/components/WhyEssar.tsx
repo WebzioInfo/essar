@@ -54,24 +54,24 @@ export default function WhyEssar() {
 
 
   return (
-    <section id="why-essar" ref={sectionRef} className="py-32 bg-(--surface) relative overflow-hidden">
+    <section id="why-essar" ref={sectionRef} className="py-32 bg-surface relative overflow-hidden">
 
       {/* Subtle ambient glow gradient */}
-      <div className="absolute inset-0 pointer-events-none -z-10 bg-gradient-to-br from-(--primary)/12 via-transparent to-(--accent)/12 blur-[140px]" />
+      <div className="absolute inset-0 pointer-events-none -z-10 bg-linear-to-br from-primary/12 via-transparent to-(--accent)/12 blur-[140px]" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Header */}
         <div className="why-header text-center mb-20">
-          <div className="inline-block px-6 py-3 rounded-full border border-(--primary)/25 bg-(--primary)/10 mb-6">
-            <span className="text-(--primary) font-medium tracking-wide text-sm">WHY CHOOSE US</span>
+          <div className="inline-block px-6 py-3 rounded-full border border-primary/25 bg-primary/10 mb-6">
+            <span className="text-primary font-medium tracking-wide text-sm">WHY CHOOSE US</span>
           </div>
 
-          <h2 className="heading-lg text-(--foreground) mb-6">
+          <h2 className="heading-lg text-foreground mb-6">
             Why <span className="gold-accent">Essar Enterprises?</span>
           </h2>
 
-          <p className="body-lg text-(--text-secondary) max-w-3xl mx-auto leading-relaxed">
+          <p className="body-lg text-text-secondary max-w-3xl mx-auto leading-relaxed">
             We deliver more than infrastructure — we deliver reliability, business scalability, and lasting performance.
           </p>
         </div>
@@ -85,20 +85,20 @@ export default function WhyEssar() {
                 reason.size === "large" ? "md:col-span-2" : ""
               }`}
             >
-              <reason.Icon className="w-12 h-12 text-(--foreground) mb-8" />
+              <reason.Icon className="w-12 h-12 text-foreground mb-8" />
               <h3 className="heading-sm mb-3 font-semibold">{reason.title}</h3>
-              <p className="body-md text-(--text-secondary) leading-relaxed">{reason.description}</p>
+              <p className="body-md text-text-secondary leading-relaxed">{reason.description}</p>
             </div>
           ))}
         </div>
 
         {/* Bottom Statement */}
         <div className="mt-24 text-center">
-          <div className="premium-card rounded-3xl p-14 md:p-16 bg-gradient-to-br from-white/40 to-white/10 backdrop-blur-xl border border-(--gold)/20">
-            <h3 className="heading-md font-semibold text-(--foreground) mb-6">
+          <div className="premium-card rounded-3xl p-14 md:p-16 bg-linear-to-br from-white/40 to-white/10 backdrop-blur-xl border border-(--gold)/20">
+            <h3 className="heading-md font-semibold text-foreground mb-6">
               We design plants that last — operationally, technically, and financially.
             </h3>
-            <p className="body-lg text-(--text-secondary)">
+            <p className="body-lg text-text-secondary">
               Trusted by entrepreneurs and industry operators across multiple regions.
             </p>
           </div>

@@ -19,7 +19,7 @@ export default function Hero() {
           priority
         />
         {/* Light Overlay (fixed to allow image visibility) */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/40 via-slate-900/50 to-slate-800/40" />
+        <div className="absolute inset-0 bg-linear-to-br from-slate-950/40 via-slate-900/50 to-slate-800/40" />
       </div>
 
       {/* Metallic Glow Accents */}
@@ -30,7 +30,7 @@ export default function Hero() {
 
       {/* Content */}
       <div
-        className={`relative z-10 text-center px-6 max-w-7xl mx-auto transition-all duration-[1200ms] ease-out
+        className={`relative z-10 text-center px-6 max-w-7xl mx-auto transition-all duration-1200 ease-out
         ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
       `}
       >
@@ -40,7 +40,7 @@ export default function Hero() {
         {/* Heading */}
         <h1 className="text-white font-bold text-5xl md:text-7xl leading-tight max-w-5xl mx-auto mb-8">
           Building Trust, Profitability & Success{" "}
-          <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
+          <span className="bg-linear-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
             Since 2004
           </span>
         </h1>
@@ -82,7 +82,7 @@ export default function Hero() {
               className="p-8 rounded-2xl backdrop-blur-xl bg-white/5 border border-white/10
               hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text mb-2">
+              <div className="text-4xl font-bold bg-linear-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text mb-2">
                 {item.number}
               </div>
               <div className="text-gray-200 font-medium text-lg">{item.label}</div>

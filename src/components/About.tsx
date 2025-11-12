@@ -30,7 +30,7 @@ export default function About() {
       className="relative py-24 md:py-32 bg-[#0A0D12] text-gray-200 overflow-hidden"
     >
       {/* Metallic gradient glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-black to-[#0A0D12] opacity-90" />
+      <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-black to-[#0A0D12] opacity-90" />
       <div className="absolute -top-20 -left-20 w-96 h-96 bg-blue-600/10 blur-[140px]" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-400/10 blur-[160px]" />
 
@@ -68,7 +68,7 @@ export default function About() {
                 className="flex items-start gap-6"
               >
                 <div className="flex flex-col items-center">
-                  <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-600 flex items-center justify-center text-cyan-400 font-bold shadow-[0_0_20px_-6px_rgba(0,255,255,0.4)]">
+                  <div className="w-20 h-20 rounded-xl bg-linear-to-br from-slate-800 to-slate-700 border border-slate-600 flex items-center justify-center text-cyan-400 font-bold shadow-[0_0_20px_-6px_rgba(0,255,255,0.4)]">
                     {t.year}
                   </div>
                   {i < timeline.length - 1 && <div className="w-0.5 h-14 bg-slate-700" />}

@@ -108,7 +108,7 @@ export default function Services() {
               variants={{ hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0 } }}
               className="group backdrop-blur-xl p-10 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0px_0px_40px_#1e3a8a55]"
             >
-              <div className={`w-16 h-16 flex items-center justify-center rounded-2xl text-white bg-gradient-to-br ${gradient} shadow-lg mb-8 group-hover:scale-110 transition-transform duration-300`}>
+              <div className={`w-16 h-16 flex items-center justify-center rounded-2xl text-white bg-linear-to-br ${gradient} shadow-lg mb-8 group-hover:scale-110 transition-transform duration-300`}>
                 <Icon weight="fill" size={32} />
               </div>
 
@@ -118,7 +118,7 @@ export default function Services() {
               <ul className="space-y-3">
                 {features.map((f, idx) => (
                   <li key={idx} className="flex items-center gap-3 text-gray-300">
-                    <div className={`w-2.5 h-2.5 rounded-full bg-gradient-to-br ${gradient}`}></div>
+                    <div className={`w-2.5 h-2.5 rounded-full bg-linear-to-br ${gradient}`}></div>
                     {f}
                   </li>
                 ))}

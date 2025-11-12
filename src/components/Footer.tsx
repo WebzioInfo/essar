@@ -7,7 +7,7 @@ import { MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-(--foreground) text-white pt-24 pb-14 border-t border-white/10">
+    <footer className="bg-foreground text-white pt-24 pb-14 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-14 mb-16">
@@ -44,7 +44,7 @@ export default function Footer() {
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase().replace(' ', '-')}`}
-                    className="body-md text-gray-300 hover:text-(--primary) transition-colors duration-200"
+                    className="body-md text-gray-300 hover:text-primary transition-colors duration-200"
                   >
                     {link}
                   </a>
