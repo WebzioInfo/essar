@@ -54,8 +54,9 @@ export default function Services() {
   const controls = useAnimation();
 
   useEffect(() => {
-    if (isInView) controls.start("show");
-  }, [isInView]);
+  if (isInView) controls.start("show");
+}, [isInView, controls]);
+
 
   return (
     <section id="services" className="relative py-28 bg-slate-950 overflow-hidden" ref={ref}>

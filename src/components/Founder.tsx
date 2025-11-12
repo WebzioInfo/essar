@@ -7,6 +7,7 @@ import {
   Flask,
   ChartLineUp,
 } from "@phosphor-icons/react";
+import Image from 'next/image';
 
 export default function Founder() {
   const [isVisible, setIsVisible] = useState(false);
@@ -53,10 +54,14 @@ export default function Founder() {
           {/* Image */}
           <div className={`lg:col-span-2 transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
             <div className="premium-card rounded-3xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1738750908048-14200459c3c9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTAwNDR8MHwxfHNlYXJjaHw0fHxidXNpbmVzc21hbiUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0JTIwY29ycG9yYXRlJTIwaGVhZHNob3R8ZW58MHwxfHx8MTc2Mjg4NzAzOXww&ixlib=rb-4.1.0&q=85" // ← replace with high-quality formal photo
+              <Image
+                src="https://images.unsplash.com/photo-1738750908048-14200459c3c9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTAwNDR8MHwxfHNlYXJjaHw0fHxidXNpbmVzc21hbiUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0JTIwY29ycG9yYXRlJTIwaGVhZHNob3R8ZW58MHwxfHx8MTc2Mjg4NzAzOXww&ixlib=rb-4.1.0&q=85"
                 alt="Founder of Essar Enterprises"
+                width={900}
+                height={900}
                 className="w-full h-auto object-cover"
+                priority
+                unoptimized
               />
             </div>
           </div>
@@ -100,9 +105,9 @@ export default function Founder() {
               {/* Quote */}
               <div className="border-l-4 border-(--gold) pl-8">
                 <p className="body-lg italic text-(--text-secondary) leading-relaxed mb-4">
-                  "We don’t just install machinery — we build sustainable businesses.
+                  &quot;We don’t just install machinery — we build sustainable businesses.
                   Every project is delivered with the expertise and foundation required for
-                  long-term growth and quality assurance."
+                  long-term growth and quality assurance.&quot;
                 </p>
                 <p className="body-md text-(--foreground) font-bold">— Mr. Shareef</p>
               </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
@@ -11,10 +12,11 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1637177937457-27543b0327aa?auto=format&fit=crop&w=2000&q=80"
           alt="Industrial water treatment facility"
           className="w-full h-full object-cover opacity-60"
+          priority
         />
         {/* Light Overlay (fixed to allow image visibility) */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950/40 via-slate-900/50 to-slate-800/40" />

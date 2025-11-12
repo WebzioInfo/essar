@@ -1,6 +1,9 @@
 'use client';
 
-import { EnvelopeSimple, Phone, MapPin, ArrowUpRight } from "@phosphor-icons/react";
+import { EnvelopeSimple } from "@phosphor-icons/react";
+import { MapPin, Phone } from "lucide-react";
+
+
 
 export default function Footer() {
   return (
@@ -24,11 +27,11 @@ export default function Footer() {
               </a>
               <a href="tel:+91XXXXXXXXXX" className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center
   hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                <Phone size={22} weight="duotone" />
+                <Phone size={22} />
               </a>
               <a href="#" className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center
   hover:bg-white/20 transition-all duration-300 cursor-pointer">
-                <MapPin size={22} weight="duotone" />
+                <MapPin size={22}  />
               </a>
             </div>
           </div>

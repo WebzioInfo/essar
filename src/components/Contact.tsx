@@ -18,6 +18,7 @@ export default function Contact() {
 
   const onSubmit = async (data: FormValues) => {
     await new Promise((r) => setTimeout(r, 700));
+    console.log(data)
     alert('Thank you — Our team will contact you shortly.');
     reset();
   };

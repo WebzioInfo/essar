@@ -15,7 +15,7 @@ declare module "vanta/dist/vanta.waves.min" {
     waveHeight?: number;
     waveSpeed?: number;
     zoom?: number;
-    [key: string]: any;
+    [key: string]: unknown;
   }
 
   export default function VANTA(options: VANTAOptions): {
