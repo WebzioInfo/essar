@@ -15,6 +15,15 @@ module.exports = {
         heading: ["var(--font-heading)"],
         body: ["var(--font-body)"],
       },
+       keyframes: {
+        shine: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+      },
+      animation: {
+        shine: "shine 2s linear infinite",
+      },
     },
   },
   plugins: [],

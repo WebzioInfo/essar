@@ -9,6 +9,7 @@ import {
   Microscope,
   ShieldCheck,
 } from "lucide-react";
+import GibberishText from "../../components/gibberish-text";
 
 export default function WhyEssar() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -50,6 +51,12 @@ export default function WhyEssar() {
       Icon: ShieldCheck,
       size: "medium",
     },
+     {
+      title: "Biofix Water Technology",
+      description: "Advanced microbial purification and sustained mineral stability processes.",
+      Icon: Microscope,
+      size: "medium",
+    },
   ];
 
 
@@ -67,9 +74,12 @@ export default function WhyEssar() {
             <span className="text-primary font-medium tracking-wide text-sm">WHY CHOOSE US</span>
           </div>
 
-          <h2 className="heading-lg text-foreground mb-6">
-            Why <span className="gold-accent">Essar Enterprises?</span>
-          </h2>
+         <h2 className="heading-lg text-foreground mb-6 font-semibold tracking-tight">
+      Why{" "}
+      <span className="gold-accent inline-block">
+        <GibberishText text={"Essar Enterprises?"} className="inline-block" />
+      </span>
+    </h2>
 
           <p className="body-lg text-text-secondary max-w-3xl mx-auto leading-relaxed">
             We deliver more than infrastructure — we deliver reliability, business scalability, and lasting performance.

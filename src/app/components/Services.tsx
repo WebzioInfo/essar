@@ -9,6 +9,7 @@ import {
   MegaphoneSimple,
   Wrench,
 } from "@phosphor-icons/react";
+import GlassButton from "@/components/GlassButton";
 
 const services = [
   {
@@ -112,10 +113,10 @@ export default function Services() {
                 hidden: { opacity: 0, y: 40 },
                 show: { opacity: 1, y: 0 },
               }}
-              className="group backdrop-blur-xl p-10 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/[0.08] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_40px_#2563eb40]"
+              className="group backdrop-blur-xl p-10 rounded-3xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_40px_#2563eb40]"
             >
               <div
-                className={`w-16 h-16 flex items-center justify-center rounded-2xl text-white bg-gradient-to-br ${gradient} shadow-lg mb-8 group-hover:scale-110 transition-transform duration-300`}
+                className={`w-16 h-16 flex items-center justify-center rounded-2xl text-white bg-linear-to-br ${gradient} shadow-lg mb-8 group-hover:scale-110 transition-transform duration-300`}
               >
                 <Icon weight="fill" size={32} />
               </div>
@@ -132,7 +133,7 @@ export default function Services() {
                     className="flex items-center gap-3 text-gray-300"
                   >
                     <div
-                      className={`w-2.5 h-2.5 rounded-full bg-gradient-to-br ${gradient}`}
+                      className={`w-2.5 h-2.5 rounded-full bg-linear-to-br ${gradient}`}
                     ></div>
                     {f}
                   </li>
@@ -142,20 +143,23 @@ export default function Services() {
           ))}
         </motion.div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-center mt-24"
-        >
-          <a
-            href="#contact"
-            className="inline-block px-14 py-5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-lg transition-all duration-300 hover:scale-[1.05] shadow-[0_0_35px_#2563eb80]"
-          >
-            Schedule Free Consultation
-          </a>
-        </motion.div>
+    {/* CTA */}
+<motion.div
+  initial={{ opacity: 0, y: 60 }}
+  animate={isInView ? { opacity: 1, y: 0 } : {}}
+  transition={{ delay: 0.3, duration: 0.8 }}
+  className="text-center mt-24"
+>
+  <GlassButton
+  useGlass
+    href="#contact"
+    className="px-14 py-5 text-lg font-semibold"
+    variant="ghost"
+  >
+    Schedule Free Consultation
+  </GlassButton>
+</motion.div>
+
       </div>
     </section>
   );

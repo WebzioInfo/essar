@@ -117,7 +117,7 @@ export default function Contact() {
                   <FiMail size={20} className="text-primary" /> info@essarenterprises.com
                 </div>
                 <div className="flex items-center gap-4">
-                  <FiPhone size={20} className="text-primary" /> +91 XXXXX XXXXX
+                  <FiPhone size={20} className="text-primary" /> +91 85531 85300
                 </div>
               </div>
             </div>

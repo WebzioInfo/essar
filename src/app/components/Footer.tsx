@@ -23,7 +23,7 @@ export default function Footer() {
   hover:bg-white/20 transition-all duration-300 cursor-pointer">
                 <Mail size={22}  />
               </a>
-              <a href="tel:+91XXXXXXXXXX" className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center
+              <a href="tel:+918553185300" className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center
   hover:bg-white/20 transition-all duration-300 cursor-pointer">
                 <Phone size={22} />
               </a>
