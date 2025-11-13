@@ -1,5 +1,5 @@
-declare module "*.css";
 // src/global.d.ts
+
 import { MeshProps, GroupProps } from '@react-three/fiber';
 import { TextProps as DreiTextProps } from '@react-three/drei';
 

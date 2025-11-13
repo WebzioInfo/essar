@@ -6,35 +6,26 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 export default function Hero() {
-  // disable fixed background on small screens for performance/compat
   const [useFixedBg, setUseFixedBg] = useState<boolean>(true);
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    // show hero content with a small delay for the enter animation
     const t = window.setTimeout(() => setIsVisible(true), 30);
-
     if (typeof window === "undefined") return () => clearTimeout(t);
 
     const mq = window.matchMedia("(max-width: 768px)");
 
-    // handler accepts either the modern MediaQueryListEvent or legacy MediaQueryList
     const onChange = (ev: MediaQueryListEvent | MediaQueryList) => {
-      // both types expose `matches`
       const matches = "matches" in ev ? ev.matches : mq.matches;
+      // disable FIXED background on small screens, but we will render a non-fixed fallback
       setUseFixedBg(!matches);
     };
 
-    // set initial state
     onChange(mq);
 
-    // Modern browsers: addEventListener('change')
     if (typeof mq.addEventListener === "function") {
-      // addEventListener expects a listener taking MediaQueryListEvent
       mq.addEventListener("change", onChange as (ev: MediaQueryListEvent) => void);
     } else {
-      // Legacy: addListener exists on older implementations
-      // Use a typed fallback without `any`
       const mqLegacy = mq as MediaQueryList & {
         addListener?: (cb: (mql: MediaQueryList) => void) => void;
       };
@@ -54,18 +45,20 @@ export default function Hero() {
     };
   }, []);
 
+  const bgSrc =
+    "https://images.unsplash.com/photo-1637177937457-27543b0327aa?auto=format&fit=crop&w=2000&q=80";
+
   return (
     <div className="relative min-h-screen">
-      {/* 1) Fixed background image (fills viewport) */}
+      {/* 1) Fixed background image (fills viewport) - shown on large screens */}
       {useFixedBg && (
         <div
           aria-hidden
-          className="pointer-events-none fixed inset-0 z-[-100]"
+          className="pointer-events-none fixed inset-0 -z-50"
           style={{ willChange: "transform, opacity" }}
         >
-          {/* next/image with fill; note style 'position: inherit' so parent fixed/absolute controls placement */}
           <Image
-            src="https://images.unsplash.com/photo-1637177937457-27543b0327aa?auto=format&fit=crop&w=2000&q=80"
+            src={bgSrc}
             alt="Industrial background"
             fill
             sizes="100vw"
@@ -73,15 +66,30 @@ export default function Hero() {
             unoptimized
             style={{ position: "absolute", inset: 0 }}
           />
-          {/* Optional overlay to darken / tint */}
           <div className="absolute inset-0 bg-slate-900/55" />
         </div>
       )}
 
-      {/* 2) Page content (will scroll above the fixed background) */}
+      {/* 1b) Non-fixed background fallback (for small screens) */}
+      {!useFixedBg && (
+        // place it inside the hero wrapper so it scrolls with the page
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-50">
+          <Image
+            src={bgSrc}
+            alt="Industrial background"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            unoptimized
+            style={{ position: "absolute", inset: 0 }}
+          />
+          <div className="absolute inset-0 bg-slate-900/55" />
+        </div>
+      )}
+
+      {/* 2) Page content (will scroll above the background) */}
       <main className="relative z-10">
-        {/* Hero block (tall) */}
-        <section className="min-h-screen flex items-center justify-center text-center px-6">
+        <section className="min-h-screen flex items-center justify-center text-center px-6 relative">
           <div
             className={`relative z-10 text-center px-6 max-w-7xl mx-auto transition-all duration-700 ease-out ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"

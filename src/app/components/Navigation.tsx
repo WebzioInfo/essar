@@ -97,8 +97,8 @@ export default function ResponsiveNavbar() {
                   onClick={(e) => handleNavClick(e, l.to)}
                   className={`px-3 py-2 text-sm font-medium rounded-full transition-all ${
                     isActive(l.to)
-                      ? " text-white"
-                      : " text-white hover:bg-white/10"
+                      ? "text-white"
+                      : "text-black hover:bg-white/10"
                   }`}
                 >
                   {l.name}
