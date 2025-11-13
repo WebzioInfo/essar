@@ -131,11 +131,13 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       setSvgSupported(false);
     }
 
-    try {
-      setBackdropOk(Boolean((window as any).CSS && (window as any).CSS.supports && (CSS as any).supports("backdrop-filter", "blur(10px)")));
-    } catch {
-      setBackdropOk(false);
-    }
+   try {
+  const cssAvailable = typeof CSS !== "undefined" && typeof CSS.supports === "function";
+  const backdropSupported = cssAvailable && CSS.supports("backdrop-filter", "blur(10px)");
+  setBackdropOk(Boolean(backdropSupported));
+  } catch {
+  setBackdropOk(false);
+}
 
     // no cleanup needed here
     // eslint-disable-next-line react-hooks/exhaustive-deps
