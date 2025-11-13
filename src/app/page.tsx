@@ -1,3 +1,4 @@
+"use client"
 import Navigation from '@/app/components/Navigation';
 import Hero from '@/app/components/Hero';
 import About from '@/app/components/About';
@@ -9,6 +10,7 @@ import Contact from '@/app/components/Contact';
 import Footer from '@/app/components/Footer';
 import RightMaintenanceNotice from '@/components/RightMaintenanceNotice';
 import ModelScene from './components/Scene/Index';
+import FluidGlass from '@/components/FluidGlass';
 
 export default function Home() {
   return (
@@ -28,6 +30,18 @@ export default function Home() {
         whatsappPrefill="Hello, I saw the maintenance notice and need help."
         persistKey="maintenance:2025-11-13-v1"
       />
+      <div style={{ height: '100vh', position: 'relative' }}>
+  <FluidGlass
+    mode="lens" // or "bar", "cube"
+    lensProps={{
+      scale: 0.25,
+      ior: 1.15,
+      thickness: 5,
+      chromaticAberration: 0.1,
+      anisotropy: 0.01  
+    }}
+  />
+</div>
       <WhyEssar />
       <Founder />
       <Contact />
