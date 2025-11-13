@@ -23,10 +23,7 @@ export default function Model() {
   });
 
   // Provide a stable production fallback so Leva doesn't control runtime values
-  const materialProps =
-    process.env.NODE_ENV === "development"
-      ? controls
-      : {
+  const materialProps = {
           thickness: 0.2,
           roughness: 0,
           transmission: 1,
