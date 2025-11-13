@@ -109,13 +109,20 @@ export default function Hero() {
 
             <div className="flex justify-center">
               <div className="w-full max-w-3xl flex flex-col sm:flex-row items-center justify-center gap-5">
-                <GlassButton useGlass variant="primary" size="md" href="#contact" ariaLabel="Get Started">
+                <GlassButton 
+                useGlass
+                height={70}
+              variant="primary" size="md" 
+              className="flex items-center"
+              href="#contact" ariaLabel="Get Started">
                   Get Started
+                  
                 </GlassButton>
 
                 <GlassButton
                   useGlass
-                  className="border-0"
+                  height={70}
+                  className="border-0 flex items-center"
                   variant="ghost"
                   size="md"
                   href="#services"

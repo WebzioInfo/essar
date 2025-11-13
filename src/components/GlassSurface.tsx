@@ -59,6 +59,16 @@ const useDarkMode = () => {
   return isDark;
 };
 
+const cssVarsStringify = (vars: Record<string, string | number | undefined>) => {
+  const out: Record<string, string> = {};
+  for (const k in vars) {
+    const v = vars[k];
+    if (v === undefined) continue;
+    out[k] = typeof v === "number" ? String(v) : v;
+  }
+  return out;
+};
+
 const GlassSurface: React.FC<GlassSurfaceProps> = ({
   children,
   width = 200,
@@ -95,41 +105,41 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
 
   const isDarkMode = useDarkMode();
 
-  // Client-only detection for SVG filter/backdrop support:
-  const [svgSupported, setSvgSupported] = useState<boolean | null>(null);
+  // Start with deterministic false so server and initial client render match.
+  const [svgSupported, setSvgSupported] = useState<boolean>(false);
+  const [backdropOk, setBackdropOk] = useState<boolean>(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined" || typeof document === "undefined") {
-      setSvgSupported(false);
-      return;
-    }
+    // mark mounted (client-only) after first paint
+    setMounted(true);
 
+    // compute capabilities only on client after mount
     try {
       const ua = navigator.userAgent || "";
       const isWebkit = /Safari/.test(ua) && !/Chrome/.test(ua);
       const isFirefox = /Firefox/.test(ua);
       if (isWebkit || isFirefox) {
         setSvgSupported(false);
-        return;
+      } else {
+        // Quick heuristic: try setting a backdropFilter URL on a dummy element
+        const div = document.createElement("div");
+        div.style.backdropFilter = `url(#${filterId})`;
+        setSvgSupported(Boolean(div.style.backdropFilter));
       }
-
-      const div = document.createElement("div");
-      // try setting an SVG filter url — if it sticks then support is likely present
-      div.style.backdropFilter = `url(#${filterId})`;
-      setSvgSupported(div.style.backdropFilter !== "");
     } catch {
       setSvgSupported(false);
     }
-  }, [filterId]);
 
-  const supportsBackdropFilter = () => {
-    if (typeof window === "undefined") return false;
     try {
-      return typeof CSS !== "undefined" && CSS.supports("backdrop-filter", "blur(10px)");
+      setBackdropOk(Boolean((window as any).CSS && (window as any).CSS.supports && (CSS as any).supports("backdrop-filter", "blur(10px)")));
     } catch {
-      return false;
+      setBackdropOk(false);
     }
-  };
+
+    // no cleanup needed here
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filterId]);
 
   const generateDisplacementMap = () => {
     const rect = containerRef.current?.getBoundingClientRect();
@@ -159,10 +169,15 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   };
 
   const updateDisplacementMap = () => {
+    const href = generateDisplacementMap();
     if (feImageRef.current) {
-      feImageRef.current.setAttributeNS("http://www.w3.org/1999/xlink", "href", generateDisplacementMap());
-      // also try the non-xlink href for modern browsers:
-      feImageRef.current.setAttribute("href", generateDisplacementMap());
+      // set both just in case (xlink + modern)
+      try {
+        feImageRef.current.setAttributeNS("http://www.w3.org/1999/xlink", "href", href);
+      } catch {
+        // ignore older browsers
+      }
+      feImageRef.current.setAttribute("href", href);
     }
   };
 
@@ -175,14 +190,14 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       { ref: blueChannelRef, offset: blueOffset }
     ].forEach(({ ref, offset }) => {
       if (ref.current) {
-        ref.current.setAttribute("scale", (distortionScale + offset).toString());
+        ref.current.setAttribute("scale", String(distortionScale + offset));
         ref.current.setAttribute("xChannelSelector", xChannel);
         ref.current.setAttribute("yChannelSelector", yChannel);
       }
     });
 
     if (gaussianBlurRef.current) {
-      gaussianBlurRef.current.setAttribute("stdDeviation", displace.toString());
+      gaussianBlurRef.current.setAttribute("stdDeviation", String(displace));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -201,7 +216,6 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     mixBlendMode
   ]);
 
-  // Observe resize client-side only
   useEffect(() => {
     if (!containerRef.current || typeof ResizeObserver === "undefined") return;
 
@@ -218,31 +232,34 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [containerRef.current]);
 
-  // ensure displacement map is initialized when width/height props change
   useEffect(() => {
     setTimeout(updateDisplacementMap, 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width, height]);
 
   const getContainerStyles = (): React.CSSProperties => {
+    // Build base styles and ALWAYS stringify values that will be used as CSS custom props
     const baseStyles: React.CSSProperties = {
-      ...style,
+      ...(style || {}),
       width: typeof width === "number" ? `${width}px` : width,
       height: typeof height === "number" ? `${height}px` : height,
       borderRadius: `${borderRadius}px`,
+      // CSS custom properties must be strings for deterministic SSR serialization
+      ...cssVarsStringify({
         "--glass-frost": backgroundOpacity,
-  "--glass-saturation": saturation,
+        "--glass-saturation": saturation
+      })
     } as React.CSSProperties;
 
-    // if svgSupported is still null (not determined yet), fallback to backdrop support
-    const svgOk = svgSupported ?? false;
-    const backdropOk = supportsBackdropFilter();
+    // Use client-determined flags (mounted && svgSupported/backdropOk). Before mount these are false
+    const svgOk = Boolean(svgSupported && mounted);
+    const bdOk = Boolean(backdropOk && mounted);
 
     if (svgOk) {
       return {
         ...baseStyles,
-        background: isDarkMode ? `hsl(0 0% 0% / ${backgroundOpacity})` : `hsl(0 0% 100% / ${backgroundOpacity})`,
-        backdropFilter: `url(#${filterId}) saturate(${saturation})`,
+        background: isDarkMode ? `hsl(0 0% 0% / ${String(backgroundOpacity)})` : `hsl(0 0% 100% / ${String(backgroundOpacity)})`,
+        backdropFilter: `url(#${filterId}) saturate(${String(saturation)})`,
         boxShadow: isDarkMode
           ? `0 0 2px 1px color-mix(in oklch, white, transparent 65%) inset,
              0 0 10px 4px color-mix(in oklch, white, transparent 85%) inset,
@@ -262,8 +279,9 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
              0px 16px 56px rgba(17, 17, 26, 0.05) inset`
       };
     } else {
+      // Fallback branch. bdOk will be false until after mount if CSS.supports is true — which ensures server/first-client parity.
       if (isDarkMode) {
-        if (!backdropOk) {
+        if (!bdOk) {
           return {
             ...baseStyles,
             background: "rgba(0, 0, 0, 0.4)",
@@ -283,7 +301,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
           };
         }
       } else {
-        if (!backdropOk) {
+        if (!bdOk) {
           return {
             ...baseStyles,
             background: "rgba(255, 255, 255, 0.4)",
@@ -326,7 +344,6 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
       >
         <defs>
           <filter id={filterId} colorInterpolationFilters="sRGB" x="0%" y="0%" width="100%" height="100%">
-            {/* feImage will be updated client-side */}
             <feImage ref={feImageRef} x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="map" />
 
             <feDisplacementMap ref={redChannelRef} in="SourceGraphic" in2="map" id="redchannel" result="dispRed" />

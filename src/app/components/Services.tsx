@@ -152,6 +152,8 @@ export default function Services() {
 >
   <GlassButton
   useGlass
+  width={320}
+
     href="#contact"
     className="px-14 py-5 text-lg font-semibold"
     variant="ghost"

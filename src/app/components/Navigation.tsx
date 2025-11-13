@@ -15,6 +15,8 @@ export default function ResponsiveNavbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
+
+  // usePathname is a client hook — fine — but don't call window.* during render
   const pathname = usePathname();
 
   const links: NavItem[] = [
@@ -24,31 +26,51 @@ export default function ResponsiveNavbar() {
     { name: "Mission", to: "/#mission" },
   ];
 
-  // 🌀 Scroll shrink effect
+  // Keep scroll/visual state controlled on client only
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // 🔗 Smooth section scroll
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    to: string
-  ) => {
+  // Maintain client-side snapshot of location.hash and pathname so server vs client render is deterministic
+  const [clientHash, setClientHash] = useState<string>("");
+  const [clientPathname, setClientPathname] = useState<string | null>(null);
+
+  useEffect(() => {
+    // set initial values only on client after mount
+    setClientHash(window.location.hash || "");
+    setClientPathname(window.location.pathname || null);
+
+    const onHash = () => setClientHash(window.location.hash || "");
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
+  // Smooth section scroll
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, to: string) => {
     if (to.includes("#")) {
       e.preventDefault();
       const hash = to.split("#").pop() || "";
       const el = document.getElementById(hash);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
       setOpen(false);
+      // update clientHash right away
+      setClientHash(`#${hash}`);
     }
   };
 
+  // Compute active state using client snapshot; during SSR clientHash is "" and clientPathname is null
   const isActive = (to: string) => {
     try {
-      const url = new URL(to, window.location.origin);
-      return pathname === url.pathname || window.location.hash === url.hash;
+      const parsed = new URL(to, typeof window !== "undefined" ? window.location.origin : "http://example.com");
+      // prefer client-side snapshot when available
+      const activePath = clientPathname ?? pathname;
+      if (activePath && activePath === parsed.pathname) return true;
+      if (clientHash && clientHash === parsed.hash) return true;
+      // fallback: compare pathname (server) or false
+      return pathname === parsed.pathname;
     } catch {
       return false;
     }
@@ -60,8 +82,10 @@ export default function ResponsiveNavbar() {
         scrolled ? "scale-95" : "scale-100"
       }`}
     >
+      {/* avoid server-client inline style mismatch from Framer Motion by disabling initial on SSR */}
       <motion.div
-        initial={{ opacity: 0, y: -10 }}
+        // disable initial animation during SSR/hydration by using initial={false}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
@@ -77,7 +101,6 @@ export default function ResponsiveNavbar() {
           className="px-8 md:px-12 py-9 shadow-lg"
         >
           <nav className="flex  justify-between items-center w-full">
-            {/* 🏷️ LOGO */}
             <Link href="/" className="relative w-28  h-10 md:w-40 md:h-12">
               <Image
                 src="/logoWhitecrop.png"
@@ -88,7 +111,6 @@ export default function ResponsiveNavbar() {
               />
             </Link>
 
-            {/* 💻 DESKTOP & TABLET LINKS */}
             <div className="hidden md:flex items-center gap-6 lg:gap-8">
               {links.map((l) => (
                 <Link
@@ -96,9 +118,7 @@ export default function ResponsiveNavbar() {
                   href={l.to}
                   onClick={(e) => handleNavClick(e, l.to)}
                   className={`px-3 py-2 text-sm font-medium rounded-full transition-all ${
-                    isActive(l.to)
-                      ? "text-white"
-                      : "text-black hover:bg-white/10"
+                    isActive(l.to) ? "text-white" : "text-black hover:bg-white/10"
                   }`}
                 >
                   {l.name}
@@ -113,30 +133,28 @@ export default function ResponsiveNavbar() {
               </a>
             </div>
 
-            {/* 📱 MOBILE MENU BUTTON */}
-<motion.div
-  className="md:hidden"
-  initial={{ opacity: 0, y: -10 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.3 }}
->
-            <GlassButton
-            useGlass
-            width={50}
-            height={50}
-            variant="ghost"
-            size="sm"
-              onClick={() => setOpen(!open)}
-              className="md:hidden flex justify-center align-middle items-center"
-              aria-label={open ? "Close menu" : "Open menu"}
+            <motion.div
+              className="md:hidden"
+              initial={false}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              {open ? <X size={22} /> : <Menu size={22} />}
-            </GlassButton>
+              <GlassButton
+                useGlass
+                width={50}
+                height={50}
+                variant="ghost"
+                size="sm"
+                onClick={() => setOpen(!open)}
+                className="md:hidden flex justify-center align-middle items-center"
+                aria-label={open ? "Close menu" : "Open menu"}
+              >
+                {open ? <X size={22} /> : <Menu size={22} />}
+              </GlassButton>
             </motion.div>
           </nav>
         </GlassSurface>
 
-        {/* 📱 MOBILE MENU */}
         <AnimatePresence>
           {open && (
             <motion.div
