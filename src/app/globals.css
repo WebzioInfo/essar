@@ -35,6 +35,9 @@
 /* ---- Global base styles ---- */
 html {
   scroll-behavior: smooth;
+   overflow: auto;          /* allow scrolling */
+  scrollbar-width: none;    /* Firefox */
+  -ms-overflow-style: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

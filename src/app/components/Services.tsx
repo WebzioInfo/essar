@@ -62,12 +62,12 @@ export default function Services() {
     <section
       id="services"
       ref={ref}
-      className="relative py-28 bg-[#0A0F1C] overflow-hidden"
+      className="relative py-28 bg-surface overflow-hidden"
     >
       {/* Corporate Blue Ambient Glow */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* <div className="absolute inset-0 pointer-events-none">
         <div className="absolute w-[900px] h-[900px] bg-blue-600/10 blur-[180px] top-0 left-1/2 -translate-x-1/2" />
-      </div>
+      </div> */}
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
