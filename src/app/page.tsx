@@ -10,7 +10,7 @@ import Contact from '@/app/components/Contact';
 import Footer from '@/app/components/Footer';
 import RightMaintenanceNotice from '@/components/RightMaintenanceNotice';
 import ModelScene from './components/Scene/Index';
-import FluidGlass from '@/components/FluidGlass';
+// import FluidGlass from '@/components/FluidGlass';
 
 export default function Home() {
   return (
@@ -30,8 +30,8 @@ export default function Home() {
         whatsappPrefill="Hello, I saw the maintenance notice and need help."
         persistKey="maintenance:2025-11-13-v1"
       />
-      <div style={{ height: '100vh', position: 'relative' }}>
-  <FluidGlass
+      <div style={{ position: 'relative', height:"100vh" }}>
+  {/* <FluidGlass
     mode="lens" // or "bar", "cube"
     lensProps={{
       scale: 0.25,
@@ -40,7 +40,7 @@ export default function Home() {
       chromaticAberration: 0.1,
       anisotropy: 0.01  
     }}
-  />
+  /> */}
 </div>
       <WhyEssar />
       <Founder />
