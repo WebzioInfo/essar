@@ -12,7 +12,7 @@ export interface RightMaintenanceNoticeProps {
   message?: string;
   ctaText?: string;
   ctaHref?: string; // optional normal link
-  whatsappNumber?: string; // e.g. "918553185300"
+  whatsappNumber?: string; // e.g. "918884677773"
   whatsappPrefill?: string; // optional prefilled message
   persistKey?: string; // localStorage key to remember dismissal
   defaultOpen?: boolean;
@@ -62,7 +62,7 @@ export default function RightMaintenanceNotice({
     }
   };
 
-  // build WhatsApp link if number provided (expects international format, e.g. '918553185300')
+  // build WhatsApp link if number provided (expects international format, e.g. '918884677773')
   const whatsappHref = whatsappNumber
     ? `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
         whatsappPrefill

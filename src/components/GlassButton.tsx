@@ -2,6 +2,7 @@
 
 import React, { forwardRef } from "react";
 import GlassSurface from "./GlassSurface";
+import { lensEvents } from "@/app/utils/lensEvents";
 
 type Variant = "primary" | "ghost";
 type Size = "sm" | "md" | "lg";
@@ -96,6 +97,17 @@ const BaseButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, BaseButtonP
         className={classes}
         style={style}
         {...buttonProps}
+        onMouseEnter={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = ((rect.left + rect.width / 2) / window.innerWidth) * 2 - 1;
+        const y = -((rect.top + rect.height / 2) / window.innerHeight) * 2 + 1;
+
+        lensEvents.emit("follow", true);
+        lensEvents.emit("move", { x, y });
+      }}
+      onMouseLeave={() => {
+        lensEvents.emit("follow", false);
+      }}
       >
         {children}
       </button>

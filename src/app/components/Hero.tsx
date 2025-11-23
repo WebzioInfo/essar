@@ -1,4 +1,3 @@
-// src/app/components/Hero.tsx
 "use client";
 
 import GlassButton from "@/components/GlassButton";
@@ -127,6 +126,7 @@ export default function Hero() {
                   size="md"
                   href="#services"
                   ariaLabel="Explore Services"
+                  
                 >
                   Explore Services
                 </GlassButton>

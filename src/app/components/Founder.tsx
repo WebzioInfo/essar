@@ -8,6 +8,7 @@ import {
   ChartLineUp,
 } from "@phosphor-icons/react";
 import Image from 'next/image';
+import FounderImg from '../../../src/assets/founder.png'
 
 export default function Founder() {
   const [isVisible, setIsVisible] = useState(false);
@@ -52,19 +53,19 @@ export default function Founder() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-14 items-start">
 
           {/* Image */}
-          <div className={`lg:col-span-2 transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
-            <div className="premium-card rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="https://images.unsplash.com/photo-1738750908048-14200459c3c9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTAwNDR8MHwxfHNlYXJjaHw0fHxidXNpbmVzc21hbiUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0JTIwY29ycG9yYXRlJTIwaGVhZHNob3R8ZW58MHwxfHx8MTc2Mjg4NzAzOXww&ixlib=rb-4.1.0&q=85"
-                alt="Founder of Essar Enterprises"
-                width={900}
-                height={900}
-                className="w-full h-auto object-cover"
-                priority
-                unoptimized
-              />
-            </div>
-          </div>
+          <div className={`lg:col-span-2  transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
+  <div className="  rounded-3xl overflow-hidden shadow-2xl h-full min-h-[600px]">
+    <Image
+      src={FounderImg}
+      alt="Founder of Essar Enterprises"
+      fill
+      className="object-cover grayscale h-full"
+      priority
+      unoptimized
+    />
+  </div>
+</div>
+
 
           {/* Content */}
           <div className={`lg:col-span-3 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}>
