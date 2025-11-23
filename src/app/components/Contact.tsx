@@ -116,7 +116,7 @@ export default function Contact() {
 
                 <div>
                   <label className="text-sm text-textSecondary">Planned BPM Capacity *</label>
-                  <select {...register("bpm", { required: true })} className="input-style">
+                  <select {...register("bpm", { required: true })} className="input-style ">
                     <option value="">Select BPM</option>
                     <option value="40">40 BPM</option>
                     <option value="60">60 BPM</option>

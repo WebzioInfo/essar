@@ -4,7 +4,17 @@ import { redirect } from "next/navigation";
 type BPM = 40 | 60 | 90 | 120 | 180;
 type AutomationType = "Semi Automatic" | "Fully Automatic";
 
-export default function QuotationResult({ searchParams }: any) {
+type QuotationResultProps = {
+  searchParams?: {
+    bpm?: string;
+    type?: AutomationType;
+  };
+};
+
+export default function QuotationResult({ searchParams }: QuotationResultProps) {
+  if (!searchParams?.bpm || !searchParams.type) {
+    redirect("/quotation");
+  }
 
   const bpm = Number(searchParams.bpm);
   const type = searchParams.type;

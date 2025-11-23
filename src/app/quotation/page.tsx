@@ -6,10 +6,12 @@ import { useState } from "react";
 export default function QuotationForm() {
   const router = useRouter();
 
-  const [bpm, setBpm] = useState<40 | 60 | 90 | 120 | 180>(120);
-  const [automationType, setAutomationType] = useState<
-    "Semi Automatic" | "Fully Automatic"
-  >("Semi Automatic");
+  type BPM = 40 | 60 | 90 | 120 | 180;
+type AutomationType = "Semi Automatic" | "Fully Automatic";
+
+  const [bpm, setBpm] = useState<BPM>(120);
+  const [automationType, setAutomationType] =
+    useState<AutomationType>("Semi Automatic");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,7 +34,7 @@ export default function QuotationForm() {
           <label className="font-bold block mb-2">Select BPM Capacity</label>
           <select
             value={bpm}
-            onChange={(e) => setBpm(Number(e.target.value) as any)}
+            onChange={(e) => setBpm(Number(e.target.value) as BPM)}
             className="w-full border p-3 rounded-lg"
           >
             <option value={40}>40 BPM</option>
@@ -48,7 +50,7 @@ export default function QuotationForm() {
           <label className="font-bold block mb-2">Automation Type</label>
           <select
             value={automationType}
-            onChange={(e) => setAutomationType(e.target.value as any)}
+            onChange={(e) => setAutomationType(e.target.value as AutomationType)}
             className="w-full border p-3 rounded-lg"
           >
             <option value="Semi Automatic">Semi Automatic</option>
