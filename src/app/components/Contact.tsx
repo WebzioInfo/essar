@@ -19,7 +19,7 @@ type FormValues = {
 
 export default function Contact() {
   const { register, handleSubmit, reset, formState } = useForm<FormValues>();
-  const { isSubmitting, errors } = formState;
+  const { isSubmitting } = formState;
 
   const onSubmit = async (data: FormValues) => {
     await new Promise((r) => setTimeout(r, 500));

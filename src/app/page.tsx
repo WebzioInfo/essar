@@ -8,7 +8,6 @@ import Founder from '@/app/components/Founder';
 import Contact from '@/app/components/Contact';
 import RightMaintenanceNotice from '@/components/RightMaintenanceNotice';
 import ModelScene from './components/Scene/Index';
-import QuotationCard from './components/QuotationCard';
 
 export default function Home() {
   return (

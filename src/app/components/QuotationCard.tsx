@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 type QuotationProps = {
   bpm: 40 | 60 | 90 | 120 | 180;
@@ -31,10 +32,12 @@ export default function QuotationCard({ bpm, automationType }: QuotationProps) {
           Packaged Drinking Water Plant
         </h1>
 
-        <img
+        <Image
           src="/logo.png"
           alt="Essar Enterprises"
-          className="opacity-60 w-28"
+          width={112}
+          height={112}
+          className="opacity-60"
         />
       </div>
 
@@ -72,7 +75,9 @@ export default function QuotationCard({ bpm, automationType }: QuotationProps) {
           </div>
 
           <div>
-            <div className="font-semibold text-green-700">Return of Investment</div>
+            <div className="font-semibold text-green-700">
+              Return of Investment
+            </div>
             <p className="text-2xl font-bold text-green-700">36 Months</p>
           </div>
         </div>
@@ -110,7 +115,8 @@ export default function QuotationCard({ bpm, automationType }: QuotationProps) {
       <hr className="my-8" />
 
       <div className="text-center text-sm text-gray-500">
-        © 2025 Essar Enterprises — Complete Packaged Drinking Water Plant Solutions
+        © 2025 Essar Enterprises — Complete Packaged Drinking Water Plant
+        Solutions
       </div>
     </div>
   );
