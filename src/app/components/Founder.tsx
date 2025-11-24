@@ -50,16 +50,16 @@ export default function Founder() {
         </div>
 
         {/* Profile Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-5  gap-14 items-start">
 
           {/* Image */}
-          <div className={`lg:col-span-2  transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
+          <div className={`lg:col-span-2 lg:sticky lg:top-28 transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
   <div className="  rounded-3xl overflow-hidden shadow-2xl h-full min-h-[600px]">
     <Image
       src={FounderImg}
       alt="Founder of Essar Enterprises"
       fill
-      className="object-cover grayscale h-full"
+      className="object-cover grayscale h-full  scale-x-[-1]"
       priority
       unoptimized
     />

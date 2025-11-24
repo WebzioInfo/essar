@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 import Navigation from "@/app/components/Navigation";
@@ -38,6 +39,11 @@ export default function RootLayout({
         <footer className="">
           <Footer />
         </footer>
+          <Toaster
+          theme="dark"
+          position="top-right"
+          richColors 
+        />
 
       </body>
     </html>

@@ -139,8 +139,7 @@ const GlassSurface: React.FC<GlassSurfaceProps> = ({
   setBackdropOk(false);
 }
 
-    // no cleanup needed here
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [filterId]);
 
   const generateDisplacementMap = () => {
