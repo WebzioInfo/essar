@@ -118,19 +118,23 @@ export default function ResponsiveNavbar() {
                   href={l.to}
                   onClick={(e) => handleNavClick(e, l.to)}
                   className={`px-3 py-2 text-sm font-medium rounded-full transition-all ${
-                    isActive(l.to) ? "text-white" : "text-black hover:bg-white/10"
+                    isActive(l.to) ? "text-white" : "text-white hover:bg-white/10"
                   }`}
                 >
                   {l.name}
                 </Link>
               ))}
-              <a
-                href="#contact"
-                onClick={(e) => handleNavClick(e, "#contact")}
-                className="px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-semibold hover:brightness-110 transition-all"
-              >
-                Contact
-              </a>
+              <Link
+  href="/quotation"
+  onClick={(e) => handleNavClick(e, "/quotation")}
+  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full 
+             bg-linear-to-r from-blue-600 to-blue-700 
+             text-white text-sm md:text-base font-semibold shadow-md 
+             hover:shadow-lg hover:scale-105 active:scale-95 
+             transition-all duration-300 ease-out"
+>
+  Get a Quote
+</Link>
             </div>
 
             <motion.div
@@ -187,11 +191,11 @@ export default function ResponsiveNavbar() {
                     </a>
                   ))}
                   <a
-                    href="#contact"
-                    onClick={(e) => handleNavClick(e, "#contact")}
+                    href="/quotation"
+                    onClick={(e) => handleNavClick(e, "/quotation")}
                     className="block mt-3 w-full text-center px-4 py-3 rounded-full bg-blue-600 text-white font-semibold hover:brightness-110 transition-all"
                   >
-                    Contact
+                    Get a Quote
                   </a>
                 </div>
               </GlassSurface>

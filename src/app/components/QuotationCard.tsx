@@ -16,7 +16,7 @@ export default function QuotationCard({ bpm, automationType }: QuotationProps) {
     90: { semi: "165–180 Lakhs", full: "210–235 Lakhs" },
     120: { semi: "200–230 Lakhs", full: "260–290 Lakhs" },
     180: { semi: "270–300 Lakhs", full: "340–380 Lakhs" },
-  };
+  } as const;
 
   const estimatedCost =
     automationType === "Semi Automatic"
@@ -24,99 +24,105 @@ export default function QuotationCard({ bpm, automationType }: QuotationProps) {
       : costTable[bpm].full;
 
   return (
-    <div className="max-w-3xl mt-10 md:mt-20 mx-auto p-8 border rounded-2xl shadow-lg bg-white text-black">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold leading-snug">
-          Proposal for {automationType} <br />
-          Packaged Drinking Water Plant
-        </h1>
+    <div className="w-full px-4">
+      <div className="max-w-3xl mt-8 md:mt-16 mx-auto p-5 sm:p-8 lg:p-10 border rounded-2xl shadow-lg bg-white text-black">
+        {/* Header */}
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-snug">
+            Proposal for {automationType} <br />
+            Packaged Drinking Water Plant
+          </h1>
 
-        <Image
-          src="/logo.png"
-          alt="Essar Enterprises"
-          width={112}
-          height={112}
-          className="opacity-60"
-        />
-      </div>
-
-      <hr className="my-6" />
-
-      {/* Top Rows */}
-      <div className="space-y-6 text-lg leading-relaxed">
-        <div>
-          <div className="font-semibold">Production Capacity</div>
-          <div className="font-bold text-xl">
-            {bpm} BPM + 1600 Jars / Shift (10 Hr.)
+          <div className="flex justify-start sm:justify-end">
+            <Image
+              src="/logo.png"
+              alt="Essar Enterprises"
+              width={112}
+              height={112}
+              className="opacity-60 w-20 sm:w-24 lg:w-28 h-auto"
+            />
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
-          <div>
-            <div className="font-semibold">Production Speed</div>
-            <p className="font-bold">
-              {bpm} Bottle / minute <br />
-              200 Jars / hour
-            </p>
-          </div>
+        <hr className="my-6" />
 
+        {/* Top Rows */}
+        <div className="space-y-6 text-base sm:text-lg leading-relaxed">
           <div>
-            <div className="font-semibold">Project Duration</div>
-            <p className="font-bold">8 Months</p>
-          </div>
-        </div>
-
-        {/* Cost */}
-        <div className="grid grid-cols-2 gap-6 border rounded-xl p-5 bg-gray-50">
-          <div>
-            <div className="font-semibold">Project Cost</div>
-            <p className="text-2xl font-bold">{estimatedCost}</p>
-          </div>
-
-          <div>
-            <div className="font-semibold text-green-700">
-              Return of Investment
+            <div className="font-semibold">Production Capacity</div>
+            <div className="font-bold text-lg sm:text-xl">
+              {bpm} BPM + 1600 Jars / Shift (10 Hr.)
             </div>
-            <p className="text-2xl font-bold text-green-700">36 Months</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <div className="font-semibold">Production Speed</div>
+              <p className="font-bold">
+                {bpm} Bottle / minute <br />
+                200 Jars / hour
+              </p>
+            </div>
+
+            <div>
+              <div className="font-semibold">Project Duration</div>
+              <p className="font-bold">8 Months</p>
+            </div>
+          </div>
+
+          {/* Cost */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border rounded-xl p-4 sm:p-5 bg-gray-50">
+            <div>
+              <div className="font-semibold">Project Cost</div>
+              <p className="text-xl sm:text-2xl font-bold">{estimatedCost}</p>
+            </div>
+
+            <div>
+              <div className="font-semibold text-green-700">
+                Return of Investment
+              </div>
+              <p className="text-xl sm:text-2xl font-bold text-green-700">
+                36 Months
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <hr className="my-8" />
+        <hr className="my-8" />
 
-      {/* We Do / You Do */}
-      <div className="grid grid-cols-2 gap-10 text-lg">
-        <div>
-          <h3 className="font-bold text-green-700 mb-2">What We Do</h3>
-          <ul className="space-y-1">
-            <li>• Licenses & Paper Works</li>
-            <li>• Project Design & Planning</li>
-            <li>• Plant Design & Development</li>
-            <li>• Lab Setup & Training</li>
-            <li>• Construction Supervision</li>
-            <li>• QC Setup & Training</li>
-            <li>• Branding & Label Design</li>
-            <li>• Website Development</li>
-            <li>• Operational & Production Training</li>
-          </ul>
+        {/* We Do / You Do */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 text-base sm:text-lg">
+          <div>
+            <h3 className="font-bold text-green-700 mb-2">What We Do</h3>
+            <ul className="space-y-1.5">
+              <li>• Licenses & Paper Works</li>
+              <li>• Project Design & Planning</li>
+              <li>• Plant Design & Development</li>
+              <li>• Lab Setup & Training</li>
+              <li>• Construction Supervision</li>
+              <li>• QC Setup & Training</li>
+              <li>• Branding & Label Design</li>
+              <li>• Website Development</li>
+              <li>• Operational & Production Training</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-blue-700 mb-2">What You Do</h3>
+            <ul className="space-y-1.5">
+              <li>• HR Management</li>
+              <li>• Operations</li>
+              <li>• Sales</li>
+            </ul>
+          </div>
         </div>
 
-        <div>
-          <h3 className="font-bold text-blue-700 mb-2">What You Do</h3>
-          <ul className="space-y-1">
-            <li>• HR Management</li>
-            <li>• Operations</li>
-            <li>• Sales</li>
-          </ul>
+        <hr className="my-8" />
+
+        <div className="text-center text-xs sm:text-sm text-gray-500">
+          © 2025 Essar Enterprises — Complete Packaged Drinking Water Plant
+          Solutions
         </div>
-      </div>
-
-      <hr className="my-8" />
-
-      <div className="text-center text-sm text-gray-500">
-        © 2025 Essar Enterprises — Complete Packaged Drinking Water Plant
-        Solutions
       </div>
     </div>
   );

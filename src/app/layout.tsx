@@ -21,13 +21,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased bg-black text-black scroll-smooth">
+      <body className="antialiased bg-black  scroll-smooth">
 
         {/* AOS Animations */}
         <AosInitializer />
 
         {/* Global Navigation */}
-        <header className="">
+        <header className="text-white">
           <Navigation />
         </header>
 
