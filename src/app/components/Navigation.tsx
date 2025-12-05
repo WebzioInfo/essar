@@ -16,17 +16,15 @@ export default function ResponsiveNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  // usePathname is a client hook — fine — but don't call window.* during render
   const pathname = usePathname();
 
   const links: NavItem[] = [
-    { name: "Home", to: "/#home" },
     { name: "About", to: "/#about" },
     { name: "Services", to: "/#services" },
     { name: "Mission", to: "/#mission" },
+    { name: "Contact", to: "/#contact" },
   ];
 
-  // Keep scroll/visual state controlled on client only
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
@@ -34,12 +32,10 @@ export default function ResponsiveNavbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Maintain client-side snapshot of location.hash and pathname so server vs client render is deterministic
   const [clientHash, setClientHash] = useState<string>("");
   const [clientPathname, setClientPathname] = useState<string | null>(null);
 
   useEffect(() => {
-    // set initial values only on client after mount
     setClientHash(window.location.hash || "");
     setClientPathname(window.location.pathname || null);
 
@@ -48,7 +44,6 @@ export default function ResponsiveNavbar() {
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
-  // Smooth section scroll
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, to: string) => {
     if (to.includes("#")) {
       e.preventDefault();
@@ -56,20 +51,21 @@ export default function ResponsiveNavbar() {
       const el = document.getElementById(hash);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
       setOpen(false);
-      // update clientHash right away
       setClientHash(`#${hash}`);
     }
   };
 
-  // Compute active state using client snapshot; during SSR clientHash is "" and clientPathname is null
   const isActive = (to: string) => {
     try {
-      const parsed = new URL(to, typeof window !== "undefined" ? window.location.origin : "http://example.com");
-      // prefer client-side snapshot when available
+      const parsed = new URL(
+        to,
+        typeof window !== "undefined" ? window.location.origin : "http://example.com"
+      );
+
       const activePath = clientPathname ?? pathname;
       if (activePath && activePath === parsed.pathname) return true;
       if (clientHash && clientHash === parsed.hash) return true;
-      // fallback: compare pathname (server) or false
+
       return pathname === parsed.pathname;
     } catch {
       return false;
@@ -81,14 +77,24 @@ export default function ResponsiveNavbar() {
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-9999 transition-transform duration-500 ${
         scrolled ? "scale-95" : "scale-100"
       }`}
+      aria-label="Primary navigation"
     >
-      {/* avoid server-client inline style mismatch from Framer Motion by disabling initial on SSR */}
-      <motion.div
-        // disable initial animation during SSR/hydration by using initial={false}
-        initial={false}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
+      {/* JSON-LD — allowed inside components */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Essar Enterprises",
+            url: "https://essarenterprises.co.in",
+            logo: "https://essarenterprises.co.in/logo.png",
+            sameAs: ["https://www.instagram.com/essar.enterprises"],
+          }),
+        }}
+      />
+
+      <motion.div initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
         <GlassSurface
           width="90vw"
           height={scrolled ? 56 : 68}
@@ -100,13 +106,18 @@ export default function ResponsiveNavbar() {
           mixBlendMode="overlay"
           className="px-8 md:px-12 py-9 shadow-lg"
         >
-          <nav className="flex  justify-between items-center w-full">
-            <Link href="/" className="relative w-28  h-10 md:w-40 md:h-12">
+          <nav className="flex justify-between items-center w-full" role="navigation">
+            {/* LOGO (SEO Optimized alt text) */}
+            <Link
+              href="/"
+              aria-label="Essar Enterprises home page"
+              className="relative w-28 h-10 md:w-40 md:h-12"
+            >
               <Image
                 src="/logoWhitecrop.png"
-                alt="Essar Enterprise"
+                alt="Essar Enterprises logo"
                 fill
-                className="object-contain "
+                className="object-contain"
                 priority
               />
             </Link>
@@ -120,29 +131,27 @@ export default function ResponsiveNavbar() {
                   className={`px-3 py-2 text-sm font-medium rounded-full transition-all ${
                     isActive(l.to) ? "text-white" : "text-white hover:bg-white/10"
                   }`}
+                  aria-current={isActive(l.to) ? "page" : undefined}
                 >
                   {l.name}
                 </Link>
               ))}
+
+              {/* CTA BUTTON */}
               <Link
-  href="/quotation"
-  onClick={(e) => handleNavClick(e, "/quotation")}
-  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full 
-             bg-linear-to-r from-blue-600 to-blue-700 
-             text-white text-sm md:text-base font-semibold shadow-md 
-             hover:shadow-lg hover:scale-105 active:scale-95 
-             transition-all duration-300 ease-out"
->
-  Get a Quote
-</Link>
+                href="/quotation"
+                aria-label="Get a project quotation"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full 
+                bg-linear-to-r from-blue-600 to-blue-700 text-white text-sm md:text-base 
+                font-semibold shadow-md hover:shadow-lg hover:scale-105 active:scale-95 
+                transition-all duration-300 ease-out"
+              >
+                Get a Quote
+              </Link>
             </div>
 
-            <motion.div
-              className="md:hidden"
-              initial={false}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-            >
+            {/* MOBILE MENU BUTTON */}
+            <motion.div className="md:hidden" initial={false}>
               <GlassButton
                 useGlass
                 width={50}
@@ -151,6 +160,7 @@ export default function ResponsiveNavbar() {
                 size="sm"
                 onClick={() => setOpen(!open)}
                 className="md:hidden flex justify-center align-middle items-center"
+                aria-expanded={open}
                 aria-label={open ? "Close menu" : "Open menu"}
               >
                 {open ? <X size={22} /> : <Menu size={22} />}
@@ -159,6 +169,7 @@ export default function ResponsiveNavbar() {
           </nav>
         </GlassSurface>
 
+        {/* MOBILE POPUP MENU */}
         <AnimatePresence>
           {open && (
             <motion.div
@@ -168,6 +179,7 @@ export default function ResponsiveNavbar() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
               className="md:hidden mt-3"
+              aria-label="Mobile navigation menu"
             >
               <GlassSurface
                 width="90vw"
@@ -185,15 +197,18 @@ export default function ResponsiveNavbar() {
                       key={l.name}
                       href={l.to}
                       onClick={(e) => handleNavClick(e, l.to)}
-                      className="block px-4 py-3 w-full rounded-xl text-sm font-medium text-white hover:bg-white/10 transition-colors"
+                      className="block px-4 py-3 w-full rounded-xl text-sm font-medium text-white hover:bg-white/10"
+                      role="menuitem"
                     >
                       {l.name}
                     </a>
                   ))}
+
                   <a
                     href="/quotation"
                     onClick={(e) => handleNavClick(e, "/quotation")}
-                    className="block mt-3 w-full text-center px-4 py-3 rounded-full bg-blue-600 text-white font-semibold hover:brightness-110 transition-all"
+                    className="block mt-3 w-full text-center px-4 py-3 rounded-full bg-blue-600 text-white font-semibold hover:brightness-110"
+                    role="menuitem"
                   >
                     Get a Quote
                   </a>
