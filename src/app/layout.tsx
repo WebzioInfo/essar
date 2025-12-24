@@ -108,7 +108,6 @@ export default function RootLayout({
 
         {/* Global AOS Animations */}
         <AosInitializer />
-
         {/* Header Nav */}
         <header>
           <Navigation />

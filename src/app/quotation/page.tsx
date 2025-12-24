@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { CheckCircle, ArrowRight, ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import axios from "axios";
 
 type BPM = 40 | 60 | 90 | 120 | 180;
 type AutomationType = "Semi Automatic" | "Fully Automatic";
@@ -39,7 +41,6 @@ export default function QuotationWizard() {
   const [message, setMessage] = useState<string>("");
 
   const [submitting, setSubmitting] = useState(false);
-  const [success, setSuccess] = useState(false);
   const liveRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -69,11 +70,12 @@ export default function QuotationWizard() {
     return false;
   }
 
+
   const router = useRouter();
 
   async function handleSubmit() {
     if (!validateStep()) {
-      alert("Please complete required fields before submitting.");
+      toast.error("Please complete all required fields");
       return;
     }
 
@@ -91,51 +93,60 @@ export default function QuotationWizard() {
       phone,
       location,
       message,
-      submittedAt: new Date().toISOString(),
     };
 
+    const toastId = toast.loading("Submitting quotation...");
+
     try {
-      // Save to backend
-      await fetch("/api/quotation", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const { data } = await axios.post("/api/quotation", payload);
 
-      // WhatsApp message
+      if (data.status !== "success") {
+        throw new Error(
+          typeof data === "object" && "message" in data ? data.message : "Submission failed"
+        );
+
+      }
+
+      toast.success("Quotation submitted successfully", { id: toastId });
+
       const waMessage =
-        ` *Quotation Request - Essar Enterprises*\n\n` +
-        ` Name: ${name}\n` +
-        ` Phone: ${phone}\n` +
-        ` Email: ${email}\n` +
-        ` Location: ${location}\n\n` +
-        ` Plant Type: ${plantType}\n` +
-        ` Automation: ${automation}\n` +
-        ` BPM: ${bpm}\n` +
-        ` Services: ${services.join(", ")}\n` +
-        ` Timeline: ${projectTimeline}\n` +
-        ` Budget: ${budget}\n\n` +
-        ` Message: ${message || "—"}`;
+        `*Quotation Request - Essar Enterprises*\n\n` +
+        `Name: ${name}\n` +
+        `Phone: ${phone}\n` +
+        `Email: ${email}\n` +
+        `Location: ${location}\n\n` +
+        `Plant Type: ${plantType}\n` +
+        `Automation: ${automation}\n` +
+        `BPM: ${bpm}\n` +
+        `Services: ${services.join(", ")}\n` +
+        `Timeline: ${projectTimeline}\n` +
+        `Budget: ${budget}\n\n` +
+        `Message: ${message || "—"}`;
 
-        setTimeout(() => {
-          router.push(`/quotation/result?bpm=${bpm}&type=${automation}`);
-        }, 2000);
-
+      // WhatsApp
       window.open(
         `https://wa.me/918884677773?text=${encodeURIComponent(waMessage)}`,
-        "_blank",
-        "noopener,noreferrer"
+        "_blank"
       );
 
-      setSuccess(true);
+      setTimeout(() => { router.push(`/quotation/result?bpm=${bpm}&type=${automation}`); }, 1500);
 
-    } catch (err) {
-      console.error(err);
-      alert("Failed to submit. Try again later.");
-    } finally {
+    } catch (err: unknown) {
+      let message = "Submission failed";
+
+      if (axios.isAxiosError(err)) {
+        message = err.response?.data?.message || err.message;
+      } else if (err instanceof Error) {
+        message = err.message;
+      }
+
+      toast.error(message, { id: toastId });
+    }
+    finally {
       setSubmitting(false);
     }
   }
+
 
 
   return (
@@ -226,8 +237,8 @@ export default function QuotationWizard() {
                           onClick={() => setAutomation(opt)}
                           type="button"
                           className={`flex-1 py-3 rounded-xl text-sm font-medium transition ${automation === opt
-                              ? "bg-linear-to-br from-blue-600 to-cyan-400 text-black shadow-lg"
-                              : "bg-white/3 text-white hover:bg-white/6"
+                            ? "bg-linear-to-br from-blue-600 to-cyan-400 text-black shadow-lg"
+                            : "bg-white/3 text-white hover:bg-white/6"
                             }`}
                           aria-pressed={automation === opt}
                         >
