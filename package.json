@@ -25,7 +25,7 @@
     "leva": "^0.10.1",
     "lucide-react": "^0.553.0",
     "maath": "^0.10.8",
-    "next": "15.5.4",
+    "next": "^15.5.9",
     "postcss": "^8.5.6",
     "react": "19.1.0",
     "react-countup": "^6.5.3",
