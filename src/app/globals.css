@@ -63,22 +63,19 @@ body {
      If you prefer, move them into the `components` layer in Tailwind.
 */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(30, 30, 30, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-card {
-  background: rgba(20, 20, 20, 0.85);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(20, 20, 20, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
 .premium-card {
-  background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(20px);
+  background: linear-gradient(135deg, rgba(30, 30, 30, 1) 0%, rgba(15, 15, 15, 1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
@@ -100,32 +97,9 @@ body {
 }
 
 /* ---- Animations ---- */
-@keyframes liquid-breathe {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-2px) scale(1.015); }
-}
+/* Removed liquid-breathe */
 
-nav div {
-  animation: liquid-breathe 6s ease-in-out infinite;
-}
-
-/* Liquid Shimmer */
-.shimmer {
-  background: linear-gradient(120deg,
-    transparent 0%,
-    rgba(255,255,255,0.25) 40%,
-    rgba(255,255,255,0.45) 50%,
-    rgba(255,255,255,0.25) 60%,
-    transparent 100%);
-  animation: shimmer-move 4s ease-in-out infinite;
-  filter: blur(14px);
-}
-
-@keyframes shimmer-move {
-  0% { transform: translateX(-100%) rotate(0deg); }
-  50% { transform: translateX(100%) rotate(2deg); }
-  100% { transform: translateX(-100%) rotate(0deg); }
-}
+/* Removed Liquid Shimmer */
 
 /* ---- Typography helpers (you already had these) ---- */
 .heading-xl { font-family: var(--font-heading); font-size: 4rem; font-weight: 700; line-height: 1.1; }
@@ -136,23 +110,11 @@ nav div {
 .body-md { font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.7; }
 
 /* global CSS (add to globals.css) */
-@keyframes shimmerSlide {
-  0% { transform: translateX(-100%); opacity: 0; }
-  25% { opacity: 0.1; }
-  50% { transform: translateX(0%); opacity: 0.25; }
-  75% { opacity: 0.1; }
-  100% { transform: translateX(100%); opacity: 0; }
-}
+/* Removed shimmerSlide */
 
 /* wrapper used by the example */
 .shimmer {
   will-change: transform, opacity;
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0) 100%);
-  width: 200%;
-  height: 100%;
-  animation: shimmerSlide 4s linear infinite;
-  filter: blur(6px);
-  mix-blend-mode: overlay;
 }
 
 

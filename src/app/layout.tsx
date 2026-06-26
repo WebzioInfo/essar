@@ -5,6 +5,7 @@ import "./globals.css";
 import Navigation from "@/app/components/Navigation";
 import Footer from "@/app/components/Footer";
 import AosInitializer from "./components/AosInitializer";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 // SEO → Metadata + OpenGraph + Twitter + Canonical
 export const metadata: Metadata = {
@@ -100,29 +101,31 @@ export default function RootLayout({
         ></script>
       </head>
 
-      <body className="antialiased bg-black scroll-smooth text-white">
-        {/* Accessibility */}
-        <a href="#main-content" className="sr-only focus:not-sr-only">
-          Skip to main content
-        </a>
+      <body className="antialiased bg-black text-white">
+        <SmoothScrolling>
+          {/* Accessibility */}
+          <a href="#main-content" className="sr-only focus:not-sr-only">
+            Skip to main content
+          </a>
 
-        {/* Global AOS Animations */}
-        <AosInitializer />
-        {/* Header Nav */}
-        <header>
-          <Navigation />
-        </header>
+          {/* Global AOS Animations */}
+          <AosInitializer />
+          {/* Header Nav */}
+          <header>
+            <Navigation />
+          </header>
 
-        {/* Page Wrapper */}
-        <main id="main-content" className="min-h-screen w-full">
-          {children}
-        </main>
+          {/* Page Wrapper */}
+          <main id="main-content" className="min-h-screen w-full">
+            {children}
+          </main>
 
-        {/* Footer */}
-        <Footer />
+          {/* Footer */}
+          <Footer />
 
-        {/* Global Toasts */}
-        <Toaster theme="dark" position="top-right" richColors />
+          {/* Global Toasts */}
+          <Toaster theme="dark" position="top-right" richColors />
+        </SmoothScrolling>
       </body>
     </html>
   );
