@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,6 +23,65 @@ const fadeUpStagger = {
 
 export default function HomePageClient() {
   const [loading, setLoading] = useState(true);
+
+  // Parallax background refs
+  const heroSectionRef = useRef<HTMLElement>(null);
+  const parallaxBgRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Ensure video is completely static (paused at 0s, no autoplay)
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+  }, []);
+
+  // Subtle scroll parallax effect on background visual
+  useEffect(() => {
+    let rafId: number | null = null;
+
+    const updateParallax = () => {
+      rafId = null;
+      if (!heroSectionRef.current || !parallaxBgRef.current) return;
+
+      // Respect prefers-reduced-motion
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        parallaxBgRef.current.style.transform = "translate3d(0, 0, 0)";
+        return;
+      }
+
+      const scrollY = window.scrollY;
+      const heroHeight = heroSectionRef.current.offsetHeight || 800;
+
+      // Skip calculation if hero is past viewport
+      if (scrollY > heroHeight) return;
+
+      const isMobile = window.innerWidth < 768;
+      // Noticeable, controlled parallax: ~80px on desktop, ~40px on mobile (~3x previous subtle values)
+      const parallaxDistance = isMobile ? 40 : 80;
+      const scrollProgress = Math.min(1, Math.max(0, scrollY / heroHeight));
+      const targetOffset = scrollProgress * parallaxDistance;
+
+      parallaxBgRef.current.style.transform = `translate3d(0, ${targetOffset.toFixed(2)}px, 0)`;
+    };
+
+    const onScroll = () => {
+      if (rafId === null) {
+        rafId = requestAnimationFrame(updateParallax);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // Initial call
+    updateParallax();
+
+    return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   // Subtle Intro Sequence
   useEffect(() => {
@@ -56,37 +115,64 @@ export default function HomePageClient() {
 
       <div className="flex flex-col min-h-screen bg-background relative z-0">
 
-        {/* SECTION 1: Editorial Hero */}
-        <section className="relative min-h-[90vh] flex flex-col justify-center pt-32 pb-20 bg-background text-primary">
-          <div className="max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
+        {/* SECTION 1: Editorial Hero with Exact Viewport Alignment & Subtle Parallax Background */}
+        <section
+          ref={heroSectionRef}
+          className="relative h-[100svh] min-h-[100vh] w-full flex flex-col justify-center pt-20 pb-8 lg:pt-24 lg:pb-12 bg-background text-primary overflow-hidden"
+        >
+          {/* Background Layer: Full-bleed edge-to-edge with vertical parallax overscan */}
+          <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+            <div
+              ref={parallaxBgRef}
+              className="absolute -top-24 -bottom-8 inset-x-0 w-full h-[calc(100%+128px)] will-change-transform"
+            >
+              <video
+                ref={videoRef}
+                src="/videos/hero/hero-factory-loop.mp4"
+                poster="/images/hero/hero-water-factory.webp"
+                muted
+                playsInline
+                preload="auto"
+                className="w-full h-full object-cover object-center pointer-events-none"
+              />
+            </div>
+          </div>
+
+          {/* Subtle Gradient / Fade Overlay for Text Readability */}
+          <div
+            className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-b from-white/90 via-white/60 to-white/20 lg:bg-gradient-to-r lg:from-white/95 lg:via-white/60 lg:to-transparent"
+            aria-hidden="true"
+          />
+
+          <div className="max-w-[1400px] mx-auto px-6 sm:px-12 w-full relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
 
               {/* Content Left */}
               <motion.div
-                className="lg:col-span-5 flex flex-col items-start"
+                className="lg:col-span-7 flex flex-col items-start"
                 variants={fadeUpStagger}
                 initial="hidden"
                 animate={!loading ? "show" : "hidden"}
               >
-                <motion.div variants={fadeUp} className="mb-6">
+                <motion.div variants={fadeUp} className="mb-4 lg:mb-6">
                   <span className="text-xs font-semibold tracking-widest uppercase text-text-secondary border-b border-border pb-1">
                     Water Business Consultants
                   </span>
                 </motion.div>
 
-                <motion.h1 variants={fadeUp} className="heading-hero text-primary mb-6">
+                <motion.h1 variants={fadeUp} className="heading-hero text-primary mb-4 lg:mb-6">
                   Plan to Plant.
                 </motion.h1>
 
-                <motion.h2 variants={fadeUp} className="heading-sm text-text-secondary font-normal mb-8 leading-relaxed max-w-lg">
+                <motion.h2 variants={fadeUp} className="heading-sm text-text-secondary font-normal mb-4 lg:mb-6 leading-relaxed max-w-lg">
                   Helping entrepreneurs build packaged drinking water businesses since 2004.
                 </motion.h2>
 
-                <motion.p variants={fadeUp} className="body-lg text-text-secondary leading-relaxed mb-12 max-w-md">
+                <motion.p variants={fadeUp} className="body-lg text-text-secondary leading-relaxed mb-6 lg:mb-8 max-w-md">
                   Essar Enterprises supports investors, manufacturers and plant owners with planning, licensing, laboratory setup, water quality management and operational guidance.
                 </motion.p>
 
-                <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-12 w-full">
+                <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-6 lg:mb-8 w-full">
                   <Link href="/contact" className="px-8 py-4 bg-primary text-background font-medium hover:bg-secondary transition-colors text-sm">
                     Book Strategy Session
                   </Link>
@@ -99,28 +185,6 @@ export default function HomePageClient() {
                   <span className="opacity-40">•</span>
                   <span>South India</span>
                 </motion.div>
-              </motion.div>
-
-              {/* Editorial Image Right */}
-              <motion.div
-                className="lg:col-span-7 h-full w-full hidden lg:block"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1.5, delay: 0.5 }}
-              >
-                <div className="m-20 bg-surface relative overflow-hidden group shadow-2xl">
-                  <video
-                    src="/videos/hero/hero-factory-loop.mov"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="object-cover w-full h-full transition-transform duration-[3s] group-hover:scale-105 filter grayscale-[20%]"
-                    poster="/images/hero/hero-water-factory.webp"
-                  />
-                  {/* Moody Black Hover Overlay */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                </div>
               </motion.div>
 
             </div>
@@ -242,12 +306,12 @@ export default function HomePageClient() {
                   viewport={{ once: true }}
                   transition={{ duration: 1 }}
                 >
-                  <div className="aspect-[16/9] w-full relative overflow-hidden bg-background">
+                  <div className="w-full max-w-full aspect-[9/16] lg:w-150 lg:h-150 lg:aspect-auto relative overflow-hidden bg-background">
                     <Image
-                      src="/images/projects/kenby/kenby-logo.webp"
+                      src="/images/projects/kenby/kenbyimage.jpg"
                       alt="KENBY Project"
                       fill
-                      className="object-cover"
+                      className="object-cover object-center"
                       sizes="(max-width: 1024px) 100vw, 70vw"
                       loading="lazy"
                     />
@@ -260,10 +324,10 @@ export default function HomePageClient() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                  <div className="text-xs font-semibold tracking-widest uppercase text-text-secondary mb-4">Turnkey Setup</div>
+                  <div className="text-xs font-semibold tracking-widest uppercase text-text-secondary mb-4">Facility Expansion</div>
                   <div className="relative h-16 w-48 mb-6">
                     <Image
-                      src="/clients_logo/kenby_logo.png"
+                      src="/images/projects/kenby/kenby-Photoroom.png"
                       alt="KENBY Logo"
                       fill
                       className="object-contain object-left"
@@ -287,7 +351,7 @@ export default function HomePageClient() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                  <div className="text-xs font-semibold tracking-widest uppercase text-text-secondary mb-4">Facility Expansion</div>
+                  <div className="text-xs font-semibold tracking-widest uppercase text-text-secondary mb-4">Turnkey Setup</div>
                   <h3 className="heading-lg mb-6 text-primary">INSTAPANI</h3>
                   <p className="body-lg mb-8">
                     An advanced production floor and high-tech laboratory integration for Instapani Beverages, ensuring uncompromising daily quality control.
