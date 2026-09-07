@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
@@ -10,28 +10,40 @@ export default function MegaMenu() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   
-  // Scroll tracking for Island Navigation
+  // Scroll tracking: subtle scroll-start / scroll-release interaction
   const { scrollY } = useScroll();
-  const [hidden, setHidden] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const isScrollingRef = useRef(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() ?? 0;
-    
-    // Determine if scrolled down enough to trigger the glass effect
-    if (latest > 50) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
+  useEffect(() => {
+    return () => {
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+    };
+  }, []);
+
+  useMotionValueEvent(scrollY, "change", () => {
+    setActiveDropdown(null);
+
+    // Respect prefers-reduced-motion
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
     }
 
-    // Hide navbar if scrolling down and passed 150px
-    if (latest > previous && latest > 150) {
-      setHidden(true);
-      setActiveDropdown(null); // Close dropdowns on hide
-    } else {
-      setHidden(false);
+    if (!isScrollingRef.current) {
+      isScrollingRef.current = true;
+      setIsScrolling(true);
     }
+
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+
+    // 150ms debounce to detect scroll stop / release
+    scrollTimeoutRef.current = setTimeout(() => {
+      isScrollingRef.current = false;
+      setIsScrolling(false);
+    }, 150);
   });
 
   // Mega Menu Content
@@ -108,24 +120,19 @@ export default function MegaMenu() {
   return (
     <>
       {/* 
-        ISLAND NAVIGATION (Desktop & Tablet)
-        Fixed, detached pill shape.
+        GLOBAL STICKY / FIXED NAVIGATION (Desktop & Tablet)
+        Remains permanently visible across all sections while scrolling.
       */}
-      <motion.nav
-        variants={{
-          visible: { y: 0, opacity: 1 },
-          hidden: { y: "-150%", opacity: 0 }
-        }}
-        animate={hidden ? "hidden" : "visible"}
-        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      <nav
         className="fixed top-6 left-0 right-0 z-[100] flex justify-center pointer-events-none px-4"
       >
-        <motion.div 
-          className={`pointer-events-auto flex items-center justify-between w-full max-w-5xl rounded-full px-6 py-3 transition-all duration-500 ease-out ${
-            isScrolled 
-              ? "bg-background/80 backdrop-blur-xl border border-border/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)]" 
-              : "bg-transparent border border-transparent"
+        <div 
+          className={`pointer-events-auto flex items-center justify-between w-full max-w-5xl rounded-full px-6 bg-white border border-border transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform motion-reduce:transform-none motion-reduce:transition-none ${
+            isScrolling
+              ? "py-2.5 -translate-y-[3px] scale-[0.988] shadow-[0_8px_30px_rgba(0,0,0,0.1)]"
+              : "py-3 translate-y-0 scale-100 shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
           }`}
+          style={{ backgroundColor: "#FFFFFF" }}
           onMouseLeave={() => setActiveDropdown(null)}
         >
           {/* Logo */}
@@ -165,7 +172,10 @@ export default function MegaMenu() {
                       transition={{ duration: 0.2, ease: "easeOut" }}
                       className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
                     >
-                      <div className="bg-background/95 backdrop-blur-2xl border border-border shadow-2xl rounded-2xl overflow-hidden relative">
+                      <div 
+                        className="bg-white border border-border shadow-2xl rounded-2xl overflow-hidden relative"
+                        style={{ backgroundColor: "#FFFFFF" }}
+                      >
                         {item.content}
                       </div>
                     </motion.div>
@@ -201,8 +211,8 @@ export default function MegaMenu() {
           >
             <Menu className="w-5 h-5" />
           </button>
-        </motion.div>
-      </motion.nav>
+        </div>
+      </nav>
 
       {/* 
         PREMIUM MOBILE OVERLAY 
@@ -214,7 +224,8 @@ export default function MegaMenu() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-[120] bg-background flex flex-col"
+            className="fixed inset-0 z-[120] bg-white flex flex-col"
+            style={{ backgroundColor: "#FFFFFF" }}
           >
             {/* Overlay Header */}
             <div className="flex items-center justify-between px-8 py-8">
