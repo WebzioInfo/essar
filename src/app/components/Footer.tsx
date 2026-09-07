@@ -1,5 +1,6 @@
 'use client';
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin, Phone, Globe, Instagram } from "lucide-react";
 
 export default function Footer() {
@@ -12,10 +13,17 @@ export default function Footer() {
 
           {/* Company Info */}
           <div className="md:col-span-2">
-            <h3 className="heading-md font-bold mb-5">Essar Enterprises</h3>
-            <p className="body-md text-gray-300 leading-relaxed mb-8 max-w-lg">
-              Experts in fully automated packaged drinking water plants since 2004.
-              We design, install, license, and support successful water bottling businesses across Kerala & Karnataka.
+            <Link href="/" className="inline-block mb-6" aria-label="Essar Enterprises Home">
+              <Image 
+                src="/logos/logo-icon-light.png" 
+                alt="Essar Enterprises Logo" 
+                width={180} 
+                height={60} 
+                className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+              />
+            </Link>
+            <p className="body-lg text-gray-400 leading-relaxed mb-8 max-w-lg font-light tracking-wide">
+              We engineer profitable packaged drinking water businesses. From licensing and design to operational excellence.
             </p>
 
             {/* Contact Icons */}

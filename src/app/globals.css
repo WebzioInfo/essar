@@ -1,169 +1,142 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Geist:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
-:root {
-  --background: #0A0A0A;
-  --foreground: #FFFFFF;
-  --primary: #0052CC;
-  --primary-dark: #003A99;
-  --secondary: #0066FF;
-  --accent: #3399FF;
-  --surface: #1A1A1A;
-  --text-secondary: #A3A3A3;
-  --border: #2A2A2A;
-  --gold: #D4AF37;
-  --gold-light: #F4E4B7;
 
-  /* font tokens for Tailwind config usage if desired */
-  --font-heading: 'Space Grotesk', sans-serif;
+:root {
+  /* Final Refinement: Quiet Luxury / Mature Consulting (Stripe / Apple / McKinsey) */
+  --background: #FFFFFF; /* Pure White */
+  --foreground: #111111; /* Graphite */
+  --surface: #FAFAFA; /* Off White */
+  --surface-alt: #F5F5F7; /* Apple Gray */
+  
+  --primary: #111111; /* Graphite */
+  --primary-dark: #000000; /* Pure Black */
+  --secondary: #424245; /* Steel Gray */
+  --secondary-light: #86868B; /* Soft Gray */
+  --accent: #0066CC; /* Subtle Blue for text links only */
+  
+  --text-primary: #1D1D1F; /* Deep Charcoal */
+  --text-secondary: #515154; /* Muted Charcoal */
+  --border: #E5E5EA; /* Very subtle divider */
+  
+  --font-heading: 'Geist', 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
 
-
-/* Provide canonical helper classes for existing escaped classes */
+/* Canonical helper classes */
 .text-foreground { color: var(--foreground); }
 .text-background { color: var(--background); }
 .text-primary { color: var(--primary); }
 .text-text-secondary { color: var(--text-secondary); }
+.text-accent { color: var(--accent); }
 
 .bg-foreground { background: var(--foreground); }
 .bg-background { background: var(--background); }
 .bg-primary { background: var(--primary); }
+.bg-surface { background: var(--surface); }
+.bg-surface-alt { background: var(--surface-alt); }
+.bg-accent { background: var(--accent); }
 
 .border-foreground { border-color: var(--foreground); }
 .border-border { border-color: var(--border); }
+.border-accent { border-color: var(--accent); }
 
-/* ---- Global base styles ---- */
+/* Global base styles */
 html {
-  scroll-behavior: smooth;
-   overflow: auto;          /* allow scrolling */
-  scrollbar-width: none;    /* Firefox */
-  -ms-overflow-style: none;
+  /* Scroll behavior is handled by Lenis now, remove smooth scroll here */
+  overflow: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   background: var(--background);
-  color: var(--foreground);
+  color: var(--text-primary);
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.015em;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* ---- Glass / Card Utilities ----
-     These are plain CSS classes you can use alongside Tailwind.
-     If you prefer, move them into the `components` layer in Tailwind.
-*/
-.glass-effect {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Refined, Mature Typography Scale */
+.heading-hero { font-family: var(--font-heading); font-size: 6rem; font-weight: 500; line-height: 1.05; letter-spacing: -0.03em; } /* Max 96px */
+.heading-xl { font-family: var(--font-heading); font-size: 3rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; } /* 48px */
+.heading-lg { font-family: var(--font-heading); font-size: 2.25rem; font-weight: 500; line-height: 1.15; letter-spacing: -0.015em; } /* 36px */
+.heading-md { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; } /* 24px */
+.heading-sm { font-family: var(--font-heading); font-size: 1.125rem; font-weight: 500; letter-spacing: 0; line-height: 1.3; } /* 18px */
+.body-xl { font-family: var(--font-body); font-size: 1.125rem; line-height: 1.6; color: var(--text-secondary); font-weight: 400; letter-spacing: -0.01em; } /* 18px */
+.body-lg { font-family: var(--font-body); font-size: 1rem; line-height: 1.6; color: var(--text-secondary); font-weight: 400; } /* 16px */
+.body-md { font-family: var(--font-body); font-size: 0.875rem; line-height: 1.6; color: var(--text-secondary); } /* 14px */
+
+@media (max-width: 1024px) {
+  .heading-hero { font-size: 4rem; } /* 64px */
 }
-
-.glass-card {
-  background: rgba(20, 20, 20, 0.85);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-}
-
-.premium-card {
-  background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-}
-
-/* ---- Text gradients ---- */
-.gold-accent {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}
-
-/* ---- Animations ---- */
-@keyframes liquid-breathe {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-2px) scale(1.015); }
-}
-
-nav div {
-  animation: liquid-breathe 6s ease-in-out infinite;
-}
-
-/* Liquid Shimmer */
-.shimmer {
-  background: linear-gradient(120deg,
-    transparent 0%,
-    rgba(255,255,255,0.25) 40%,
-    rgba(255,255,255,0.45) 50%,
-    rgba(255,255,255,0.25) 60%,
-    transparent 100%);
-  animation: shimmer-move 4s ease-in-out infinite;
-  filter: blur(14px);
-}
-
-@keyframes shimmer-move {
-  0% { transform: translateX(-100%) rotate(0deg); }
-  50% { transform: translateX(100%) rotate(2deg); }
-  100% { transform: translateX(-100%) rotate(0deg); }
-}
-
-/* ---- Typography helpers (you already had these) ---- */
-.heading-xl { font-family: var(--font-heading); font-size: 4rem; font-weight: 700; line-height: 1.1; }
-.heading-lg { font-family: var(--font-heading); font-size: 3rem; font-weight: 700; line-height: 1.2; }
-.heading-md { font-family: var(--font-heading); font-size: 2.25rem; font-weight: 600; line-height: 1.3; }
-.heading-sm { font-family: var(--font-heading); font-size: 1.75rem; font-weight: 600; }
-.body-lg { font-family: var(--font-body); font-size: 1.25rem; line-height: 1.8; }
-.body-md { font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.7; }
-
-/* global CSS (add to globals.css) */
-@keyframes shimmerSlide {
-  0% { transform: translateX(-100%); opacity: 0; }
-  25% { opacity: 0.1; }
-  50% { transform: translateX(0%); opacity: 0.25; }
-  75% { opacity: 0.1; }
-  100% { transform: translateX(100%); opacity: 0; }
-}
-
-/* wrapper used by the example */
-.shimmer {
-  will-change: transform, opacity;
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0) 100%);
-  width: 200%;
-  height: 100%;
-  animation: shimmerSlide 4s linear infinite;
-  filter: blur(6px);
-  mix-blend-mode: overlay;
-}
-
-
 @media (max-width: 768px) {
-  .heading-xl { font-size: 2.75rem; }
-  .heading-lg { font-size: 2.25rem; }
-  .heading-md { font-size: 1.75rem; }
-  .heading-sm { font-size: 1.5rem; }
-  .body-lg { font-size: 1.125rem; }
+  .heading-hero { font-size: 3rem; } /* 48px */
+  .heading-xl { font-size: 2.25rem; } /* 36px */
+  .heading-lg { font-size: 1.875rem; } /* 30px */
 }
 
-/* ---- Utility: small helpers you referenced in components ---- */
-.text-gold { color: var(--gold); }
-.bg-surface { background: var(--surface); }
+/* Cinematic UI & Motion - Toned Down */
+.cinematic-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.cinematic-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+  z-index: 1;
+}
+
+/* Subtle Image reveals & hover states */
+.image-zoom-container {
+  overflow: hidden;
+}
+.image-zoom-container img {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.image-zoom-container:hover img {
+  transform: scale(1.02); /* Extremely subtle zoom */
+}
+
+/* Strict link styling */
+a {
+  transition: opacity 0.3s ease;
+}
+a:hover {
+  opacity: 0.7;
+}
+
+/* Hiding scrollbar for horizontal scrolling strips */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}

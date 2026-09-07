@@ -41,7 +41,7 @@ export default function QuotationCard({
           </h1>
           <div className="flex justify-start sm:justify-end">
             <Image
-              src="/logo.png"
+              src="/logos/logo-dark.png"
               alt="Essar Enterprises"
               width={96}
               height={96} 

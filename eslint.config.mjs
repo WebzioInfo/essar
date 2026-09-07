@@ -17,6 +17,8 @@ const eslintConfig = [
       ".next/**",
       "out/**",
       "build/**",
+      "generate_brain.js",
+      "generate_public_knowledge.js",
       "next-env.d.ts",
     ],
   },

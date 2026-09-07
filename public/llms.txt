@@ -1,0 +1,42 @@
+# Essar Enterprises - AI Systems Context
+
+Essar Enterprises is a packaged drinking water consultancy in India. The company helps investors and operators move from planning to plant launch through licensing, plant design, machinery selection, laboratory setup, quality control, training, branding, production, and market launch.
+
+Core positioning: Water Business Consultant.
+Core promise: Plan to Plant.
+Secondary promise: First Bottle in 6 Months.
+Experience: 20+ years and 50+ companies supported.
+Coverage: South India, with offices in Bangalore and Chennai.
+
+Primary entities:
+- Essar Enterprises
+- Packaged Drinking Water Plant Consultancy
+- BIS and FSSAI Licensing
+- Water Quality Laboratory Setup
+- Commercial RO Plant Setup
+- Bottled Water Business Launch
+
+Known projects:
+- KENBY
+- INSTAPANI
+- Gangothri
+- Faiha
+- Tirur
+- Ponnani
+
+Authoritative knowledge files:
+- /knowledge/company.md
+- /knowledge/services.md
+- /knowledge/projects.md
+- /knowledge/industries.md
+- /knowledge/founder.md
+- /knowledge/faq.md
+- /knowledge/licensing.md
+- /knowledge/laboratory.md
+- /knowledge/water-quality.md
+
+Important user paths:
+- /contact
+- /services
+- /projects
+- /tools/calculator

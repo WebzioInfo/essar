@@ -1,53 +1,44 @@
-import Head from "next/head";
-import Services from "../components/Services";
+import type { Metadata } from "next";
+import ServiceCard from "@/components/ui/ServiceCard";
+import TrustBar from "@/components/ui/TrustBar";
+import { services } from "@/content/services";
 
-export default function ServicePage() {
-    return (
-        <>
-            <Head>
-                <title>RO & Packaged Drinking Water Plant Services | Turnkey Solutions</title>
-                <meta
-                    name="description"
-                    content="We provide turnkey water plant solutions including RO plant setup, consultancy, laboratory setup, licensing, branding, and training. Start your water business with expert guidance."
-                />
-                <meta
-                    name="keywords"
-                    content="RO plant setup, packaged drinking water plant, water plant consultancy, laboratory setup, water testing, licensing compliance, FSSAI registration, plant branding, staff training, water plant operations"
-                />
+export const metadata: Metadata = {
+  title: "Packaged Drinking Water Plant Services | Essar Enterprises",
+  description:
+    "Explore Essar Enterprises services for turnkey plant setup, plant design, BIS and FSSAI licensing, laboratory setup, branding, and plant modernization.",
+  alternates: {
+    canonical: "/services",
+  },
+};
 
-                {/* Structured Data JSON-LD */}
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify({
-                            "@context": "https://schema.org",
-                            "@type": "Service",
-                            "provider": {
-                                "@type": "Organization",
-                                "name": "Essar Enterprises",
-                                "url": "https://www.essarenterprises.com"
-                            },
-                            "serviceType": [
-                                "RO Plant Installation & Design",
-                                "Packaged Drinking Water Plant Consultancy",
-                                "Laboratory Setup & Water Testing",
-                                "Licensing & Compliance Assistance",
-                                "Branding & Business Consultancy",
-                                "Training & Operational Support"
-                            ],
-                            "description": "Full turnkey solutions for packaged drinking water plants including design, setup, licensing, branding, laboratory setup, and training.",
-                            "areaServed": "India",
-                            "mainEntityOfPage": {
-                                "@type": "WebPage",
-                                "@id": "https://www.essarenterprises.com/services"
-                            }
-                        }),
-                    }}
-                />
-            </Head>
+export default function ServicesIndexPage() {
+  return (
+    <>
+      <div className="bg-primary pt-32 pb-24 border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+          <h1 className="heading-xl text-white mb-6">Our Services</h1>
+          <p className="heading-sm text-surface font-normal max-w-2xl mx-auto opacity-80">End-to-end execution for the packaged drinking water industry.</p>
+        </div>
+      </div>
 
+      <TrustBar />
 
-            <Services />
-        </>
-    );
+      <div className="bg-background py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service) => (
+              <ServiceCard
+                key={service.slug}
+                title={service.title}
+                description={service.description}
+                href={`/services/${service.slug}`}
+                icon={<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }

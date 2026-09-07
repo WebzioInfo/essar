@@ -1,30 +1,34 @@
-// tailwind.config.js
-module.exports = {
+import type { Config } from "tailwindcss";
+
+const config: Config = {
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
         foreground: "var(--foreground)",
         background: "var(--background)",
-        primary: "var(--primary)",
+        surface: "var(--surface)",
+        primary: {
+          DEFAULT: "var(--primary)",
+          dark: "var(--primary-dark)"
+        },
+        secondary: "var(--secondary)",
         accent: "var(--accent)",
         "text-secondary": "var(--text-secondary)",
-        gold: "var(--gold)",
+        border: "var(--border)",
       },
       fontFamily: {
-        heading: ["var(--font-heading)"],
-        body: ["var(--font-body)"],
+        heading: ["var(--font-heading)", "sans-serif"],
+        body: ["var(--font-body)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
       },
-       keyframes: {
-        shine: {
-          "0%": { transform: "translateX(-100%)" },
-          "100%": { transform: "translateX(100%)" },
-        },
-      },
-      animation: {
-        shine: "shine 2s linear infinite",
-      },
+      boxShadow: {
+        'premium': '0 1px 3px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.04)',
+        'premium-hover': '0 4px 20px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.06)',
+      }
     },
   },
   plugins: [],
 };
+
+export default config;
