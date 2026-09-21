@@ -45,6 +45,20 @@ export default function ConsultationForm() {
         throw new Error("Submission failed");
       }
 
+      const fullName = `${form.firstName} ${form.lastName}`.trim();
+      const waMessage =
+        `*Consultation Request - Essar Enterprises*\n\n` +
+        `Name: ${fullName}\n` +
+        `Phone: ${form.phone}\n` +
+        `Email: ${form.email || "—"}\n` +
+        `Client Type: ${form.status}\n\n` +
+        `Project Details:\n${form.projectDetails}`;
+
+      window.open(
+        `https://wa.me/918884677773?text=${encodeURIComponent(waMessage)}`,
+        "_blank"
+      );
+
       setState("success");
       setForm(initialForm);
       trackLeadSubmitted("contact-page-consultation");
