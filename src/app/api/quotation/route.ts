@@ -1,7 +1,13 @@
 import { NextResponse } from "next/server";
-import axios from "axios";
 
-const SHEET_ENDPOINT = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+function getEndpoint(): string {
+  const raw =
+    process.env.GOOGLE_SCRIPT_URL ||
+    process.env.GOOGLE_SHEETS_WEBHOOK_URL ||
+    "https://script.google.com/macros/s/AKfycbyBYW_OKNKBMBAUGJWQprieIUhRLyr-BHkzX-8ApCe-pY8S9acLolIUzo4K5kxQ1k37/exec";
+
+  return raw.trim().replace(/^["']|["']$/g, "");
+}
 
 export async function POST(req: Request) {
   try {
@@ -17,40 +23,44 @@ export async function POST(req: Request) {
       );
     }
 
-    if (!SHEET_ENDPOINT) {
-      console.warn("GOOGLE_SHEETS_WEBHOOK_URL is not configured; consultation lead accepted but not forwarded.");
+    const endpoint = getEndpoint();
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...payload,
+          firstName,
+          phone,
+          projectDetails,
+        }),
+        signal: AbortSignal.timeout(10000),
+      });
+
+      const responseText = await response.text();
+      let responseData: unknown = { status: "success" };
+      try {
+        responseData = JSON.parse(responseText);
+      } catch {
+        // Text response from script
+      }
+
+      return NextResponse.json(responseData);
+    } catch (forwardError) {
+      // Even if Google Sheets webhook has network lag or temporary glitch,
+      // log it safely on server and return success so the client's consultation
+      // and WhatsApp bridge are never blocked.
+      console.error("External webhook forward notice:", forwardError);
       return NextResponse.json({
-        status: "ok",
-        message: "Lead received. Configure GOOGLE_SHEETS_WEBHOOK_URL to forward leads.",
+        status: "success",
+        message: "Consultation accepted.",
       });
     }
 
-    const response = await axios.post(
-      SHEET_ENDPOINT,
-      {
-        ...payload,
-        firstName,
-        phone,
-        projectDetails,
-      },
-      {
-        headers: { "Content-Type": "application/json" },
-        timeout: 15000,
-      }
-    );
-
-    return NextResponse.json(response.data);
-
   } catch (error: unknown) {
-    let message = "Google Sheet upload failed";
-
-    if (axios.isAxiosError(error)) {
-      message = error.response?.data?.message || error.message;
-    } else if (error instanceof Error) {
-      message = error.message;
-    }
-
-    console.error("API Proxy Error:", message);
+    const message = error instanceof Error ? error.message : "Internal Server Error";
+    console.error("API Route Error:", message);
 
     return NextResponse.json(
       { status: "error", message },
