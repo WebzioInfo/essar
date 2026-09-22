@@ -16,7 +16,7 @@ export default function ServicesIndexPage() {
   return (
     <>
       <div className="bg-primary pt-32 pb-24 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center mt-10">
           <h1 className="heading-xl text-white mb-6">Our Services</h1>
           <p className="heading-sm text-surface font-normal max-w-2xl mx-auto opacity-80">End-to-end execution for the packaged drinking water industry.</p>
         </div>
