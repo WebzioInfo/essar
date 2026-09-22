@@ -1,12 +1,19 @@
 import { NextResponse } from "next/server";
 
-function getEndpoint(): string {
-  const raw =
-    process.env.GOOGLE_SCRIPT_URL ||
-    process.env.GOOGLE_SHEETS_WEBHOOK_URL ||
-    "https://script.google.com/macros/s/AKfycbyBYW_OKNKBMBAUGJWQprieIUhRLyr-BHkzX-8ApCe-pY8S9acLolIUzo4K5kxQ1k37/exec";
+const ACTIVE_APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbyBYW_OKNKBMBAUGJWQprieIUhRLyr-BHkzX-8ApCe-pY8S9acLolIUzo4K5kxQ1k37/exec";
 
-  return raw.trim().replace(/^["']|["']$/g, "");
+function getEndpoint(): string {
+  const envUrl = (process.env.GOOGLE_SHEETS_WEBHOOK_URL || "").trim().replace(/^["']|["']$/g, "");
+  if (
+    envUrl &&
+    envUrl.startsWith("https://script.google.com") &&
+    !envUrl.includes("AKfycbxlv0jQahvb")
+  ) {
+    return envUrl;
+  }
+
+  return ACTIVE_APPS_SCRIPT_URL;
 }
 
 export async function POST(req: Request) {
