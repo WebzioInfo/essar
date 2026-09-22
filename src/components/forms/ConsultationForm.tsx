@@ -27,8 +27,17 @@ export default function ConsultationForm() {
 
   async function submitForm(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setState("submitting");
     setMessage("");
+
+    // Phone validation (must have at least 10 digits)
+    const cleanPhone = form.phone.replace(/[^0-9]/g, "");
+    if (cleanPhone.length < 10) {
+      setState("error");
+      setMessage("Please enter a valid phone number with at least 10 digits.");
+      return;
+    }
+
+    setState("submitting");
 
     try {
       const response = await fetch("/api/quotation", {
@@ -54,16 +63,31 @@ export default function ConsultationForm() {
         `Client Type: ${form.status}\n\n` +
         `Project Details:\n${form.projectDetails}`;
 
-      window.open(
-        `https://wa.me/918884677773?text=${encodeURIComponent(waMessage)}`,
-        "_blank"
-      );
+      // Try automatic WhatsApp popup (Safari iOS may block if async)
+      try {
+        window.open(
+          `https://wa.me/918884677773?text=${encodeURIComponent(waMessage)}`,
+          "_blank"
+        );
+      } catch {
+        // Fallback provided on Thank You page
+      }
 
       setState("success");
       setForm(initialForm);
       trackLeadSubmitted("contact-page-consultation");
       setMessage("Thank you. Essar will review your project details and contact you shortly.");
-      router.push("/thank-you?source=contact-page-consultation");
+
+      // Rich redirect params so /thank-you has full fallback button with pre-filled message
+      const params = new URLSearchParams({
+        source: "contact-page-consultation",
+        name: fullName,
+        phone: form.phone,
+        status: form.status,
+        details: form.projectDetails,
+      });
+
+      router.push(`/thank-you?${params.toString()}`);
     } catch {
       setState("error");
       setMessage("We could not submit the form. Please call or WhatsApp +91 88846 77773.");
@@ -132,10 +156,11 @@ export default function ConsultationForm() {
           type="tel"
           autoComplete="tel"
           required
+          minLength={10}
           value={form.phone}
           onChange={(event) => updateField("phone", event.target.value)}
           className="w-full px-4 py-3 border border-border rounded-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
-          placeholder="+91"
+          placeholder="+91 98765 43210"
         />
       </div>
 

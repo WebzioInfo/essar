@@ -19,13 +19,17 @@ function getEndpoint(): string {
 export async function POST(req: Request) {
   try {
     const payload = await req.json();
-    const firstName = typeof payload.firstName === "string" ? payload.firstName.trim() : "";
-    const phone = typeof payload.phone === "string" ? payload.phone.trim() : "";
-    const projectDetails = typeof payload.projectDetails === "string" ? payload.projectDetails.trim() : "";
 
-    if (!firstName || !phone || !projectDetails) {
+    // 1. Extract and validate required fields
+    const rawName =
+      (typeof payload.firstName === "string" ? payload.firstName.trim() : "") ||
+      (typeof payload.name === "string" ? payload.name.trim() : "");
+    const rawPhone = typeof payload.phone === "string" ? payload.phone.trim() : "";
+    const cleanPhone = rawPhone.replace(/[^0-9]/g, "");
+
+    if (!rawName || cleanPhone.length < 10) {
       return NextResponse.json(
-        { status: "error", message: "First name, phone, and project details are required." },
+        { status: "error", message: "Please enter your name and a valid 10-digit phone number." },
         { status: 400 }
       );
     }
@@ -36,12 +40,7 @@ export async function POST(req: Request) {
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...payload,
-          firstName,
-          phone,
-          projectDetails,
-        }),
+        body: JSON.stringify(payload),
         signal: AbortSignal.timeout(15000),
       });
 
@@ -50,7 +49,7 @@ export async function POST(req: Request) {
       try {
         parsedData = JSON.parse(responseText);
       } catch {
-        // Not JSON
+        // Response is plain text
       }
 
       return NextResponse.json({
@@ -58,13 +57,13 @@ export async function POST(req: Request) {
         data: parsedData || "ok",
       });
     } catch (forwardError) {
-      console.error("External webhook forward notice:", forwardError);
+      console.error("Google Apps Script forwarding notice:", forwardError);
+      // Fallback success so client can proceed to WhatsApp without losing the lead
       return NextResponse.json({
         status: "success",
         message: "Consultation accepted.",
       });
     }
-
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : "Internal Server Error";
     console.error("API Route Error:", message);
