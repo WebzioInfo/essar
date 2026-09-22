@@ -51,6 +51,7 @@ export function projectArticleSchema(project: Project) {
       name: "Essar Enterprises",
     },
     about: project.services,
+    ...(project.websiteUrl ? { sameAs: project.websiteUrl } : {}),
   };
 }
 

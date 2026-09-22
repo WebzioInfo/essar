@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import CountUp from "react-countup";
+import { companyData, trackRecordMetrics } from "@/content/company";
 
 // --- Subtle Motion Variants (McKinsey / Apple style) ---
 
@@ -27,16 +27,6 @@ export default function HomePageClient() {
   // Parallax background refs
   const heroSectionRef = useRef<HTMLElement>(null);
   const parallaxBgRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Ensure video is completely static (paused at 0s, no autoplay)
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.pause();
-      video.currentTime = 0;
-    }
-  }, []);
 
   // Subtle scroll parallax effect on background visual
   useEffect(() => {
@@ -126,13 +116,12 @@ export default function HomePageClient() {
               ref={parallaxBgRef}
               className="absolute -top-24 -bottom-8 inset-x-0 w-full h-[calc(100%+128px)] will-change-transform"
             >
-              <video
-                ref={videoRef}
-                src="/videos/hero/hero-factory-loop.mp4"
-                poster="/images/hero/hero-water-factory.webp"
-                muted
-                playsInline
-                preload="auto"
+              <Image
+                src="/images/hero/bottile.png"
+                alt="Packaged Drinking Water Bottling Production Line"
+                fill
+                priority
+                sizes="100vw"
                 className="w-full h-full object-cover object-center pointer-events-none"
               />
             </div>
@@ -178,11 +167,13 @@ export default function HomePageClient() {
                   </Link>
                 </motion.div>
 
-                <motion.div variants={fadeUp} className="text-xs text-text-secondary tracking-wide flex flex-wrap gap-x-2 gap-y-1">
-                  <span className="font-medium text-primary">20+ Years Experience</span>
-                  <span className="opacity-40">•</span>
-                  <span>50+ Companies Supported</span>
-                  <span className="opacity-40">•</span>
+                <motion.div variants={fadeUp} className="text-xs text-text-secondary tracking-wide flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                  <span className="font-medium text-primary">{companyData.yearsOfExperience} Years Experience</span>
+                  <span className="opacity-30">•</span>
+                  <span>{companyData.metrics.roPlantsServiced.value} RO Plants Serviced</span>
+                  <span className="opacity-30">•</span>
+                  <span>{companyData.metrics.commercialPlantsSupported.value} Commercial Plants Supported</span>
+                  <span className="opacity-30">•</span>
                   <span>South India</span>
                 </motion.div>
               </motion.div>
@@ -191,7 +182,7 @@ export default function HomePageClient() {
           </div>
         </section>
 
-        {/* SECTION 2: Trust / The Reality (Humanized Copy) */}
+        {/* SECTION 2: Trust / The Reality */}
         <section className="py-24 md:py-32 bg-surface">
           <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
             <motion.div
@@ -205,33 +196,41 @@ export default function HomePageClient() {
                 We build plants that run.
               </motion.h2>
               <motion.p variants={fadeUp} className="body-xl mb-8">
-                We have spent more than 20 years helping entrepreneurs build and improve packaged drinking water plants. The reality of this industry is that buying machinery is the easy part. The real challenge is compliance, architecture, and consistent quality control.
+                We have spent more than 20 years helping entrepreneurs build, revive, and optimize packaged drinking water plants. The reality of this industry is that buying machinery is the easy part. The real challenge is compliance, architecture, and consistent quality control.
               </motion.p>
               <motion.p variants={fadeUp} className="body-lg mb-16 max-w-2xl">
-                From licensing and plant design to laboratory setup and production support, we help you launch your bottled water business with confidence. We don&apos;t make unrealistic promises; we engineer practical, profitable solutions.
+                From licensing and plant design to laboratory setup and operational management, we provide the technical depth required to launch and sustain profitable water manufacturing operations.
               </motion.p>
             </motion.div>
 
-            {/* Subtle Counters */}
+            {/* Track Record Grid (Quiet Luxury / Mature B2B Consulting) */}
             <motion.div
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 pt-16 border-t border-border"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pt-16 border-t border-border"
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true, amount: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
               variants={fadeUpStagger}
             >
-              {[
-                { end: 20, suffix: "+", label: "Years Experience" },
-                { end: 50, suffix: "+", label: "Companies Supported" },
-                { end: 6, suffix: " Months", label: "To First Bottle" },
-                { end: 100, suffix: "%", label: "BIS Compliance Rate" }
-              ].map((item, i) => (
-                <motion.div key={i} variants={fadeUp} className="flex flex-col">
-                  <div className="text-4xl md:text-5xl font-light mb-3 text-primary">
-                    <CountUp end={item.end} duration={2} useEasing={true} enableScrollSpy scrollSpyOnce />
-                    <span>{item.suffix}</span>
+              {trackRecordMetrics.map((metric) => (
+                <motion.div
+                  key={metric.id}
+                  variants={fadeUp}
+                  className="flex flex-col justify-between p-6 sm:p-7 rounded-sm bg-background border border-border/70 hover:border-primary/40 transition-colors"
+                >
+                  <div>
+                    <span className="text-[11px] font-semibold tracking-wider uppercase text-text-secondary/70 block mb-3">
+                      {metric.scope}
+                    </span>
+                    <div className="text-4xl md:text-5xl font-light tracking-tight text-primary mb-2">
+                      {metric.value}
+                    </div>
+                    <div className="text-base font-medium text-primary mb-2">
+                      {metric.label}
+                    </div>
                   </div>
-                  <div className="text-sm text-text-secondary">{item.label}</div>
+                  <p className="text-xs text-text-secondary leading-relaxed pt-3 mt-3 border-t border-border/40">
+                    {metric.context}
+                  </p>
                 </motion.div>
               ))}
             </motion.div>
@@ -300,32 +299,32 @@ export default function HomePageClient() {
               {/* KENBY (Editorial Image Left) */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                 <motion.div
-                  className="lg:col-span-8 image-zoom-container"
+                  className="lg:col-span-7 image-zoom-container"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1 }}
                 >
-                  <div className="w-full max-w-full aspect-[9/16] lg:w-150 lg:h-150 lg:aspect-auto relative overflow-hidden bg-background">
+                  <div className="w-full aspect-[4/3] relative overflow-hidden bg-background rounded-sm">
                     <Image
                       src="/images/projects/kenby/kenbyimage.jpg"
-                      alt="KENBY Project"
+                      alt="KENBY Project Facility"
                       fill
                       className="object-cover object-center"
-                      sizes="(max-width: 1024px) 100vw, 70vw"
+                      sizes="(max-width: 1024px) 100vw, 60vw"
                       loading="lazy"
                     />
                   </div>
                 </motion.div>
                 <motion.div
-                  className="lg:col-span-4"
+                  className="lg:col-span-5"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                  <div className="text-xs font-semibold tracking-widest uppercase text-text-secondary mb-4">Facility Expansion</div>
-                  <div className="relative h-16 w-48 mb-6">
+                  <div className="text-xs font-semibold tracking-widest uppercase text-text-secondary mb-3">Turnkey Plant Setup</div>
+                  <div className="relative h-14 w-44 mb-4">
                     <Image
                       src="/images/projects/kenby/kenby-Photoroom.png"
                       alt="KENBY Logo"
@@ -333,52 +332,124 @@ export default function HomePageClient() {
                       className="object-contain object-left"
                     />
                   </div>
-                  <p className="body-lg mb-8">
-                    A comprehensive packaged drinking water facility established for Eranad Beverages. We handled everything from the initial civil design to final regulatory clearance.
+                  <div className="text-xs text-text-secondary mb-5 tracking-wide">Eranad Beverages • Kerala</div>
+                  <p className="body-lg mb-6 text-text-secondary">
+                    A comprehensive packaged drinking water facility established from bare land. Essar delivered factory blueprints, machinery installation coordination, QC lab setup, and regulatory clearance.
                   </p>
-                  <Link href="/projects" className="text-sm font-medium border-b border-primary pb-1 hover:text-text-secondary hover:border-text-secondary transition-colors">
-                    View Details
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    <span className="text-xs px-2.5 py-1 bg-surface text-text-secondary border border-border rounded-sm">Bare-Land to Commissioning</span>
+                    <span className="text-xs px-2.5 py-1 bg-surface text-text-secondary border border-border rounded-sm">BIS & FSSAI Approvals</span>
+                    <span className="text-xs px-2.5 py-1 bg-surface text-text-secondary border border-border rounded-sm">QC Lab Setup</span>
+                  </div>
+                  <Link href="/projects/kenby" className="inline-flex items-center gap-2 text-sm font-medium border-b border-primary pb-1 hover:text-text-secondary hover:border-text-secondary transition-colors">
+                    Read Case Study <span>→</span>
                   </Link>
                 </motion.div>
               </div>
 
-              {/* INSTAPANI (Editorial Image Right) */}
+              {/* GANGOTHRI (Editorial Details Left, Image Right) */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
                 <motion.div
-                  className="lg:col-span-4 order-2 lg:order-1"
+                  className="lg:col-span-5 order-2 lg:order-1"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                  <div className="text-xs font-semibold tracking-widest uppercase text-text-secondary mb-4">Turnkey Setup</div>
-                  <h3 className="heading-lg mb-6 text-primary">INSTAPANI</h3>
-                  <p className="body-lg mb-8">
-                    An advanced production floor and high-tech laboratory integration for Instapani Beverages, ensuring uncompromising daily quality control.
+                  <div className="text-xs font-semibold tracking-widest uppercase text-text-secondary mb-3">
+                    Plant Revival & Management
+                  </div>
+                  <h3 className="heading-lg mb-2 text-primary">Gangothri</h3>
+                  <div className="text-xs text-text-secondary mb-5 tracking-wide">
+                    Changarakulam, Kerala • Managed by Essar
+                  </div>
+                  <p className="body-lg mb-6 text-text-secondary">
+                    An existing packaged drinking water business brought back into active commercial production through systematic engineering overhaul, RO membrane modernization, and in-house laboratory setup under Essar direct management.
                   </p>
-                  <Link href="/projects" className="text-sm font-medium border-b border-primary pb-1 hover:text-text-secondary hover:border-text-secondary transition-colors">
-                    View Details
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    <span className="text-xs px-2.5 py-1 bg-surface text-text-secondary border border-border rounded-sm">Plant Revival</span>
+                    <span className="text-xs px-2.5 py-1 bg-surface text-text-secondary border border-border rounded-sm">RO Overhaul</span>
+                    <span className="text-xs px-2.5 py-1 bg-surface text-text-secondary border border-border rounded-sm">Lab Setup</span>
+                    <span className="text-xs px-2.5 py-1 bg-surface text-text-secondary border border-border rounded-sm">Active Operations</span>
+                  </div>
+                  <Link
+                    href="/projects/gangothri"
+                    className="inline-flex items-center gap-2 text-sm font-medium border-b border-primary pb-1 hover:text-text-secondary hover:border-text-secondary transition-colors"
+                  >
+                    Read Case Study <span>→</span>
                   </Link>
                 </motion.div>
                 <motion.div
-                  className="lg:col-span-8 order-1 lg:order-2 image-zoom-container"
+                  className="lg:col-span-7 order-1 lg:order-2 image-zoom-container"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1 }}
                 >
-                  <div className="aspect-[16/9] w-full relative overflow-hidden bg-background">
+                  <div className="aspect-[4/3] w-full relative overflow-hidden bg-background rounded-sm">
                     <Image
-                      src="/images/projects/instapani/instapani-jar-production.webp"
-                      alt="INSTAPANI Project"
+                      src="/images/projects/gangothri/01-gangothri-bottle-can.png"
+                      alt="Gangothri Rivus 20L Packaged Water Can"
                       fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 70vw"
+                      className="object-cover object-center"
+                      sizes="(max-width: 1024px) 100vw, 60vw"
                     />
                   </div>
                 </motion.div>
               </div>
 
+              {/* INSTAPANI (Editorial Image Left, Details Right) */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                <motion.div
+                  className="lg:col-span-7 image-zoom-container"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1 }}
+                >
+                  <div className="aspect-[4/3] w-full relative overflow-hidden bg-background rounded-sm">
+                    <Image
+                      src="/images/projects/instapani/instapani-jar-production.webp"
+                      alt="INSTAPANI 20L Production Line"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                    />
+                  </div>
+                </motion.div>
+                <motion.div
+                  className="lg:col-span-5"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  <div className="text-xs font-semibold tracking-widest uppercase text-text-secondary mb-3">Turnkey Setup</div>
+                  <h3 className="heading-lg mb-2 text-primary">INSTAPANI</h3>
+                  <div className="text-xs text-text-secondary mb-5 tracking-wide">Instapani Beverages • South India</div>
+                  <p className="body-lg mb-6 text-text-secondary">
+                    An advanced production floor and high-tech laboratory integration for Instapani Beverages, ensuring uncompromising daily quality control and reliable commercial distribution.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    <span className="text-xs px-2.5 py-1 bg-surface text-text-secondary border border-border rounded-sm">Automated Bottling Line</span>
+                    <span className="text-xs px-2.5 py-1 bg-surface text-text-secondary border border-border rounded-sm">In-House QC Lab</span>
+                    <span className="text-xs px-2.5 py-1 bg-surface text-text-secondary border border-border rounded-sm">Packaging Integration</span>
+                  </div>
+                  <Link href="/projects/instapani" className="inline-flex items-center gap-2 text-sm font-medium border-b border-primary pb-1 hover:text-text-secondary hover:border-text-secondary transition-colors">
+                    Read Case Study <span>→</span>
+                  </Link>
+                </motion.div>
+              </div>
+
+            </div>
+
+            <div className="mt-20 pt-12 border-t border-border flex justify-center">
+              <Link
+                href="/projects"
+                className="px-8 py-4 bg-primary text-background font-medium hover:bg-secondary transition-colors text-sm"
+              >
+                View All Projects &amp; Case Studies
+              </Link>
             </div>
           </div>
         </section>
@@ -395,9 +466,9 @@ export default function HomePageClient() {
                 viewport={{ once: true }}
                 transition={{ duration: 1 }}
               >
-                <div className="aspect-square bg-surface w-full max-w-md mx-auto lg:mx-0 relative overflow-hidden">
+                <div className="aspect-[3/4] bg-surface w-full max-w-md mx-auto lg:mx-0 relative overflow-hidden">
                   <Image
-                    src="/images/founder/founder-portrait.webp"
+                    src="/images/founder/founder-new.jpeg"
                     alt="Essar Director"
                     fill
                     className="object-cover filter grayscale contrast-125"

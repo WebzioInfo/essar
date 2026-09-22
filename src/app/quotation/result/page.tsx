@@ -5,25 +5,25 @@ type BPM = 40 | 60 | 90 | 120 | 180;
 type AutomationType = "Semi Automatic" | "Fully Automatic";
 
 type QuotationResultProps = {
-  searchParams?: {
+  searchParams?: Promise<{
     bpm?: string;
     type?: AutomationType;
     plantType?: string;
     services?: string;
     projectTimeline?: string;
     budget?: string;
-  };
+  }>;
 };
 
-export default function QuotationResult({ searchParams }: QuotationResultProps) {
-  if (!searchParams?.bpm || !searchParams.type) {
-    console.log("hsgvcahgdvcthe")
-    redirect("/quotation");
+export default async function QuotationResult({ searchParams }: QuotationResultProps) {
+  const params = (await searchParams) || {};
 
+  if (!params.bpm || !params.type) {
+    redirect("/quotation");
   }
 
-  const bpm = Number(searchParams.bpm) || 120;
-  const type = searchParams.type || "Fully Automatic";
+  const bpm = Number(params.bpm) || 120;
+  const type = params.type || "Fully Automatic";
 
   const validBpm: BPM[] = [40, 60, 90, 120, 180];
   const validType: AutomationType[] = ["Semi Automatic", "Fully Automatic"];
@@ -32,10 +32,10 @@ export default function QuotationResult({ searchParams }: QuotationResultProps) 
     redirect("/quotation");
   }
 
-  const plantType = searchParams.plantType || "Packaged Bottled Water";
-  const services = searchParams.services?.split(",") || [];
-  const projectTimeline = searchParams.projectTimeline || "3-6 months";
-  const budget = searchParams.budget || "-";
+  const plantType = params.plantType || "Packaged Bottled Water";
+  const services = params.services?.split(",") || [];
+  const projectTimeline = params.projectTimeline || "3-6 months";
+  const budget = params.budget || "-";
 
   return (
     <main className="min-h-screen p-8 bg-black">
