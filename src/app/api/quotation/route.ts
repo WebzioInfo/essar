@@ -42,22 +42,22 @@ export async function POST(req: Request) {
           phone,
           projectDetails,
         }),
-        signal: AbortSignal.timeout(10000),
+        signal: AbortSignal.timeout(15000),
       });
 
       const responseText = await response.text();
-      let responseData: unknown = { status: "success" };
+      let parsedData: unknown = null;
       try {
-        responseData = JSON.parse(responseText);
+        parsedData = JSON.parse(responseText);
       } catch {
-        // Text response from script
+        // Not JSON
       }
 
-      return NextResponse.json(responseData);
+      return NextResponse.json({
+        status: "success",
+        data: parsedData || "ok",
+      });
     } catch (forwardError) {
-      // Even if Google Sheets webhook has network lag or temporary glitch,
-      // log it safely on server and return success so the client's consultation
-      // and WhatsApp bridge are never blocked.
       console.error("External webhook forward notice:", forwardError);
       return NextResponse.json({
         status: "success",
