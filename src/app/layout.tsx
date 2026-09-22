@@ -20,12 +20,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logos/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/logos/favicon-white.png", sizes: "any", type: "image/png" },
       { url: "/logos/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/logos/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/logos/favicon.ico", sizes: "any" }
     ],
     apple: [
-      { url: "/logos/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
+      { url: "/logos/favicon-white.png", sizes: "180x180", type: "image/png" }
     ],
     other: [
       { rel: "manifest", url: "/site.webmanifest" }
