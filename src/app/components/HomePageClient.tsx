@@ -108,7 +108,7 @@ export default function HomePageClient() {
         {/* SECTION 1: Editorial Hero with Exact Viewport Alignment & Subtle Parallax Background */}
         <section
           ref={heroSectionRef}
-          className="relative h-[100svh] min-h-[100vh] w-full flex flex-col justify-center pt-20 pb-8 lg:pt-24 lg:pb-12 bg-background text-primary overflow-hidden"
+          className="relative h-[100svh] min-h-[100vh] w-full flex flex-col justify-center pt-20 pb-8 lg:pt-24 lg:pb-12 bg-black text-white overflow-hidden"
         >
           {/* Background Layer: Full-bleed edge-to-edge with vertical parallax overscan */}
           <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
@@ -127,9 +127,9 @@ export default function HomePageClient() {
             </div>
           </div>
 
-          {/* Subtle Gradient / Fade Overlay for Text Readability */}
+          {/* Sleek Black Gradient Overlay for High Contrast & Visual Depth */}
           <div
-            className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-b from-white/90 via-white/60 to-white/20 lg:bg-gradient-to-r lg:from-white/95 lg:via-white/60 lg:to-transparent"
+            className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-b from-black/80 via-black/60 to-black/40 lg:bg-gradient-to-r lg:from-black/90 lg:via-black/70 lg:to-black/35"
             aria-hidden="true"
           />
 
@@ -144,36 +144,36 @@ export default function HomePageClient() {
                 animate={!loading ? "show" : "hidden"}
               >
                 <motion.div variants={fadeUp} className="mb-4 lg:mb-6">
-                  <span className="text-xs font-semibold tracking-widest uppercase text-text-secondary border-b border-border pb-1">
+                  <span className="text-xs font-semibold tracking-widest uppercase text-white/80 border-b border-white/20 pb-1">
                     Water Business Consultants
                   </span>
                 </motion.div>
 
-                <motion.h1 variants={fadeUp} className="heading-hero text-primary mb-4 lg:mb-6">
+                <motion.h1 variants={fadeUp} className="heading-hero text-white mb-4 lg:mb-6">
                   Plan to Plant.
                 </motion.h1>
 
-                <motion.h2 variants={fadeUp} className="heading-sm text-text-secondary font-normal mb-4 lg:mb-6 leading-relaxed max-w-lg">
+                <motion.h2 variants={fadeUp} className="heading-sm text-white/90 font-normal mb-4 lg:mb-6 leading-relaxed max-w-lg">
                   Helping entrepreneurs build packaged drinking water businesses since 2004.
                 </motion.h2>
 
-                <motion.p variants={fadeUp} className="body-lg text-text-secondary leading-relaxed mb-6 lg:mb-8 max-w-md">
+                <motion.p variants={fadeUp} className="body-lg text-white/75 leading-relaxed mb-6 lg:mb-8 max-w-md">
                   Essar Enterprises supports investors, manufacturers and plant owners with planning, licensing, laboratory setup, water quality management and operational guidance.
                 </motion.p>
 
                 <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-6 lg:mb-8 w-full">
-                  <Link href="/contact" className="px-8 py-4 bg-primary text-background font-medium hover:bg-secondary transition-colors text-sm">
+                  <Link href="/contact" className="px-8 py-4 bg-white text-black font-semibold hover:bg-white/90 transition-colors text-sm rounded-md shadow-lg">
                     Book Strategy Session
                   </Link>
                 </motion.div>
 
-                <motion.div variants={fadeUp} className="text-xs text-text-secondary tracking-wide flex flex-wrap items-center gap-x-2.5 gap-y-1">
-                  <span className="font-medium text-primary">{companyData.yearsOfExperience} Years Experience</span>
-                  <span className="opacity-30">•</span>
+                <motion.div variants={fadeUp} className="text-xs text-white/80 tracking-wide flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                  <span className="font-semibold text-white">{companyData.yearsOfExperience} Years Experience</span>
+                  <span className="opacity-40">•</span>
                   <span>{companyData.metrics.roPlantsServiced.value} RO Plants Serviced</span>
-                  <span className="opacity-30">•</span>
+                  <span className="opacity-40">•</span>
                   <span>{companyData.metrics.commercialPlantsSupported.value} Commercial Plants Supported</span>
-                  <span className="opacity-30">•</span>
+                  <span className="opacity-40">•</span>
                   <span>South India</span>
                 </motion.div>
               </motion.div>
