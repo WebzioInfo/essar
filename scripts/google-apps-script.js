@@ -45,7 +45,7 @@ function doPost(e) {
       source
     ]);
 
-    var logoUrl = "https://www.essarenterprises.co.in/logos/logo-icon.png";
+    var logoBannerUrl = "https://www.essarenterprises.co.in/logos/email-header-banner.png";
     var waCleanPhone = phone.replace(/[^0-9]/g, "");
     var waLink = "https://wa.me/" + (waCleanPhone.length === 10 ? "91" + waCleanPhone : waCleanPhone);
 
@@ -53,14 +53,14 @@ function doPost(e) {
     var essarAdminEmail = "webzio.info@gmail.com";
     var adminSubject = "🔥 New Lead: " + fullName + " (" + phone + ") - " + source;
     var adminHtml = `
-      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
-        <div style="background: #ffffff; padding: 24px; text-align: center; border-bottom: 2px solid #006670;">
-          <img src="${logoUrl}" alt="Essar Enterprises" style="max-width: 150px; height: auto; display: block; margin: 0 auto;" />
-          <h2 style="margin: 12px 0 4px 0; font-size: 18px; font-weight: 600; color: #006670;">New Consultation Lead</h2>
-          <p style="margin: 0; font-size: 13px; color: #6b7280;">Website Form Submission</p>
-        </div>
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
+        <img src="${logoBannerUrl}" alt="Essar Enterprises" width="600" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto; background-color: #ffffff;" />
         
         <div style="padding: 24px; color: #1f2937; line-height: 1.6;">
+          <div style="background: #e6f0f2; border-left: 4px solid #006670; padding: 12px 16px; border-radius: 4px; margin-bottom: 20px;">
+            <h2 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 700; color: #006670;">🔥 New Consultation Lead</h2>
+            <p style="margin: 0; font-size: 13px; color: #4b5563;">Website Form Submission</p>
+          </div>
           <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
             <tr>
               <td style="padding: 8px 0; color: #6b7280; width: 140px;">Client Name:</td>
@@ -120,10 +120,7 @@ function doPost(e) {
         var userSubject = "Consultation Request Received | Essar Enterprises";
         var userHtml = `
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
-            <div style="background: #ffffff; padding: 24px; text-align: center; border-bottom: 2px solid #006670;">
-              <img src="${logoUrl}" alt="Essar Enterprises" style="max-width: 160px; height: auto; display: block; margin: 0 auto;" />
-              <p style="margin: 8px 0 0 0; font-size: 13px; color: #006670; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Plan to Plant • Water Business Consultants</p>
-            </div>
+            <img src="${logoBannerUrl}" alt="Essar Enterprises" width="600" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto; background-color: #ffffff;" />
 
             <div style="padding: 24px; color: #1f2937; line-height: 1.6;">
               <p style="font-size: 15px; margin: 0 0 14px 0;">Dear <strong>${firstName}</strong>,</p>
