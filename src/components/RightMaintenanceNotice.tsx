@@ -142,7 +142,7 @@ export default function RightMaintenanceNotice({
                           if (dontShowAgain) handleClose(true);
                           else handleClose(false);
                         }}
-                        className="text-xs font-medium px-3 py-2 rounded-full bg-green-600 text-white hover:brightness-95 transition"
+                        className="text-xs font-medium px-3 py-2 rounded-full bg-primary text-white hover:bg-secondary transition"
                         aria-label="Contact on WhatsApp"
                       >
                         WhatsApp

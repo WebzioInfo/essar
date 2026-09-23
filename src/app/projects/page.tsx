@@ -149,9 +149,12 @@ export default function ProjectsIndexPage() {
                 href="https://wa.me/918884677773?text=Hi%20Essar%20Enterprises%2C%20I%20would%20like%20to%20consult%20about%20a%20packaged%20drinking%20water%20plant%20project."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-4 bg-[#25D366] text-white font-medium hover:opacity-90 transition-opacity text-sm rounded-sm"
+                className="px-6 py-4 border border-border bg-surface text-primary font-medium hover:border-primary transition-colors text-sm rounded-sm inline-flex items-center gap-2.5"
               >
-                💬 WhatsApp Direct
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.18-.543-1.636-.677-2.736-2.316-2.82-2.428-.084-.112-.667-.887-.667-1.691 0-.804.42-1.201.57-1.365.144-.157.315-.198.42-.198.106 0 .211.002.304.006.098.004.23-.037.36.275.133.32.457 1.11.498 1.192.041.082.069.178.013.288-.056.11-.084.179-.168.275-.084.096-.176.216-.252.29-.084.083-.173.173-.075.341.098.167.436.721.936 1.167.644.574 1.187.752 1.356.835.168.083.267.07.367-.044.1-.115.429-.5.544-.673.114-.173.23-.144.385-.087.156.057.99.467 1.16.552.17.085.284.127.326.198.042.072.042.417-.102.822z" />
+                </svg>
+                <span>WhatsApp Direct</span>
               </a>
             </div>
           </div>

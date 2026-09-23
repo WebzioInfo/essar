@@ -57,7 +57,7 @@ function doPost(e) {
         <img src="${logoBannerUrl}" alt="Essar Enterprises" width="600" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto; background-color: #ffffff;" />
         
         <div style="padding: 24px; color: #1f2937; line-height: 1.6;">
-          <div style="background: #e6f0f2; border-left: 4px solid #006670; padding: 12px 16px; border-radius: 4px; margin-bottom: 20px;">
+          <div style="background: #f9fafb; border: 1px solid #e5e7eb; border-left: 4px solid #006670; padding: 12px 16px; border-radius: 4px; margin-bottom: 20px;">
             <h2 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 700; color: #006670;">🔥 New Consultation Lead</h2>
             <p style="margin: 0; font-size: 13px; color: #4b5563;">Website Form Submission</p>
           </div>
@@ -94,7 +94,7 @@ function doPost(e) {
           </div>
 
           <div style="margin-top: 24px; text-align: center;">
-            <a href="${waLink}" style="display: inline-block; background: #25D366; color: #ffffff; text-decoration: none; padding: 12px 24px; font-weight: 600; border-radius: 6px; font-size: 14px;">
+            <a href="${waLink}" style="display: inline-block; background: #111827; color: #ffffff; text-decoration: none; padding: 12px 24px; font-weight: 600; border-radius: 6px; font-size: 14px;">
               💬 Open Chat on WhatsApp
             </a>
           </div>

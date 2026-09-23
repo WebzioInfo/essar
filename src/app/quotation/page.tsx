@@ -178,7 +178,7 @@ export default function QuotationWizard() {
             </div>
             <div className="ml-auto text-sm text-slate-400" aria-hidden>
               <span className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1">
-                <CheckCircle className="w-4 h-4 text-green-400" /> Trusted — 20+ years
+                <CheckCircle className="w-4 h-4 text-accent" /> Trusted — 20+ years
               </span>
             </div>
           </div>

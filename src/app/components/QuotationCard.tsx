@@ -35,7 +35,7 @@ export default function QuotationCard({
       <div className="max-w-4xl mt-8 md:mt-16 mx-auto p-8 border rounded-2xl shadow-lg bg-white text-black">
         {/* Header */}
         <div className="flex  gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <h1 className="text-2xl text-green-700 sm:text-lg lg:text-4xl font-bold leading-snug">
+          <h1 className="text-2xl text-accent sm:text-lg lg:text-4xl font-bold leading-snug">
             Proposal for {automationType} <br />
             {plantType} Plant
           </h1>
@@ -79,8 +79,8 @@ export default function QuotationCard({
             </div>
 
             <div>
-              <div className="font-semibold text-green-700">Return of Investment</div>
-              <p className="text-xl sm:text-2xl font-bold text-green-700">36 Months</p>
+              <div className="font-semibold text-accent">Return of Investment</div>
+              <p className="text-xl sm:text-2xl font-bold text-accent">36 Months</p>
             </div>
           </div>
 
@@ -100,7 +100,7 @@ export default function QuotationCard({
         {/* We Do / You Do */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 text-base sm:text-lg">
           <div>
-            <h3 className="font-bold text-green-700 mb-2">What We Do</h3>
+            <h3 className="font-bold text-accent mb-2">What We Do</h3>
             <ul className="space-y-1.5">
               <li>• Licenses & Paper Works</li>
               <li>• Project Design & Planning</li>
