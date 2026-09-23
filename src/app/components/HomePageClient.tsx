@@ -157,7 +157,7 @@ export default function HomePageClient() {
                   Helping entrepreneurs build packaged drinking water businesses since 2004.
                 </motion.h2>
 
-                <motion.p variants={fadeUp} className="body-lg text-white/75 leading-relaxed mb-6 lg:mb-8 max-w-md">
+                <motion.p variants={fadeUp} className="text-base text-white/60 font-normal leading-relaxed mb-6 lg:mb-8 max-w-md">
                   Essar Enterprises supports investors, manufacturers and plant owners with planning, licensing, laboratory setup, water quality management and operational guidance.
                 </motion.p>
 
@@ -451,6 +451,88 @@ export default function HomePageClient() {
                 View All Projects &amp; Case Studies
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* SECTION: Regional Presence & Offices */}
+        <section className="py-24 md:py-32 bg-background border-b border-border">
+          <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
+            <motion.div
+              className="max-w-3xl mb-16"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeUpStagger}
+            >
+              <motion.div variants={fadeUp} className="mb-4">
+                <span className="text-xs font-semibold tracking-widest uppercase text-text-secondary border-b border-border pb-1">
+                  Regional Presence
+                </span>
+              </motion.div>
+              <motion.h2 variants={fadeUp} className="heading-xl text-primary mb-4">
+                Our Offices Across South India
+              </motion.h2>
+              <motion.p variants={fadeUp} className="body-lg text-text-secondary leading-relaxed">
+                With operational and technical consulting hubs in Kerala, Karnataka, and Tamil Nadu, Essar Enterprises provides direct on-site technical inspection and turnkey plant engineering.
+              </motion.p>
+            </motion.div>
+
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeUpStagger}
+            >
+              {companyData.offices.map((office) => (
+                <motion.div
+                  key={office.id}
+                  variants={fadeUp}
+                  className="p-8 bg-surface border border-border rounded-2xl flex flex-col justify-between hover:border-primary/40 transition-colors shadow-xs group"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-3 mb-5">
+                      <span className="px-3 py-1 bg-white border border-border text-xs font-semibold uppercase tracking-wider text-primary rounded-full">
+                        {office.state}
+                      </span>
+                      <span className="text-xs text-text-secondary font-medium">{office.city}</span>
+                    </div>
+
+                    <h3 className="font-semibold text-lg text-primary mb-2 group-hover:text-accent transition-colors">
+                      {office.name}
+                    </h3>
+                    <p className="text-sm text-text-secondary leading-relaxed mb-6">
+                      {office.address} <br />
+                      {office.city} – {office.pincode}
+                    </p>
+                  </div>
+
+                  <div className="pt-6 border-t border-border flex items-center justify-between gap-3">
+                    <div>
+                      <span className="text-[11px] uppercase tracking-wider text-text-secondary block mb-0.5">
+                        Direct Line
+                      </span>
+                      <a
+                        href={`tel:${office.phone.replace(/[^0-9+]/g, "")}`}
+                        className="text-sm font-semibold text-primary hover:text-accent transition-colors"
+                      >
+                        {office.phone}
+                      </a>
+                    </div>
+                    <a
+                      href={`https://wa.me/${office.phoneRaw}?text=${encodeURIComponent(
+                        `Hi Essar Enterprises, I would like to connect with your ${office.city} office regarding a water plant project.`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-[#25D366] text-white text-xs font-semibold rounded-md hover:opacity-95 transition-opacity flex items-center gap-1.5 shadow-xs"
+                    >
+                      <span>WhatsApp</span>
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </section>
 

@@ -1,4 +1,3 @@
-'use client';
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone, Globe, Instagram } from "lucide-react";
@@ -42,7 +41,7 @@ export default function Footer() {
                 <Phone size={22} />
               </a>
 
-              <a href="https://www.google.com/maps?q=Calicut+Kerala"
+              <a href="https://www.google.com/maps?q=Spencer+Plaza+Chennai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
@@ -67,10 +66,10 @@ export default function Footer() {
               </a>
             </div>
 
-            <p className="body-sm text-gray-400 mt-4">
-              Phone: +91 88846 77773 <br />
+            <p className="body-sm text-gray-400 mt-6 leading-relaxed">
+              Helpline: +91 88846 77773 / +91 85531 85300 <br />
               Email: info@essarenterprises.co.in <br />
-              Location: Calicut, Kerala
+              Regional Presence: Kerala • Karnataka • Tamil Nadu
             </p>
           </div>
 

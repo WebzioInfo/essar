@@ -7,6 +7,18 @@ export type CompanyMetric = {
   scope?: string;
 };
 
+export type OfficeLocation = {
+  id: string;
+  name: string;
+  state: string;
+  city: string;
+  address: string;
+  pincode: string;
+  phone: string;
+  phoneRaw: string;
+  landmark?: string;
+};
+
 export type CompanyProfile = {
   name: string;
   foundedYear: number;
@@ -19,6 +31,7 @@ export type CompanyProfile = {
   headquarters: string;
   contactNumber: string;
   contactEmail: string;
+  offices: OfficeLocation[];
   metrics: {
     experience: CompanyMetric;
     roPlantsServiced: CompanyMetric;
@@ -38,7 +51,39 @@ export const companyData: CompanyProfile = {
   geographicCoverage: "South India (Kerala, Karnataka, Tamil Nadu)",
   headquarters: "South India",
   contactNumber: "+91 88846 77773",
-  contactEmail: "webzio.info@gmail.com",
+  contactEmail: "info@essarenterprises.co.in",
+  offices: [
+    {
+      id: "kerala",
+      name: "Kerala Regional Office",
+      state: "Kerala",
+      city: "Malappuram",
+      address: "Bypass Road, Kondotty",
+      pincode: "673638",
+      phone: "+91 88846 77773",
+      phoneRaw: "918884677773",
+    },
+    {
+      id: "karnataka",
+      name: "Karnataka Office",
+      state: "Karnataka",
+      city: "Bangalore",
+      address: "Segahalli, KR Puram",
+      pincode: "560049",
+      phone: "+91 85531 85300",
+      phoneRaw: "918553185300",
+    },
+    {
+      id: "tamil-nadu",
+      name: "Tamil Nadu Office",
+      state: "Tamil Nadu",
+      city: "Chennai",
+      address: "Spencer Plaza, Anna Salai",
+      pincode: "600002",
+      phone: "+91 88846 77773",
+      phoneRaw: "918884677773",
+    },
+  ],
   metrics: {
     experience: {
       id: "experience",
