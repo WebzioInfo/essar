@@ -26,7 +26,7 @@ export const SEO_CONFIG = {
   contactEmail: "info@essarenterprises.co.in",
   contactPhone: "+91-8884677773",
   contactPhoneRaw: "918884677773",
-  secondaryPhone: "+91-8553185300",
+  secondaryPhone: "+91-8884677773",
 
   // Social & Web Presence
   socialLinks: [
@@ -69,7 +69,7 @@ export const SEO_CONFIG = {
       addressRegion: "Karnataka",
       postalCode: "560049",
       addressCountry: "IN",
-      telephone: "+91-8553185300",
+      telephone: "+91-8884677773",
       email: "info@essarenterprises.co.in",
       priceRange: "$$",
       openingHours: "Mo-Sa 09:00-18:00",

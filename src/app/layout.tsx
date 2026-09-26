@@ -23,17 +23,17 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logos/favicon-16x16.png?v=3", sizes: "16x16", type: "image/png" },
-      { url: "/logos/favicon-32x32.png?v=3", sizes: "32x32", type: "image/png" },
-      { url: "/logos/android-chrome-192.png?v=3", sizes: "192x192", type: "image/png" },
-      { url: "/logos/android-chrome-512.png?v=3", sizes: "512x512", type: "image/png" },
-      { url: "/favicon.ico?v=3", sizes: "any" },
+      { url: "/logos/favicon-16x16.png?v=5", sizes: "16x16", type: "image/png" },
+      { url: "/logos/favicon-32x32.png?v=5", sizes: "32x32", type: "image/png" },
+      { url: "/logos/android-chrome-192.png?v=5", sizes: "192x192", type: "image/png" },
+      { url: "/logos/android-chrome-512.png?v=5", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico?v=5", sizes: "any" },
     ],
     apple: [
-      { url: "/logos/apple-touch-icon.png?v=3", sizes: "180x180", type: "image/png" },
+      { url: "/logos/apple-touch-icon.png?v=5", sizes: "180x180", type: "image/png" },
     ],
     shortcut: [
-      { url: "/favicon.ico?v=3" },
+      { url: "/favicon.ico?v=5" },
     ],
     other: [
       { rel: "manifest", url: "/site.webmanifest" },
@@ -96,7 +96,7 @@ export default function RootLayout({
         {/* ⚡ Performance: DNS + Preconnect */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link rel="shortcut icon" href="/favicon.ico?v=3" />
+        <link rel="shortcut icon" href="/favicon.ico?v=5" />
 
         {/* 📌 Schema Structured Data */}
         <script

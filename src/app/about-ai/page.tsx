@@ -116,7 +116,7 @@ export default function AboutAiPage() {
                 <span className="font-semibold text-primary block text-sm">Karnataka Office</span>
                 <p className="text-text-secondary">Segahalli, KR Puram</p>
                 <p className="text-text-secondary">Bangalore, Karnataka - 560049</p>
-                <p className="text-accent font-mono font-medium">+91 85531 85300</p>
+                <p className="text-accent font-mono font-medium">+91 88846 77773</p>
               </div>
 
               <div className="p-5 bg-surface border border-border rounded-lg text-xs space-y-2">

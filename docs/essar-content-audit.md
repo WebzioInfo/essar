@@ -69,7 +69,7 @@ Every statement below is traceably verified against source data:
 ### Operational Headquarters & Regional Offices
 1. **Karnataka Office (Bengaluru):**
    - Address: Segahalli, KR Puram, Bengaluru, Karnataka 560049
-   - Phone: `+91 85531 85300`
+   - Phone: `+91 88846 77773`
 2. **Kerala Regional Office (Malappuram):**
    - Address: Bypass Road, Kondotty, Malappuram, Kerala 673638
    - Phone: `+91 88846 77773`
