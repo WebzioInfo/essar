@@ -27,6 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+import { getBreadcrumbSchema } from "@/config/seo";
+
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const service = getService(slug);
@@ -35,9 +37,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     notFound();
   }
 
+  const breadcrumbs = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/services" },
+    { name: service.title, url: `/services/${slug}` },
+  ]);
+
   return (
     <>
       <SchemaMarkup type="Service" data={serviceSchema(service)} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
 
       <div className="bg-primary pt-32 pb-24 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
@@ -70,6 +82,20 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 </li>
               ))}
             </ul>
+
+            {service.capabilities && service.capabilities.length > 0 && (
+              <div className="mb-10 pt-6 border-t border-border">
+                <h3 className="heading-sm text-foreground mb-6">Service Scope &amp; Deliverables</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {service.capabilities.map((cap) => (
+                    <div key={cap} className="p-3.5 bg-surface rounded-md border border-border/80 flex items-start gap-2.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
+                      <span className="text-xs sm:text-sm text-foreground leading-relaxed">{cap}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="w-full md:w-1/3">

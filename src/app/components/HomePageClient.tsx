@@ -150,6 +150,9 @@ export default function HomePageClient() {
                 </motion.div>
 
                 <motion.h1 variants={fadeUp} className="heading-hero text-white mb-4 lg:mb-6">
+                  <span className="block text-accent text-sm md:text-base font-semibold tracking-widest uppercase mb-3">
+                    Essar Enterprises
+                  </span>
                   Plan to Plant.
                 </motion.h1>
 

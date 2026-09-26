@@ -2,18 +2,42 @@ import type { Metadata } from "next";
 import ConsultationForm from "@/components/forms/ConsultationForm";
 import { companyData } from "@/content/company";
 
+import { SEO_CONFIG, getBreadcrumbSchema, getOrganizationSchema } from "@/config/seo";
+
 export const metadata: Metadata = {
-  title: "Book a Consultation | Essar Enterprises",
+  title: "Contact Essar Enterprises | Book Water Plant Consultation | Kerala, Karnataka, Tamil Nadu",
   description:
-    "Schedule a strategy session with Essar Enterprises for packaged drinking water plant planning, licensing, setup, laboratory, and launch support.",
+    "Schedule a technical consultation with Essar Enterprises. Connect with our engineering teams in Kerala (Kondotty), Bangalore (KR Puram), and Chennai (Anna Salai) for packaged drinking water plant planning and BIS licensing.",
   alternates: {
     canonical: "/contact",
   },
 };
 
 export default function ContactPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Contact", url: "/contact" },
+  ]);
+
+  const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contact Essar Enterprises",
+    description: "Contact Essar Enterprises for packaged drinking water plant advisory, turnkey setup, and BIS licensing across South India.",
+    url: `${SEO_CONFIG.canonicalUrl}/contact`,
+    mainEntity: getOrganizationSchema(),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+      />
       <div className="bg-primary pt-32 pb-24 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
           <h1 className="heading-xl text-white mb-6">Start Your Business</h1>

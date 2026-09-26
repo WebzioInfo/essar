@@ -52,44 +52,142 @@ export default function MegaMenu() {
       label: "Services",
       href: "/services",
       content: (
-        <div className="grid grid-cols-2 gap-8 p-6 w-[500px]">
+        <div className="grid grid-cols-2 gap-6 p-6 w-[560px]">
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-text-secondary mb-4">Core Offerings</h4>
-            <ul className="flex flex-col gap-3">
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-text-secondary mb-3">Plant Setup &amp; Machinery</h4>
+            <ul className="flex flex-col gap-2.5 text-xs">
               <li>
-                <Link href="/services/planning" className="group flex items-center justify-between text-sm hover:text-primary transition-colors text-text-secondary">
-                  <span>Planning & Feasibility</span>
+                <Link href="/services/planning" className="group flex items-center justify-between hover:text-primary transition-colors text-text-secondary py-1">
+                  <span>Packaged Water Plant Setup</span>
                   <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
-                <Link href="/services/architecture" className="group flex items-center justify-between text-sm hover:text-primary transition-colors text-text-secondary">
-                  <span>Plant Architecture</span>
+                <Link href="/services/water-treatment-ro" className="group flex items-center justify-between hover:text-primary transition-colors text-text-secondary py-1">
+                  <span>RO &amp; Water Treatment</span>
                   <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
-                <Link href="/services/licensing" className="group flex items-center justify-between text-sm hover:text-primary transition-colors text-text-secondary">
-                  <span>BIS & FSSAI Licensing</span>
+                <Link href="/services/bottling-packaging" className="group flex items-center justify-between hover:text-primary transition-colors text-text-secondary py-1">
+                  <span>Bottling &amp; Packaging Lines</span>
                   <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
-                <Link href="/services/laboratory" className="group flex items-center justify-between text-sm hover:text-primary transition-colors text-text-secondary">
-                  <span>Laboratory Setup</span>
+                <Link href="/services/architecture" className="group flex items-center justify-between hover:text-primary transition-colors text-text-secondary py-1">
+                  <span>Plant Engineering &amp; Layout</span>
                   <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="bg-surface rounded-md p-5 flex flex-col justify-end relative overflow-hidden group">
-            <div className="absolute inset-0 bg-[url('/images/services/laboratory-setup.webp')] bg-cover bg-center opacity-10 filter grayscale group-hover:scale-105 transition-transform duration-700"></div>
-            <div className="relative z-10">
-              <div className="text-sm font-semibold text-primary mb-1">Turnkey Execution</div>
-              <p className="text-xs text-text-secondary mb-4 leading-relaxed">End-to-end plant establishment from bare land to first bottle.</p>
-              <Link href="/contact" className="text-xs font-medium text-primary hover:text-text-secondary transition-colors underline underline-offset-4">Learn More</Link>
-            </div>
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-widest text-text-secondary mb-3">Compliance &amp; Servicing</h4>
+            <ul className="flex flex-col gap-2.5 text-xs">
+              <li>
+                <Link href="/services/licensing" className="group flex items-center justify-between hover:text-primary transition-colors text-text-secondary py-1">
+                  <span>Government Approvals (BIS/FSSAI)</span>
+                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/laboratory" className="group flex items-center justify-between hover:text-primary transition-colors text-text-secondary py-1">
+                  <span>QC Laboratory Setup</span>
+                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/ro-service-maintenance" className="group flex items-center justify-between hover:text-primary transition-colors text-text-secondary py-1">
+                  <span>RO Service &amp; Maintenance (AMC)</span>
+                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/modernization" className="group flex items-center justify-between hover:text-primary transition-colors text-text-secondary py-1">
+                  <span>Existing Plant Problem Solving</span>
+                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+            </ul>
           </div>
+          <div className="col-span-2 pt-3 border-t border-border flex items-center justify-between">
+            <span className="text-[11px] text-text-secondary italic">From Setup to Production &amp; Servicing</span>
+            <Link href="/services" className="text-xs font-semibold text-primary hover:text-accent transition-colors flex items-center gap-1.5">
+              <span>View All 8 Divisions</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+      )
+    },
+    {
+      label: "Locations",
+      href: "/locations/south-india",
+      content: (
+        <div className="p-4 w-[340px]">
+          <h4 className="text-xs font-semibold uppercase tracking-widest text-text-secondary mb-3 px-2">
+            Regional Offices
+          </h4>
+          <ul className="flex flex-col gap-1 text-xs">
+            <li>
+              <Link
+                href="/locations/kerala"
+                className="group flex items-center justify-between hover:bg-surface p-2.5 rounded-lg transition-colors"
+              >
+                <div>
+                  <span className="font-semibold text-sm text-foreground block group-hover:text-primary transition-colors">
+                    Kerala
+                  </span>
+                  <span className="text-[11px] text-text-secondary block">
+                    Bypass Road, Kondotty (Malappuram)
+                  </span>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-primary" />
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/locations/bangalore"
+                className="group flex items-center justify-between hover:bg-surface p-2.5 rounded-lg transition-colors"
+              >
+                <div>
+                  <span className="font-semibold text-sm text-foreground block group-hover:text-primary transition-colors">
+                    Karnataka (Bangalore)
+                  </span>
+                  <span className="text-[11px] text-text-secondary block">
+                    Segahalli, KR Puram (Bengaluru)
+                  </span>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-primary" />
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/locations/chennai"
+                className="group flex items-center justify-between hover:bg-surface p-2.5 rounded-lg transition-colors"
+              >
+                <div>
+                  <span className="font-semibold text-sm text-foreground block group-hover:text-primary transition-colors">
+                    Tamil Nadu (Chennai)
+                  </span>
+                  <span className="text-[11px] text-text-secondary block">
+                    Spencer Plaza, Anna Salai (Chennai)
+                  </span>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-primary" />
+              </Link>
+            </li>
+            <li className="pt-2 mt-1 border-t border-border">
+              <Link
+                href="/locations/south-india"
+                className="group flex items-center justify-between p-2 rounded-lg text-primary font-semibold hover:bg-surface transition-colors"
+              >
+                <span>South India Network</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </li>
+          </ul>
         </div>
       )
     },
@@ -251,6 +349,7 @@ export default function MegaMenu() {
                 {[
                   { label: "Home", href: "/" },
                   { label: "Services", href: "/services" },
+                  { label: "Locations", href: "/locations/south-india" },
                   { label: "Projects", href: "/projects" },
                   { label: "About", href: "/about" },
                   { label: "Contact", href: "/contact" }

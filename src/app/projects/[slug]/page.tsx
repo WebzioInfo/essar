@@ -14,6 +14,8 @@ export async function generateStaticParams() {
   return params;
 }
 
+import { SEO_CONFIG, getBreadcrumbSchema } from "@/config/seo";
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
@@ -34,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${project.brand} | ${project.projectType} by Essar Enterprises`,
       description: project.description,
       type: "article",
-      url: `https://essarenterprises.co.in/projects/${slug}`,
+      url: `${SEO_CONFIG.canonicalUrl}/projects/${slug}`,
       images: [
         {
           url: ogImage,
@@ -68,9 +70,19 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     .map((sSlug) => getService(sSlug))
     .filter((s): s is NonNullable<typeof s> => s !== undefined);
 
+  const breadcrumbs = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Projects", url: "/projects" },
+    { name: `${project.brand} Case Study`, url: `/projects/${slug}` },
+  ]);
+
   return (
     <>
       <SchemaMarkup type="Article" data={projectArticleSchema(project)} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
 
       {/* Hero Header */}
       <div className="bg-primary text-white pt-32 pb-20 border-b border-border">

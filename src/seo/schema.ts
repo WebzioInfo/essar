@@ -2,53 +2,88 @@ import type { Industry } from "@/content/industries";
 import type { LocationPageContent } from "@/content/locations";
 import type { Project } from "@/content/projects";
 import type { Service } from "@/content/services";
+import {
+  SEO_CONFIG,
+  getOrganizationSchema,
+  getWebSiteSchema,
+  getSiteNavigationSchema,
+  getBreadcrumbSchema,
+  getHowToPlanToPlantSchema,
+  getLocalBusinessSchema,
+  getFAQSchema,
+} from "@/config/seo";
 
-const siteUrl = "https://essarenterprises.co.in";
+// Re-export modern generators
+export {
+  SEO_CONFIG,
+  getOrganizationSchema,
+  getWebSiteSchema,
+  getSiteNavigationSchema,
+  getBreadcrumbSchema,
+  getHowToPlanToPlantSchema,
+  getLocalBusinessSchema,
+  getFAQSchema,
+};
+
+const siteUrl = SEO_CONFIG.canonicalUrl;
 
 export function organizationSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Essar Enterprises",
-    url: siteUrl,
-    logo: `${siteUrl}/logos/logo-dark.png`,
-    foundingYear: "2004",
-    description:
-      "Essar Enterprises helps investors move from idea to first bottle through packaged drinking water plant planning, licensing, design, machinery selection, laboratory setup, and launch support.",
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        telephone: "+91-8884677773",
-        contactType: "customer support",
-        areaServed: "IN",
-        availableLanguage: ["English", "Malayalam", "Hindi", "Tamil"],
-      },
-    ],
-    sameAs: ["https://www.instagram.com/essar.enterprises"],
-  };
+  return getOrganizationSchema();
+}
+
+export function websiteSchema() {
+  return getWebSiteSchema();
 }
 
 export function serviceSchema(service: Service) {
   return {
+    "@context": "https://schema.org",
+    "@type": "Service",
     name: service.title,
     description: service.description,
     provider: {
       "@type": "Organization",
-      name: "Essar Enterprises",
+      name: SEO_CONFIG.brandName,
       url: siteUrl,
+      telephone: SEO_CONFIG.contactPhone,
+      email: SEO_CONFIG.contactEmail,
     },
-    areaServed: "South India",
+    areaServed: SEO_CONFIG.serviceArea.map((a) => a.name),
     serviceType: service.title,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: service.title,
+      itemListElement: service.benefits.map((benefit, i) => ({
+        "@type": "Offer",
+        position: i + 1,
+        itemOffered: {
+          "@type": "Service",
+          name: benefit,
+        },
+      })),
+    },
   };
 }
 
 export function projectArticleSchema(project: Project) {
   return {
-    headline: `${project.brand} - Water Plant Project by Essar Enterprises`,
-    description: `Case study on how Essar Enterprises supported the ${project.brand} packaged drinking water plant in ${project.location}.`,
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: `${project.brand} - Commercial Water Plant Setup Case Study`,
+    description: `Detailed case study on how Essar Enterprises supported ${project.brand} (${project.company}) in ${project.location} with packaged drinking water plant establishment, licensing, and commissioning.`,
+    image: project.coverImage ? `${siteUrl}${project.coverImage}` : `${siteUrl}/logos/logo-dark.png`,
     author: {
       "@type": "Organization",
-      name: "Essar Enterprises",
+      name: SEO_CONFIG.brandName,
+      url: siteUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SEO_CONFIG.brandName,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/logos/logo-dark.png`,
+      },
     },
     about: project.services,
     ...(project.websiteUrl ? { sameAs: project.websiteUrl } : {}),
@@ -57,38 +92,52 @@ export function projectArticleSchema(project: Project) {
 
 export function industryServiceSchema(industry: Industry) {
   return {
+    "@context": "https://schema.org",
+    "@type": "Service",
     name: industry.title,
     description: industry.description,
     provider: {
       "@type": "Organization",
-      name: "Essar Enterprises",
+      name: SEO_CONFIG.brandName,
       url: siteUrl,
+      telephone: SEO_CONFIG.contactPhone,
     },
     serviceType: industry.title,
+    areaServed: "South India",
   };
 }
 
 export function localBusinessSchema(location: LocationPageContent) {
+  // Map location slug to matching office if available, or generate verified regional service schema
+  const matchingOffice = SEO_CONFIG.offices.find(
+    (o) =>
+      o.addressRegion.toLowerCase().includes(location.slug.toLowerCase()) ||
+      o.addressLocality.toLowerCase().includes(location.slug.toLowerCase()) ||
+      location.slug.toLowerCase().includes(o.id)
+  );
+
   return {
-    name: `Essar Enterprises - Water Plant Consultants in ${location.name}`,
-    image: `${siteUrl}/seo/og-image.jpg`,
-    telephone: "+91-8884677773",
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: `Essar Enterprises - Packaged Drinking Water Plant Consultants in ${location.name}`,
+    image: `${siteUrl}/logos/logo-dark.png`,
+    telephone: matchingOffice ? matchingOffice.telephone : SEO_CONFIG.contactPhone,
+    email: SEO_CONFIG.contactEmail,
+    priceRange: "$$",
     areaServed: location.name,
     description: location.description,
     url: `${siteUrl}/locations/${location.slug}`,
-  };
-}
-
-export function websiteSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Essar Enterprises",
-    url: siteUrl,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${siteUrl}/services?query={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
+    ...(matchingOffice
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: matchingOffice.streetAddress,
+            addressLocality: matchingOffice.addressLocality,
+            addressRegion: matchingOffice.addressRegion,
+            postalCode: matchingOffice.postalCode,
+            addressCountry: "IN",
+          },
+        }
+      : {}),
   };
 }

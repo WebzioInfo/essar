@@ -3,8 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { projects } from "@/content/projects";
 
+import { getBreadcrumbSchema } from "@/config/seo";
+
 export const metadata: Metadata = {
-  title: "Project Portfolio | Essar Enterprises",
+  title: "Commercial Water Plant Projects & Case Studies | Essar Enterprises",
   description:
     "Explore Essar Enterprises packaged drinking water plant facilities, operational revivals, and active setups across South India including KENBY, Gangothri, INSTAPANI, Faiha, Greenmount, and Greenway.",
   alternates: {
@@ -13,8 +15,17 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsIndexPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Projects", url: "/projects" },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Editorial Hero Header */}
       <div className="bg-primary text-white pt-32 pb-24 border-b border-border/30">
         <div className="max-w-[1400px] mx-auto px-6 sm:px-12 w-full">
