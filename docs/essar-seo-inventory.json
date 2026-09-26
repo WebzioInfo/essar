@@ -1,0 +1,107 @@
+{
+  "domain": "https://essarenterprises.co.in",
+  "sitemap": "https://essarenterprises.co.in/sitemap.xml",
+  "robots": "https://essarenterprises.co.in/robots.txt",
+  "pages": [
+    {
+      "url": "https://essarenterprises.co.in",
+      "route": "/",
+      "type": "Homepage",
+      "title": "Essar Enterprises | Packaged Drinking Water Plant Consultancy",
+      "description": "South India's premier packaged drinking water plant consultants. Turnkey plant setup, BIS/FSSAI licensing, civil layout design, and operational management. First bottle in 6 months.",
+      "canonical": "https://essarenterprises.co.in",
+      "robots": "index, follow",
+      "schemas": [
+        "Organization",
+        "LocalBusiness",
+        "WebSite",
+        "FAQPage"
+      ]
+    },
+    {
+      "url": "https://essarenterprises.co.in/about",
+      "route": "/about",
+      "type": "Company Profile",
+      "title": "About Essar Enterprises | 20+ Years Water Business Expertise",
+      "description": "Learn about Essar Enterprises, South India's trusted packaged drinking water consultancy with 20+ years of operational experience across Kerala, Karnataka, and Tamil Nadu.",
+      "canonical": "https://essarenterprises.co.in/about",
+      "robots": "index, follow",
+      "schemas": [
+        "Organization",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "url": "https://essarenterprises.co.in/services",
+      "route": "/services",
+      "type": "Services Hub",
+      "title": "Turnkey Water Plant Setup & Consulting Services | Essar",
+      "description": "End-to-end consulting services for packaged drinking water plants: turnkey execution, civil layout design, BIS & FSSAI licensing, laboratory setup, and modernization.",
+      "canonical": "https://essarenterprises.co.in/services",
+      "robots": "index, follow",
+      "schemas": [
+        "Service",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "url": "https://essarenterprises.co.in/projects",
+      "route": "/projects",
+      "type": "Projects Hub",
+      "title": "Packaged Water Plant Projects & Track Record | Essar Enterprises",
+      "description": "Explore Essar Enterprises packaged drinking water plant facilities, operational revivals, and active setups across South India including KENBY, Gangothri, INSTAPANI, Faiha, Greenmount, and Greenway.",
+      "canonical": "https://essarenterprises.co.in/projects",
+      "robots": "index, follow",
+      "schemas": [
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "url": "https://essarenterprises.co.in/contact",
+      "route": "/contact",
+      "type": "Contact Page",
+      "title": "Contact Essar Enterprises | Regional Water Plant Consultants",
+      "description": "Connect with Essar Enterprises offices in Bengaluru, Malappuram, and Chennai for packaged drinking water plant consulting, BIS licensing, and turnkey execution.",
+      "canonical": "https://essarenterprises.co.in/contact",
+      "robots": "index, follow",
+      "schemas": [
+        "LocalBusiness",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "url": "https://essarenterprises.co.in/tools/calculator",
+      "route": "/tools/calculator",
+      "type": "Interactive Tool",
+      "title": "Water Plant Setup Cost & ROI Calculator | Essar Enterprises",
+      "description": "Estimate your packaged drinking water plant setup cost, land requirements, machinery budget, and projected ROI with Essar's interactive cost calculator.",
+      "canonical": "https://essarenterprises.co.in/tools/calculator",
+      "robots": "index, follow",
+      "schemas": [
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "url": "https://essarenterprises.co.in/quotation",
+      "route": "/quotation",
+      "type": "Quotation Lead Form",
+      "title": "Request Water Plant Setup Quotation | Essar Enterprises",
+      "description": "Get a customized project quotation for your packaged drinking water plant setup, BIS licensing, or factory modernization.",
+      "canonical": "https://essarenterprises.co.in/quotation",
+      "robots": "index, follow",
+      "schemas": [
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "url": "https://essarenterprises.co.in/thank-you",
+      "route": "/thank-you",
+      "type": "Post-Lead Confirmation",
+      "title": "Thank You | Essar Enterprises",
+      "description": "Your consultation request has been received. Our senior water business team will get back to you shortly.",
+      "canonical": "https://essarenterprises.co.in/thank-you",
+      "robots": "noindex, follow",
+      "schemas": []
+    }
+  ]
+}

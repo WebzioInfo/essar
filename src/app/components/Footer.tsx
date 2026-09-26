@@ -13,11 +13,11 @@ export default function Footer() {
           {/* Company Info */}
           <div className="md:col-span-2">
             <Link href="/" className="inline-block mb-6" aria-label="Essar Enterprises Home">
-              <Image 
-                src="/logos/logo-icon-light.png" 
-                alt="Essar Enterprises Logo" 
-                width={180} 
-                height={60} 
+              <Image
+                src="/logos/logo-icon-light.png"
+                alt="Essar Enterprises Logo"
+                width={180}
+                height={60}
                 className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
               />
             </Link>
@@ -67,7 +67,7 @@ export default function Footer() {
             </div>
 
             <p className="body-sm text-gray-400 mt-6 leading-relaxed">
-              Helpline: +91 88846 77773 / +91 85531 85300 <br />
+              Helpline: +91 88846 77773 <br />
               Email: info@essarenterprises.co.in <br />
               Regional Presence: Kerala • Karnataka • Tamil Nadu
             </p>

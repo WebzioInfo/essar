@@ -1,0 +1,112 @@
+{
+  "logos": [
+    {
+      "path": "/logos/logo-dark.png",
+      "type": "PNG",
+      "usage": "Main Header Navigation (Light Mode)",
+      "status": "active"
+    },
+    {
+      "path": "/logos/logo-light.png",
+      "type": "PNG",
+      "usage": "Footer & Dark Backgrounds",
+      "status": "active"
+    },
+    {
+      "path": "/logos/logo-icon.png",
+      "type": "PNG",
+      "usage": "Favicon / Mobile App Icon",
+      "status": "active"
+    },
+    {
+      "path": "/logos/logo-icon-light.png",
+      "type": "PNG",
+      "usage": "Mobile App Icon (Dark)",
+      "status": "active"
+    }
+  ],
+  "project_images": [
+    {
+      "project": "kenby",
+      "path": "/images/projects/kenby/kenbyimage.jpg",
+      "type": "JPG",
+      "usage": "Primary Case Study Cover",
+      "alt": "KENBY Packaged Drinking Water Plant Facility Setup"
+    },
+    {
+      "project": "kenby",
+      "path": "/images/projects/kenby/kenby-exterior-01.webp",
+      "type": "WEBP",
+      "usage": "Factory Exterior View",
+      "alt": "KENBY Factory Exterior"
+    },
+    {
+      "project": "gangothri",
+      "path": "/images/projects/gangothri/01-gangothri-bottle-can.png",
+      "type": "PNG",
+      "usage": "Primary Case Study Cover",
+      "alt": "Gangothri Rivus 20L Packaged Water Can"
+    },
+    {
+      "project": "gangothri",
+      "path": "/images/projects/gangothri/gangothri-production-01.webp",
+      "type": "WEBP",
+      "usage": "Revived Bottling Line Production",
+      "alt": "Gangothri Bottling Line Production"
+    },
+    {
+      "project": "instapani",
+      "path": "/images/projects/instapani/instapani-jar-production.webp",
+      "type": "WEBP",
+      "usage": "Primary Case Study Cover",
+      "alt": "Instapani 20L Jar Automated Bottling Floor"
+    },
+    {
+      "project": "faiha",
+      "path": "/images/projects/faiha/faiha-site-02.webp",
+      "type": "WEBP",
+      "usage": "Primary Case Study Cover",
+      "alt": "Faiha Beverages Facility Site"
+    },
+    {
+      "project": "greenmount",
+      "path": "/images/projects/tirur/tirur-interior-01.webp",
+      "type": "WEBP",
+      "usage": "Primary Case Study Cover",
+      "alt": "Greenmount Tirur Cleanroom Architecture Setup"
+    },
+    {
+      "project": "greenway",
+      "path": "/images/projects/ponnani/ponnani-filling-line-01.webp",
+      "type": "WEBP",
+      "usage": "Primary Case Study Cover",
+      "alt": "Greenway Ponnani Facility Setup"
+    }
+  ],
+  "project_videos": [
+    {
+      "project": "faiha",
+      "path": "/videos/projects/faiha/faiha-operations-01.mp4",
+      "type": "MP4 (H.264)",
+      "usage": "Operational Bottling Line Walkthrough"
+    },
+    {
+      "project": "kenby",
+      "path": "/videos/projects/kenby/kenby-factory-02.mp4",
+      "type": "MP4 (H.264)",
+      "usage": "Factory Floor Overview"
+    },
+    {
+      "project": "instapani",
+      "path": "/videos/projects/instapani/instapani-lab-01.mp4",
+      "type": "MP4 (H.264)",
+      "usage": "In-House Quality Testing Laboratory Walkthrough"
+    },
+    {
+      "project": "gangothri",
+      "path": "/videos/projects/gangothri/gangothri-operations-02.mp4",
+      "type": "MP4 (H.264)",
+      "usage": "20L Can Washing and Automated Filling Line"
+    }
+  ]
+}

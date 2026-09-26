@@ -21,9 +21,9 @@ export const locations: LocationPageContent[] = [
     description: "Turnkey packaged drinking water consultancy for Tamil Nadu plant launches and upgrades.",
   },
   {
-    slug: "bangalore",
-    name: "Bangalore",
-    description: "Water business consultants in Bangalore for plant planning, machinery selection, and licensing support.",
+    slug: "Bengaluru",
+    name: "Bengaluru",
+    description: "Water business consultants in Bengaluru for plant planning, machinery selection, and licensing support.",
   },
   {
     slug: "chennai",

@@ -1,0 +1,185 @@
+{
+  "company": {
+    "name": "Essar Enterprises",
+    "foundedYear": 2004,
+    "yearsOfExperience": "20+",
+    "tagline": "From Idea To First Bottle",
+    "positioning": "Water Business Consultant",
+    "corePromise": "Plan to Plant",
+    "turnaroundTarget": "First Bottle in 6 Months",
+    "geographicCoverage": "South India (Kerala, Karnataka, Tamil Nadu)",
+    "headquarters": "Bengaluru, Karnataka",
+    "contactNumber": "+91 88846 77773",
+    "contactEmail": "info@essarenterprises.co.in",
+    "offices": [
+      {
+        "id": "kerala",
+        "name": "Kerala Regional Office",
+        "state": "Kerala",
+        "city": "Malappuram",
+        "address": "Bypass Road, Kondotty",
+        "pincode": "673638",
+        "phone": "+91 88846 77773"
+      },
+      {
+        "id": "karnataka",
+        "name": "Karnataka Office",
+        "state": "Karnataka",
+        "city": "Bengaluru",
+        "address": "Segahalli, KR Puram",
+        "pincode": "560049",
+        "phone": "+91 85531 85300"
+      },
+      {
+        "id": "tamil-nadu",
+        "name": "Tamil Nadu Office",
+        "state": "Tamil Nadu",
+        "city": "Chennai",
+        "address": "Spencer Plaza, Anna Salai",
+        "pincode": "600002",
+        "phone": "+91 88846 77773"
+      }
+    ]
+  },
+  "metrics": [
+    {
+      "metric": "Years Experience",
+      "value": "20+",
+      "numericValue": 20,
+      "source_url": "https://essarenterprises.co.in/about",
+      "verified": true,
+      "status": "verified"
+    },
+    {
+      "metric": "RO & Water Plants Serviced",
+      "value": "50+",
+      "numericValue": 50,
+      "source_url": "https://essarenterprises.co.in/projects",
+      "verified": true,
+      "status": "verified"
+    },
+    {
+      "metric": "Companies Consulted",
+      "value": "36+",
+      "numericValue": 36,
+      "source_url": "https://essarenterprises.co.in/",
+      "verified": true,
+      "status": "verified"
+    },
+    {
+      "metric": "Commercial Plants Supported",
+      "value": "50+",
+      "numericValue": 50,
+      "source_url": "https://essarenterprises.co.in/projects",
+      "verified": true,
+      "status": "verified"
+    }
+  ],
+  "services": [
+    {
+      "slug": "planning",
+      "title": "Turnkey Water Plant Setup",
+      "subtitle": "From Bare Land to Commercial Production",
+      "source_url": "https://essarenterprises.co.in/services/planning",
+      "status": "verified"
+    },
+    {
+      "slug": "architecture",
+      "title": "Civil & Hygienic Plant Design",
+      "subtitle": "Architectural Layouts Built for BIS Approval",
+      "source_url": "https://essarenterprises.co.in/services/architecture",
+      "status": "verified"
+    },
+    {
+      "slug": "laboratory",
+      "title": "In-House Laboratory Setup",
+      "subtitle": "Chemical & Microbiological Testing Facilities",
+      "source_url": "https://essarenterprises.co.in/services/laboratory",
+      "status": "verified"
+    },
+    {
+      "slug": "licensing",
+      "title": "BIS & FSSAI Licensing Consultancy",
+      "subtitle": "Regulatory Planning and Audit Support",
+      "source_url": "https://essarenterprises.co.in/services/licensing",
+      "status": "verified"
+    },
+    {
+      "slug": "branding",
+      "title": "Brand Registration & Label Design",
+      "subtitle": "Create a Premium Water Brand",
+      "source_url": "https://essarenterprises.co.in/services/branding",
+      "status": "verified"
+    },
+    {
+      "slug": "modernization",
+      "title": "Water Plant Modernization & Upgrades",
+      "subtitle": "Scale Your Production Capacity",
+      "source_url": "https://essarenterprises.co.in/services/modernization",
+      "status": "verified"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "kenby",
+      "brand": "KENBY",
+      "company": "Eranad Beverages Pvt Ltd",
+      "location": "Kerala",
+      "status": "Completed",
+      "projectType": "Turnkey Plant Setup",
+      "source_url": "https://essarenterprises.co.in/projects/kenby",
+      "status": "verified"
+    },
+    {
+      "slug": "gangothri",
+      "brand": "Gangothri",
+      "company": "Gangothri Water",
+      "location": "Changarakulam, Kerala",
+      "status": "Managed By Essar",
+      "projectType": "Plant Revival & Management",
+      "websiteUrl": "https://www.gangothri.in/",
+      "source_url": "https://essarenterprises.co.in/projects/gangothri",
+      "status": "verified"
+    },
+    {
+      "slug": "instapani",
+      "brand": "INSTAPANI",
+      "company": "Instapani Beverages",
+      "location": "South India",
+      "status": "Completed",
+      "projectType": "Turnkey Setup & Production Floor",
+      "source_url": "https://essarenterprises.co.in/projects/instapani",
+      "status": "verified"
+    },
+    {
+      "slug": "faiha",
+      "brand": "Faiha",
+      "company": "Faiha Beverages",
+      "location": "Edavanna, Kerala",
+      "status": "Managed By Essar",
+      "projectType": "Plant Management & Optimization",
+      "source_url": "https://essarenterprises.co.in/projects/faiha",
+      "status": "verified"
+    },
+    {
+      "slug": "greenmount",
+      "brand": "Greenmount",
+      "company": "Greenmount Beverages",
+      "location": "Tirur, Kerala",
+      "status": "Ongoing Execution",
+      "projectType": "Active Facility Setup & Architecture",
+      "source_url": "https://essarenterprises.co.in/projects/greenmount",
+      "status": "verified"
+    },
+    {
+      "slug": "greenway",
+      "brand": "Greenway",
+      "company": "Greenway Beverages",
+      "location": "Ponnani, Kerala",
+      "status": "Planning & Licensing",
+      "projectType": "Project Planning & BIS Licensing",
+      "source_url": "https://essarenterprises.co.in/projects/greenway",
+      "status": "verified"
+    }
+  ]
+}

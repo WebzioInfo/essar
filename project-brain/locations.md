@@ -1,6 +1,6 @@
 # Office Locations
 Head Office:
-Seegahalli, KR Puram, Bangalore, India 560049
+Seegahalli, KR Puram, Bengaluru, India 560049
 
 Regional Office:
 Chennai

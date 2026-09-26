@@ -9,7 +9,7 @@ import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 export default function MegaMenu() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  
+
   // Scroll tracking: subtle scroll-start / scroll-release interaction
   const { scrollY } = useScroll();
   const [isScrolling, setIsScrolling] = useState(false);
@@ -126,21 +126,19 @@ export default function MegaMenu() {
       <nav
         className="fixed top-6 left-0 right-0 z-[100] flex justify-center pointer-events-none px-4"
       >
-        <div 
-          className={`pointer-events-auto flex items-center justify-between w-full max-w-5xl rounded-full px-6 bg-white border border-border transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform motion-reduce:transform-none motion-reduce:transition-none ${
-            isScrolling
-              ? "py-2.5 -translate-y-[3px] scale-[0.988] shadow-[0_8px_30px_rgba(0,0,0,0.1)]"
-              : "py-3 translate-y-0 scale-100 shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
-          }`}
-          style={{ backgroundColor: "#FFFFFF" }}
+        <div
+          className={`bg-white/15 backdrop-blur-md border border-white/20 shadow-lg pointer-events-auto flex items-center justify-between w-full max-w-5xl rounded-full px-6 bg-white border border-border transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform motion-reduce:transform-none motion-reduce:transition-none ${isScrolling
+            ? "py-2.5 -translate-y-[3px] scale-[0.988] shadow-[0_8px_30px_rgba(0,0,0,0.1)]"
+            : "py-3 translate-y-0 scale-100 shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
+            }`}
           onMouseLeave={() => setActiveDropdown(null)}
         >
           {/* Logo */}
           <Link href="/" className="relative z-10 flex items-center h-8 w-32" onClick={() => setActiveDropdown(null)}>
-            <Image 
-              src="/logos/logo-icon.png" 
-              alt="Essar Enterprises" 
-              fill 
+            <Image
+              src="/logos/logo-icon.png"
+              alt="Essar Enterprises"
+              fill
               className="object-contain object-left"
               priority
             />
@@ -149,19 +147,19 @@ export default function MegaMenu() {
           {/* Desktop Links (Center) */}
           <div className="hidden md:flex items-center space-x-1 relative">
             {menuItems.map((item) => (
-              <div 
+              <div
                 key={item.label}
                 className="relative"
                 onMouseEnter={() => setActiveDropdown(item.label)}
               >
-                <Link 
+                <Link
                   href={item.href}
                   className="px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary transition-colors flex items-center gap-1 rounded-full hover:bg-surface"
                 >
                   {item.label}
                   <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === item.label ? "rotate-180" : ""}`} />
                 </Link>
-                
+
                 {/* Mega Menu Dropdown Panel */}
                 <AnimatePresence>
                   {activeDropdown === item.label && (
@@ -172,7 +170,7 @@ export default function MegaMenu() {
                       transition={{ duration: 0.2, ease: "easeOut" }}
                       className="absolute top-full left-1/2 -translate-x-1/2 pt-4"
                     >
-                      <div 
+                      <div
                         className="bg-white border border-border shadow-2xl rounded-2xl overflow-hidden relative"
                         style={{ backgroundColor: "#FFFFFF" }}
                       >
@@ -183,8 +181,8 @@ export default function MegaMenu() {
                 </AnimatePresence>
               </div>
             ))}
-            
-            <Link 
+
+            <Link
               href="/about"
               className="px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary transition-colors rounded-full hover:bg-surface"
               onMouseEnter={() => setActiveDropdown(null)}
@@ -195,8 +193,8 @@ export default function MegaMenu() {
 
           {/* CTA Right */}
           <div className="hidden md:flex items-center gap-4">
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="px-5 py-2.5 bg-primary text-background text-xs font-semibold tracking-wide rounded-full hover:bg-secondary transition-colors"
             >
               Book Consultation
@@ -204,7 +202,7 @@ export default function MegaMenu() {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="md:hidden relative z-[110] p-2 -mr-2 text-primary"
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open Menu"
@@ -219,7 +217,7 @@ export default function MegaMenu() {
       */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: "-100%" }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
@@ -230,14 +228,14 @@ export default function MegaMenu() {
             {/* Overlay Header */}
             <div className="flex items-center justify-between px-8 py-8">
               <Link href="/" className="relative h-8 w-32" onClick={() => setMobileMenuOpen(false)}>
-                <Image 
-                  src="/logos/logo-icon.png" 
-                  alt="Essar Enterprises" 
-                  fill 
+                <Image
+                  src="/logos/logo-icon.png"
+                  alt="Essar Enterprises"
+                  fill
                   className="object-contain object-left"
                 />
               </Link>
-              <button 
+              <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-3 bg-surface rounded-full text-primary hover:bg-border transition-colors"
               >
@@ -261,7 +259,7 @@ export default function MegaMenu() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 + (i * 0.1), duration: 0.5 }}
                   >
-                    <Link 
+                    <Link
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
                       className="text-4xl font-medium text-primary hover:text-text-secondary transition-colors block"
@@ -272,16 +270,16 @@ export default function MegaMenu() {
                 ))}
               </nav>
 
-              <motion.div 
+              <motion.div
                 className="pt-12 mt-12 border-t border-border"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
               >
                 <div className="text-xs font-semibold tracking-widest uppercase text-text-secondary mb-4">Start A Project</div>
-                <Link 
+                <Link
                   href="/contact"
-                  onClick={() => setMobileMenuOpen(false)} 
+                  onClick={() => setMobileMenuOpen(false)}
                   className="inline-flex items-center justify-center w-full py-4 bg-primary text-background font-medium rounded-full"
                 >
                   Book Strategy Session

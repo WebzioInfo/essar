@@ -1,0 +1,81 @@
+[
+  {
+    "oldUrl": "https://essarenterprises.co.in/",
+    "oldPage": "Home Page",
+    "newPage": "/",
+    "action": "KEEP",
+    "seoStatus": "Preserve 100% Equity, Enhanced Core Schemas & Meta"
+  },
+  {
+    "oldUrl": "https://essarenterprises.co.in/about",
+    "oldPage": "About Page",
+    "newPage": "/about",
+    "action": "KEEP",
+    "seoStatus": "Updated with 20+ Years Track Record & Personas"
+  },
+  {
+    "oldUrl": "https://essarenterprises.co.in/services",
+    "oldPage": "Services Overview",
+    "newPage": "/services",
+    "action": "KEEP",
+    "seoStatus": "Structured Service Taxonomy Hub"
+  },
+  {
+    "oldUrl": "https://essarenterprises.co.in/services/planning",
+    "oldPage": "Turnkey Setup",
+    "newPage": "/services/planning",
+    "action": "KEEP",
+    "seoStatus": "Target: Turnkey Packaged Water Plant Setup Keywords"
+  },
+  {
+    "oldUrl": "https://essarenterprises.co.in/services/architecture",
+    "oldPage": "Civil Design",
+    "newPage": "/services/architecture",
+    "action": "KEEP",
+    "seoStatus": "Target: IS 14543 Civil Layout Keywords"
+  },
+  {
+    "oldUrl": "https://essarenterprises.co.in/services/laboratory",
+    "oldPage": "Laboratory Setup",
+    "newPage": "/services/laboratory",
+    "action": "KEEP",
+    "seoStatus": "Target: Water Testing Lab Equipment & Calibration"
+  },
+  {
+    "oldUrl": "https://essarenterprises.co.in/services/licensing",
+    "oldPage": "Licensing",
+    "newPage": "/services/licensing",
+    "action": "KEEP",
+    "seoStatus": "Target: BIS ISI & FSSAI Licensing Consultants"
+  },
+  {
+    "oldUrl": "https://essarenterprises.co.in/services/branding",
+    "oldPage": "Branding",
+    "newPage": "/services/branding",
+    "action": "KEEP",
+    "seoStatus": "Target: Packaged Water Brand & Mold Design"
+  },
+  {
+    "oldUrl": "https://essarenterprises.co.in/services/modernization",
+    "oldPage": "Modernization",
+    "newPage": "/services/modernization",
+    "action": "KEEP",
+    "seoStatus": "Target: RO Plant Modernization & Capacity Upgrades"
+  },
+  {
+    "oldUrl": "https://essarenterprises.co.in/projects/tirur-project",
+    "oldPage": "Tirur Project Legacy URL",
+    "newPage": "/projects/greenmount",
+    "action": "REDIRECT",
+    "redirectCode": 301,
+    "seoStatus": "Map Legacy Alias to Canonical Greenmount Brand URL"
+  },
+  {
+    "oldUrl": "https://essarenterprises.co.in/projects/ponnani-project",
+    "oldPage": "Ponnani Project Legacy URL",
+    "newPage": "/projects/greenway",
+    "action": "REDIRECT",
+    "redirectCode": 301,
+    "seoStatus": "Map Legacy Alias to Canonical Greenway Brand URL"
+  }
+]

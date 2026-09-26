@@ -3,12 +3,12 @@ const path = require('path');
 
 const knowledgeDir = path.join(__dirname, 'public', 'knowledge');
 if (!fs.existsSync(knowledgeDir)) {
-    fs.mkdirSync(knowledgeDir, { recursive: true });
+  fs.mkdirSync(knowledgeDir, { recursive: true });
 }
 
 const files = {
   'company.md': `# Essar Enterprises - Company Knowledge
-Essar Enterprises is a premier Packaged Drinking Water Consultancy based in Bangalore, India, operating primarily across South India.
+Essar Enterprises is a premier Packaged Drinking Water Consultancy based in Bengaluru, India, operating primarily across South India.
 - **Positioning:** Water Business Consultant
 - **Core Promise:** "Plan to Plant"
 - **Experience:** 20+ years, 50+ companies supported.
@@ -74,7 +74,7 @@ Essar Enterprises is built on 20+ years of operational plant management. The lea
 };
 
 for (const [filename, content] of Object.entries(files)) {
-    fs.writeFileSync(path.join(knowledgeDir, filename), content);
+  fs.writeFileSync(path.join(knowledgeDir, filename), content);
 }
 
 // Generate an llms.txt at the root of public/
@@ -86,7 +86,7 @@ Core positioning: Water Business Consultant.
 Core promise: Plan to Plant.
 Secondary promise: First Bottle in 6 Months.
 Experience: 20+ years and 50+ companies supported.
-Coverage: South India, with offices in Bangalore and Chennai.
+Coverage: South India, with offices in Bengaluru and Chennai.
 
 Primary entities:
 - Essar Enterprises

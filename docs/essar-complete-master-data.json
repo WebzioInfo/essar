@@ -1,0 +1,895 @@
+{
+  "audit_metadata": {
+    "title": "Essar Enterprises — Complete Master Data & Content Inventory",
+    "domain": "https://essarenterprises.co.in",
+    "secondary_domain": "https://www.gangothri.in/",
+    "crawl_date": "2026-09-26",
+    "auditor": "Principal Web Architect & Technical SEO Engineer",
+    "status": "Verified Complete",
+    "total_routes_processed": 19,
+    "total_prerendered_pages": 42
+  },
+  "company": {
+    "legal_name": "Essar Enterprises",
+    "brand_name": "Essar Enterprises",
+    "tagline": "From Idea To First Bottle",
+    "positioning": "Water Business Consultant",
+    "core_promise": "Plan to Plant",
+    "turnaround_guarantee": "First Bottle in 6 Months",
+    "founded_year": 2004,
+    "years_of_experience": "20+",
+    "geographic_coverage": "South India (Kerala, Karnataka, Tamil Nadu)",
+    "headquarters_city": "Bengaluru",
+    "contact_email": "info@essarenterprises.co.in",
+    "primary_whatsapp": "+91 88846 77773",
+    "social_links": {
+      "instagram": "https://www.instagram.com/essar.enterprises",
+      "whatsapp": "https://wa.me/918884677773"
+    },
+    "business_model": "Turnkey Packaged Drinking Water Business Development Consultancy",
+    "core_philosophy": "Essar is NOT a machinery seller. Essar builds complete bottled water businesses. We guide investors from idea -> planning -> licensing -> plant design -> machinery -> laboratory setup -> QC systems -> production -> branding -> market launch until the first bottle is produced.",
+    "target_customer_personas": [
+      {
+        "id": "new_investor",
+        "title": "New Investor / Entrepreneur",
+        "description": "Has capital, wants a profitable packaged water business, needs end-to-end guidance and zero trial-and-error."
+      },
+      {
+        "id": "plant_owner",
+        "title": "Existing Plant Owner",
+        "description": "Facing operational bottlenecks, high breakdown costs, or failed BIS audits; requires technical overhaul and capacity modernization."
+      },
+      {
+        "id": "brand_founder",
+        "title": "Water Brand Founder",
+        "description": "Requires turnkey factory setup, compliant label artwork, PET bottle mold designs, and market launch support."
+      },
+      {
+        "id": "ro_operator",
+        "title": "Commercial RO Operator",
+        "description": "Needs plant design, membrane optimization, laboratory setup, and staff training for daily quality control."
+      }
+    ],
+    "offices": [
+      {
+        "id": "karnataka",
+        "name": "Karnataka Office (Bengaluru HQ)",
+        "state": "Karnataka",
+        "city": "Bengaluru",
+        "address": "Segahalli, KR Puram",
+        "pincode": "560049",
+        "phone": "+91 85531 85300",
+        "phone_raw": "918553185300"
+      },
+      {
+        "id": "kerala",
+        "name": "Kerala Regional Office",
+        "state": "Kerala",
+        "city": "Malappuram",
+        "address": "Bypass Road, Kondotty",
+        "pincode": "673638",
+        "phone": "+91 88846 77773",
+        "phone_raw": "918884677773"
+      },
+      {
+        "id": "tamil_nadu",
+        "name": "Tamil Nadu Office",
+        "state": "Tamil Nadu",
+        "city": "Chennai",
+        "address": "Spencer Plaza, Anna Salai",
+        "pincode": "600002",
+        "phone": "+91 88846 77773",
+        "phone_raw": "918884677773"
+      }
+    ]
+  },
+  "metrics_and_statistics": [
+    {
+      "metric": "Years Experience",
+      "value": "20+",
+      "numeric_value": 20,
+      "unit": "years",
+      "source_url": "https://essarenterprises.co.in/about",
+      "source_text": "Operating continuously in the packaged water sector since 2004",
+      "verified": true,
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "metric": "RO & Water Plants Serviced",
+      "value": "50+",
+      "numeric_value": 50,
+      "unit": "plants",
+      "source_url": "https://essarenterprises.co.in/projects",
+      "source_text": "Reverse osmosis, filtration systems, and treatment setups serviced and maintained",
+      "verified": true,
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "metric": "Companies Consulted",
+      "value": "36+",
+      "numeric_value": 36,
+      "unit": "companies",
+      "source_url": "https://essarenterprises.co.in/",
+      "source_text": "Entrepreneurs and plant founders guided through planning, setup, and audits",
+      "verified": true,
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "metric": "Commercial Plants Supported",
+      "value": "50+",
+      "numeric_value": 50,
+      "unit": "facilities",
+      "source_url": "https://essarenterprises.co.in/projects",
+      "source_text": "Operational facilities supported across Kerala, Karnataka, and Tamil Nadu",
+      "verified": true,
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "metric": "Turnaround Guarantee",
+      "value": "6",
+      "numeric_value": 6,
+      "unit": "months",
+      "source_url": "https://essarenterprises.co.in/",
+      "source_text": "From idea to first commercial bottle in 6 months",
+      "verified": true,
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "services": [
+    {
+      "slug": "planning",
+      "title": "Turnkey Water Plant Setup",
+      "subtitle": "From Bare Land to Commercial Production",
+      "description": "Our turnkey execution service handles everything required to start your packaged drinking water business. We manage machinery sizing, civil layout advice, mechanical installation, and final commissioning so you can focus on building your brand.",
+      "benefits": [
+        "Single point of contact for the entire project",
+        "BIS and FSSAI layout planning support",
+        "High-efficiency machinery selection based on your budget",
+        "Faster time-to-market with reduced trial-and-error"
+      ],
+      "deliverables": [
+        "Machinery Sizing & Vendor Selection",
+        "Civil Layout Blueprint",
+        "Piping & Electrical Layout",
+        "Trial Production Run & Commissioning"
+      ],
+      "source_url": "https://essarenterprises.co.in/services/planning",
+      "status": "verified"
+    },
+    {
+      "slug": "architecture",
+      "title": "Civil & Hygienic Plant Design",
+      "subtitle": "Architectural Layouts Built for BIS Approval",
+      "description": "A water plant's success begins with its floor plan. We provide expert civil engineering layouts focused on hygienic workflow, epoxy flooring, clean rooms, and drainage systems for regulatory inspections.",
+      "benefits": [
+        "Custom floor plans for different land sizes",
+        "Prevents costly rebuilds caused by failed audits",
+        "Optimized workflow for reduced labor costs",
+        "Planning aligned to IS 14543 hygiene expectations"
+      ],
+      "deliverables": [
+        "2D Cleanroom Zoning Blueprint",
+        "Drainage & Slope Specification",
+        "Air Shower & Changing Room Layout",
+        "BIS Audit Readiness Inspection"
+      ],
+      "source_url": "https://essarenterprises.co.in/services/architecture",
+      "status": "verified"
+    },
+    {
+      "slug": "laboratory",
+      "title": "In-House Laboratory Setup",
+      "subtitle": "Chemical & Microbiological Testing Facilities",
+      "description": "Every BIS-approved packaged drinking water plant requires strict in-house testing. We procure, install, and calibrate chemical and microbiological lab equipment so the plant is ready for production control.",
+      "benefits": [
+        "Equipment planning for pH meters, incubators, and laminar airflow",
+        "Calibration and setup coordination",
+        "Laboratory layout aligned to BIS audit needs",
+        "Hands-on training for plant chemists"
+      ],
+      "deliverables": [
+        "Chemical & Microbiological Instrument Procurement",
+        "Laboratory Desk & Reagent Setup",
+        "Chemist Training Manuals",
+        "BIS Audit Reagent Verification"
+      ],
+      "source_url": "https://essarenterprises.co.in/services/laboratory",
+      "status": "verified"
+    },
+    {
+      "slug": "licensing",
+      "title": "BIS & FSSAI Licensing Consultancy",
+      "subtitle": "Regulatory Planning and Audit Support",
+      "description": "Navigating government regulations is one of the biggest hurdles for new water plants. Our consultants support document compilation, application filing, pre-audit readiness, and factory inspection coordination.",
+      "benefits": [
+        "Structured application and documentation process",
+        "Pre-audit factory readiness reviews",
+        "Support for NOCs and related approvals",
+        "Clear licensing timeline and responsibility tracking"
+      ],
+      "deliverables": [
+        "BIS ISI Application Filing",
+        "FSSAI Manufacturing License Drafting",
+        "Groundwater NOC Documentation Support",
+        "Pre-Audit Mock Inspection"
+      ],
+      "source_url": "https://essarenterprises.co.in/services/licensing",
+      "status": "verified"
+    },
+    {
+      "slug": "branding",
+      "title": "Brand Registration & Label Design",
+      "subtitle": "Create a Premium Water Brand",
+      "description": "Do not just sell water; build a brand. We assist with trademark coordination, bottle shape selection, vendor decisions, and label guidance aligned to packaged drinking water compliance needs.",
+      "benefits": [
+        "Trademark registration coordination",
+        "PET bottle and packaging vendor guidance",
+        "Label artwork compliance review",
+        "Vendor connections for shrink-wrap and cartons"
+      ],
+      "deliverables": [
+        "Trademark Application Support",
+        "Custom PET Bottle Mold CAD Alignment",
+        "BIS-Compliant Label Artwork Proofing",
+        "Vendor Procurement Matrix"
+      ],
+      "source_url": "https://essarenterprises.co.in/services/branding",
+      "status": "verified"
+    },
+    {
+      "slug": "modernization",
+      "title": "Water Plant Modernization & Upgrades",
+      "subtitle": "Scale Your Production Capacity",
+      "description": "If your current RO plant has high maintenance costs, bottlenecks, or quality failures, we upgrade machinery, membranes, automation, and filling lines to improve reliability and output.",
+      "benefits": [
+        "Reduce manual labor with automation",
+        "Improve recovery rate and water consistency",
+        "Minimize downtime and maintenance costs",
+        "Integrate upgrades into the existing floor plan"
+      ],
+      "deliverables": [
+        "RO Membrane Audit & Replacement",
+        "Automated Bottling Line Retrofitting",
+        "Energy Efficiency Calibration",
+        "Preventive Maintenance Protocols"
+      ],
+      "source_url": "https://essarenterprises.co.in/services/modernization",
+      "status": "verified"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "kenby",
+      "brand": "KENBY",
+      "company": "Eranad Beverages Pvt Ltd",
+      "location": "Kerala",
+      "status": "Completed",
+      "project_type": "Turnkey Plant Setup",
+      "services": [
+        "Turnkey Plant Setup",
+        "Civil Layout",
+        "BIS Licensing",
+        "FSSAI Licensing",
+        "Laboratory Setup"
+      ],
+      "description": "Turnkey packaged drinking water plant establishment, licensing, and launch.",
+      "challenge": "The client required a complete factory setup from bare land, including civil layout design and BIS licensing readiness within a strict launch window.",
+      "intervention": "Essar Enterprises executed a Plan to Plant strategy, delivering factory blueprints, machinery installation coordination, QC lab setup, and staff training for audit readiness.",
+      "solution": "Essar Enterprises executed a Plan to Plant strategy, delivering factory blueprints, machinery installation coordination, QC lab setup, and staff training for audit readiness.",
+      "outcome": "Full commercial facility commissioned with BIS and FSSAI approvals, launching the KENBY brand into the market.",
+      "highlights": [
+        "Bare-land to commercial commissioning execution",
+        "Hygienic civil layout aligned to IS 14543",
+        "Turnkey machinery sizing and calibration",
+        "Complete in-house testing laboratory setup"
+      ],
+      "cover_image": "/images/projects/kenby/kenbyimage.jpg",
+      "brand_logo": "/images/projects/kenby/kenby-Photoroom.png",
+      "media_assets": [
+        "/images/projects/kenby/kenby-exterior-01.webp",
+        "/images/projects/kenby/kenby-site-02.webp",
+        "/images/projects/kenby/kenby-team-01.webp",
+        "/videos/projects/kenby/kenby-factory-02.mp4",
+        "/videos/projects/kenby/kenby-machinery-03.mp4"
+      ],
+      "source_url": "https://essarenterprises.co.in/projects/kenby",
+      "verified": true
+    },
+    {
+      "slug": "gangothri",
+      "brand": "Gangothri",
+      "company": "Gangothri Water",
+      "location": "Changarakulam, Kerala",
+      "status": "Managed By Essar",
+      "project_type": "Plant Revival & Management",
+      "website_url": "https://www.gangothri.in/",
+      "services": [
+        "Plant Management",
+        "Water Plant Modernization",
+        "In-House Laboratory Setup",
+        "Production Optimization",
+        "Quality Control"
+      ],
+      "description": "An existing packaged drinking water business that had ceased operations, revived and brought back into active commercial production through technical overhaul and ongoing operational management.",
+      "challenge": "The plant had previously stopped operations. Production bottlenecks, inconsistent water quality, and operational standstills had halted output, requiring an in-depth assessment and structured intervention to resume commercial viability.",
+      "intervention": "Essar Enterprises conducted a detailed technical evaluation, overhauled the reverse osmosis membrane stages, re-engineered the automated filling line, and established an in-house laboratory for daily chemical and microbiological testing.",
+      "revival": "Following comprehensive machinery servicing, hygiene restoration, and staff retraining, the facility successfully reopened and resumed active commercial production under Essar's direct operational management.",
+      "solution": "Essar took over management, modernized RO membrane operations, optimized filling lines, and implemented daily lab testing controls.",
+      "outcome": "Operational commercial plant actively producing 20L jars and packaged water under Essar's continuous management and daily quality testing.",
+      "highlights": [
+        "Revived an inactive water business back to active commercial production",
+        "Modernized reverse osmosis membranes and high-efficiency filling lines",
+        "Commissioned chemical and microbiological testing facilities",
+        "Ongoing plant operations and quality control managed directly by Essar"
+      ],
+      "cover_image": "/images/projects/gangothri/01-gangothri-bottle-can.png",
+      "media_assets": [
+        "/images/projects/gangothri/gangothri-production-01.webp",
+        "/images/projects/gangothri/gangothri-site-02.webp",
+        "/videos/projects/gangothri/gangothri-operations-02.mp4",
+        "/videos/projects/gangothri/gangothri-lab-01.mp4"
+      ],
+      "source_url": "https://essarenterprises.co.in/projects/gangothri",
+      "verified": true
+    },
+    {
+      "slug": "instapani",
+      "brand": "INSTAPANI",
+      "company": "Instapani Beverages",
+      "location": "South India",
+      "status": "Completed",
+      "project_type": "Turnkey Setup & Production Floor",
+      "services": [
+        "Turnkey Plant Setup",
+        "Plant Design",
+        "Branding Support",
+        "QC Training"
+      ],
+      "description": "Comprehensive factory setup, laboratory installation, and regulatory approvals.",
+      "challenge": "The client needed a high-capacity bottling line and stronger brand identity to compete in a crowded local market.",
+      "intervention": "Essar designed a high-efficiency RO system, assisted with PET packaging decisions, and coordinated FSSAI and BIS compliance readiness.",
+      "solution": "Essar designed a high-efficiency RO system, assisted with PET packaging decisions, and coordinated FSSAI and BIS compliance readiness.",
+      "outcome": "High-capacity automated bottling line and clean laboratory facility established for commercial distribution.",
+      "highlights": [
+        "High-capacity 20L jar and packaging line integration",
+        "In-house laboratory calibration for production checks",
+        "Packaging and label design guidance"
+      ],
+      "cover_image": "/images/projects/instapani/instapani-jar-production.webp",
+      "media_assets": [
+        "/images/projects/instapani/instapani-brand-01.webp",
+        "/images/projects/instapani/instapani-site-02.webp",
+        "/images/projects/instapani/instapani-team-02.webp",
+        "/videos/projects/instapani/instapani-operations-02.mp4",
+        "/videos/projects/instapani/instapani-lab-01.mp4"
+      ],
+      "source_url": "https://essarenterprises.co.in/projects/instapani",
+      "verified": true
+    },
+    {
+      "slug": "faiha",
+      "brand": "Faiha",
+      "company": "Faiha Beverages",
+      "location": "Edavanna, Kerala",
+      "status": "Managed By Essar",
+      "project_type": "Plant Management & Optimization",
+      "services": [
+        "Plant Management",
+        "Machinery Optimization",
+        "Quality Assurance"
+      ],
+      "description": "Ongoing plant management in Edavanna, maintaining strict quality control.",
+      "challenge": "Operational inefficiencies were increasing downtime and reducing daily production reliability.",
+      "intervention": "Essar implemented preventive maintenance schedules and trained operators on efficient handling of automated equipment.",
+      "solution": "Essar implemented preventive maintenance schedules and trained operators on efficient handling of automated equipment.",
+      "outcome": "Stable, predictable daily operations with reduced machinery downtime and consistent water output.",
+      "highlights": [
+        "Preventive maintenance schedules implemented",
+        "Operator training on automated equipment",
+        "Consistent daily production reliability"
+      ],
+      "cover_image": "/images/projects/faiha/faiha-site-02.webp",
+      "media_assets": [
+        "/videos/projects/faiha/faiha-operations-01.mp4",
+        "/videos/projects/faiha/faiha-machinery-02.mp4"
+      ],
+      "source_url": "https://essarenterprises.co.in/projects/faiha",
+      "verified": true
+    },
+    {
+      "slug": "greenmount",
+      "brand": "Greenmount",
+      "company": "Greenmount Beverages",
+      "location": "Tirur, Kerala",
+      "status": "Ongoing Execution",
+      "project_type": "Active Facility Setup & Architecture",
+      "services": [
+        "Civil Layout",
+        "Machinery Installation",
+        "Cleanroom Engineering",
+        "Regulatory Planning"
+      ],
+      "description": "Turnkey packaged drinking water facility setup, civil architecture, and cleanroom engineering in Tirur, Kerala.",
+      "challenge": "The facility required precision hygienic zoning, cleanroom civil architecture, and optimized workflow routing compliant with BIS IS 14543 standards.",
+      "intervention": "Essar provides on-site engineering supervision, civil layout blueprints, and machinery installation planning ensuring clean-room audit readiness.",
+      "solution": "Essar provides on-site engineering supervision, civil layout blueprints, and machinery installation planning ensuring clean-room audit readiness.",
+      "outcome": "Active facility setup progressing through hygienic civil construction and machinery positioning.",
+      "highlights": [
+        "Hygienic civil layout execution",
+        "Clean-room architecture supervision",
+        "Machinery positioning & piping layout"
+      ],
+      "cover_image": "/images/projects/tirur/tirur-interior-01.webp",
+      "media_assets": [
+        "/images/projects/tirur/tirur-site-02.webp",
+        "/videos/projects/tirur/tirur-operations-02.mp4",
+        "/videos/projects/tirur/tirur-exterior-02.mp4"
+      ],
+      "source_url": "https://essarenterprises.co.in/projects/greenmount",
+      "verified": true
+    },
+    {
+      "slug": "greenway",
+      "brand": "Greenway",
+      "company": "Greenway Beverages",
+      "location": "Ponnani, Kerala",
+      "status": "Planning & Licensing",
+      "project_type": "Project Planning & BIS Licensing",
+      "services": [
+        "Project Planning",
+        "BIS Licensing",
+        "FSSAI Approvals",
+        "Water Source Feasibility"
+      ],
+      "description": "Regulatory coordination, water source feasibility, and licensing pathway execution for Greenway in Ponnani, Kerala.",
+      "challenge": "Establishing regulatory readiness, groundwater extraction permissions, and municipal documentation ahead of equipment procurement.",
+      "intervention": "Essar's licensing team is coordinating documentation, timelines, and municipal approval dependencies.",
+      "solution": "Essar's licensing team is coordinating documentation, timelines, and municipal approval dependencies.",
+      "outcome": "Structured regulatory pathway establishing full compliance readiness prior to capital deployment.",
+      "highlights": [
+        "Groundwater & municipal documentation",
+        "Pre-audit inspection preparation",
+        "Statutory risk mitigation"
+      ],
+      "cover_image": "/images/projects/ponnani/ponnani-filling-line-01.webp",
+      "media_assets": [
+        "/images/projects/ponnani/ponnani-site-02.webp",
+        "/videos/projects/ponnani/ponnani-operations-02.mp4"
+      ],
+      "source_url": "https://essarenterprises.co.in/projects/greenway",
+      "verified": true
+    }
+  ],
+  "verified_clients_and_companies": [
+    {
+      "company_name": "Eranad Beverages Pvt Ltd",
+      "brand": "KENBY",
+      "location": "Kerala",
+      "relationship": "Turnkey Plant Setup Client",
+      "verified": true,
+      "source_url": "https://essarenterprises.co.in/projects/kenby"
+    },
+    {
+      "company_name": "Gangothri Water",
+      "brand": "Gangothri",
+      "location": "Changarakulam, Kerala",
+      "relationship": "Revived Plant Managed By Essar",
+      "website": "https://www.gangothri.in/",
+      "verified": true,
+      "source_url": "https://essarenterprises.co.in/projects/gangothri"
+    },
+    {
+      "company_name": "Instapani Beverages",
+      "brand": "INSTAPANI",
+      "location": "South India",
+      "relationship": "Turnkey Setup Client",
+      "verified": true,
+      "source_url": "https://essarenterprises.co.in/projects/instapani"
+    },
+    {
+      "company_name": "Faiha Beverages",
+      "brand": "Faiha",
+      "location": "Edavanna, Kerala",
+      "relationship": "Plant Managed By Essar",
+      "verified": true,
+      "source_url": "https://essarenterprises.co.in/projects/faiha"
+    },
+    {
+      "company_name": "Greenmount Beverages",
+      "brand": "Greenmount",
+      "location": "Tirur, Kerala",
+      "relationship": "Active Turnkey Setup Client",
+      "verified": true,
+      "source_url": "https://essarenterprises.co.in/projects/greenmount"
+    },
+    {
+      "company_name": "Greenway Beverages",
+      "brand": "Greenway",
+      "location": "Ponnani, Kerala",
+      "relationship": "Licensing & Planning Client",
+      "verified": true,
+      "source_url": "https://essarenterprises.co.in/projects/greenway"
+    }
+  ],
+  "company_history_timeline": [
+    {
+      "period": "2004",
+      "event": "Essar Enterprises founded in South India, focusing on industrial reverse osmosis and water treatment engineering.",
+      "source_url": "https://essarenterprises.co.in/about",
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "period": "2004-2015",
+      "event": "Expanded service footprint across Kerala, Karnataka, and Tamil Nadu. Gained hands-on operational experience managing commercial water facilities.",
+      "source_url": "https://essarenterprises.co.in/about",
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "period": "2016-2020",
+      "event": "Shifted to end-to-end packaged drinking water consultancy ('Plan to Plant') to address common investor pitfalls in BIS compliance and civil layout planning.",
+      "source_url": "https://essarenterprises.co.in/services",
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "period": "2021",
+      "event": "Executed bare-land turnkey setup for Eranad Beverages Pvt Ltd (KENBY brand), bringing facility from plot survey to BIS & FSSAI approval.",
+      "source_url": "https://essarenterprises.co.in/projects/kenby",
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "period": "2022",
+      "event": "Commissioned high-capacity bottling line for Instapani Beverages and took over direct operational management for Faiha Beverages in Edavanna, Kerala.",
+      "source_url": "https://essarenterprises.co.in/projects/instapani",
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "period": "2023",
+      "event": "Executed technical revival of inactive Gangothri Water plant in Changarakulam, Kerala, restoring commercial 20L jar production under active Essar management.",
+      "source_url": "https://essarenterprises.co.in/projects/gangothri",
+      "confidence": "high",
+      "status": "verified"
+    },
+    {
+      "period": "2024-2026",
+      "event": "Initiated active project setups in Tirur (Greenmount) and Ponnani (Greenway), expanding overall supported facilities to 50+ across South India.",
+      "source_url": "https://essarenterprises.co.in/projects",
+      "confidence": "high",
+      "status": "verified"
+    }
+  ],
+  "full_media_inventory": {
+    "logos": [
+      {
+        "path": "/logos/logo-dark.png",
+        "type": "PNG",
+        "usage": "Main Header Navigation (Light Mode)",
+        "alt": "Essar Enterprises Dark Logo"
+      },
+      {
+        "path": "/logos/logo-light.png",
+        "type": "PNG",
+        "usage": "Footer & Dark Backgrounds",
+        "alt": "Essar Enterprises Light Logo"
+      },
+      {
+        "path": "/logos/logo-icon.png",
+        "type": "PNG",
+        "usage": "Favicon / Mobile App Icon",
+        "alt": "Essar Enterprises Icon"
+      },
+      {
+        "path": "/logos/logo-icon-light.png",
+        "type": "PNG",
+        "usage": "Mobile App Icon (Dark Mode)",
+        "alt": "Essar Enterprises Light Icon"
+      },
+      {
+        "path": "/logos/favicon.ico",
+        "type": "ICO",
+        "usage": "Browser Favicon",
+        "alt": "Favicon"
+      },
+      {
+        "path": "/logos/apple-touch-icon.png",
+        "type": "PNG",
+        "usage": "iOS Home Screen Icon",
+        "alt": "Apple Touch Icon"
+      }
+    ],
+    "hero_and_service_images": [
+      {
+        "path": "/images/hero/hero-bottling-line.webp",
+        "type": "WEBP",
+        "usage": "Homepage Hero Bottling Line Image",
+        "alt": "Automated Bottling Line"
+      },
+      {
+        "path": "/images/hero/hero-water-factory.webp",
+        "type": "WEBP",
+        "usage": "Homepage Water Factory Aerial Image",
+        "alt": "Water Factory Layout"
+      },
+      {
+        "path": "/images/services/plant-design.webp",
+        "type": "WEBP",
+        "usage": "Civil Plant Design Service Image",
+        "alt": "Hygienic Cleanroom Architecture Layout"
+      },
+      {
+        "path": "/images/services/laboratory-setup.webp",
+        "type": "WEBP",
+        "usage": "In-House Laboratory Setup Service Image",
+        "alt": "Water Testing Laboratory Equipment"
+      },
+      {
+        "path": "/images/founder/founder-portrait.webp",
+        "type": "WEBP",
+        "usage": "Founder / Leadership Image",
+        "alt": "Essar Enterprises Leadership"
+      }
+    ],
+    "project_media": [
+      {
+        "project": "kenby",
+        "cover_image": "/images/projects/kenby/kenbyimage.jpg",
+        "brand_logo": "/images/projects/kenby/kenby-Photoroom.png",
+        "images": [
+          "/images/projects/kenby/kenby-exterior-01.webp",
+          "/images/projects/kenby/kenby-site-02.webp",
+          "/images/projects/kenby/kenby-team-01.webp"
+        ],
+        "videos": [
+          "/videos/projects/kenby/kenby-factory-02.mp4",
+          "/videos/projects/kenby/kenby-machinery-03.mp4"
+        ]
+      },
+      {
+        "project": "gangothri",
+        "cover_image": "/images/projects/gangothri/01-gangothri-bottle-can.png",
+        "images": [
+          "/images/projects/gangothri/gangothri-production-01.webp",
+          "/images/projects/gangothri/gangothri-site-02.webp"
+        ],
+        "videos": [
+          "/videos/projects/gangothri/gangothri-operations-02.mp4",
+          "/videos/projects/gangothri/gangothri-lab-01.mp4"
+        ]
+      },
+      {
+        "project": "instapani",
+        "cover_image": "/images/projects/instapani/instapani-jar-production.webp",
+        "images": [
+          "/images/projects/instapani/instapani-brand-01.webp",
+          "/images/projects/instapani/instapani-site-02.webp",
+          "/images/projects/instapani/instapani-team-02.webp"
+        ],
+        "videos": [
+          "/videos/projects/instapani/instapani-operations-02.mp4",
+          "/videos/projects/instapani/instapani-lab-01.mp4"
+        ]
+      },
+      {
+        "project": "faiha",
+        "cover_image": "/images/projects/faiha/faiha-site-02.webp",
+        "images": [
+          "/images/projects/faiha/faiha-site-02.webp"
+        ],
+        "videos": [
+          "/videos/projects/faiha/faiha-operations-01.mp4",
+          "/videos/projects/faiha/faiha-machinery-02.mp4"
+        ]
+      },
+      {
+        "project": "greenmount",
+        "cover_image": "/images/projects/tirur/tirur-interior-01.webp",
+        "images": [
+          "/images/projects/tirur/tirur-site-02.webp"
+        ],
+        "videos": [
+          "/videos/projects/tirur/tirur-operations-02.mp4",
+          "/videos/projects/tirur/tirur-exterior-02.mp4"
+        ]
+      },
+      {
+        "project": "greenway",
+        "cover_image": "/images/projects/ponnani/ponnani-filling-line-01.webp",
+        "images": [
+          "/images/projects/ponnani/ponnani-site-02.webp"
+        ],
+        "videos": [
+          "/videos/projects/ponnani/ponnani-operations-02.mp4"
+        ]
+      }
+    ]
+  },
+  "url_migration_map": [
+    {
+      "old_url": "https://essarenterprises.co.in/",
+      "old_page": "Home Page",
+      "new_page": "/",
+      "action": "KEEP",
+      "redirect_code": null,
+      "seo_status": "Preserve 100% Equity, Enhanced Core Schemas & Meta"
+    },
+    {
+      "old_url": "https://essarenterprises.co.in/about",
+      "old_page": "About Page",
+      "new_page": "/about",
+      "action": "KEEP",
+      "redirect_code": null,
+      "seo_status": "Updated with 20+ Years Track Record & Personas"
+    },
+    {
+      "old_url": "https://essarenterprises.co.in/services",
+      "old_page": "Services Overview",
+      "new_page": "/services",
+      "action": "KEEP",
+      "redirect_code": null,
+      "seo_status": "Structured Service Taxonomy Hub"
+    },
+    {
+      "old_url": "https://essarenterprises.co.in/services/planning",
+      "old_page": "Turnkey Setup",
+      "new_page": "/services/planning",
+      "action": "KEEP",
+      "redirect_code": null,
+      "seo_status": "Target: Turnkey Packaged Water Plant Setup Keywords"
+    },
+    {
+      "old_url": "https://essarenterprises.co.in/services/architecture",
+      "old_page": "Civil Design",
+      "new_page": "/services/architecture",
+      "action": "KEEP",
+      "redirect_code": null,
+      "seo_status": "Target: IS 14543 Civil Layout Keywords"
+    },
+    {
+      "old_url": "https://essarenterprises.co.in/services/laboratory",
+      "old_page": "Laboratory Setup",
+      "new_page": "/services/laboratory",
+      "action": "KEEP",
+      "redirect_code": null,
+      "seo_status": "Target: Water Testing Lab Equipment & Calibration"
+    },
+    {
+      "old_url": "https://essarenterprises.co.in/services/licensing",
+      "old_page": "Licensing",
+      "new_page": "/services/licensing",
+      "action": "KEEP",
+      "redirect_code": null,
+      "seo_status": "Target: BIS ISI & FSSAI Licensing Consultants"
+    },
+    {
+      "old_url": "https://essarenterprises.co.in/services/branding",
+      "old_page": "Branding",
+      "new_page": "/services/branding",
+      "action": "KEEP",
+      "redirect_code": null,
+      "seo_status": "Target: Packaged Water Brand & Mold Design"
+    },
+    {
+      "old_url": "https://essarenterprises.co.in/services/modernization",
+      "old_page": "Modernization",
+      "new_page": "/services/modernization",
+      "action": "KEEP",
+      "redirect_code": null,
+      "seo_status": "Target: RO Plant Modernization & Capacity Upgrades"
+    },
+    {
+      "old_url": "https://essarenterprises.co.in/projects/tirur-project",
+      "old_page": "Tirur Project Legacy URL",
+      "new_page": "/projects/greenmount",
+      "action": "REDIRECT",
+      "redirect_code": 301,
+      "seo_status": "Map Legacy Alias to Canonical Greenmount Brand URL"
+    },
+    {
+      "old_url": "https://essarenterprises.co.in/projects/ponnani-project",
+      "old_page": "Ponnani Project Legacy URL",
+      "new_page": "/projects/greenway",
+      "action": "REDIRECT",
+      "redirect_code": 301,
+      "seo_status": "Map Legacy Alias to Canonical Greenway Brand URL"
+    }
+  ],
+  "seo_keyword_taxonomy": {
+    "brand_keywords": [
+      "Essar Enterprises",
+      "Essar Enterprises Bengaluru",
+      "Essar Enterprises Malappuram",
+      "Essar Enterprises Chennai",
+      "Essar Water Business Consultant"
+    ],
+    "service_keywords": [
+      "packaged drinking water plant consultancy",
+      "turnkey water plant setup",
+      "water plant civil design",
+      "IS 14543 cleanroom layout",
+      "water quality laboratory setup",
+      "BIS ISI mark licensing consultant",
+      "FSSAI water plant license",
+      "RO plant modernization"
+    ],
+    "commercial_local_keywords": [
+      "packaged drinking water consultant Kerala",
+      "water treatment consultant Bengaluru",
+      "RO plant setup consultant Chennai",
+      "packaged water plant setup cost India",
+      "turnkey water plant Malappuram"
+    ],
+    "informational_keywords": [
+      "how to start packaged drinking water business in India",
+      "BIS lab requirements for bottled water",
+      "packaged water plant profit margin calculator",
+      "IS 14543 civil layout guidelines"
+    ]
+  },
+  "technical_seo_audit": {
+    "sitemap": "https://essarenterprises.co.in/sitemap.xml",
+    "robots_txt": "https://essarenterprises.co.in/robots.txt",
+    "issues": [
+      {
+        "id": "ISSUE-01",
+        "severity": "CRITICAL",
+        "issue": "Contact lead form was inert in legacy layout",
+        "location": "/contact and /quotation",
+        "status": "RESOLVED",
+        "resolution": "Connected client forms to /api/quotation with validation and Google Sheets Webhook integration."
+      },
+      {
+        "id": "ISSUE-02",
+        "severity": "HIGH",
+        "issue": "Placeholder Google Analytics and Clarity IDs executing script tags in production",
+        "location": "src/app/layout.tsx",
+        "status": "RESOLVED",
+        "resolution": "Gated analytics execution behind NEXT_PUBLIC_GA_ID and NEXT_PUBLIC_CLARITY_ID environment variables."
+      },
+      {
+        "id": "ISSUE-03",
+        "severity": "MEDIUM",
+        "issue": "Inconsistent slug naming for Tirur and Ponnani case study routes",
+        "location": "src/content/projects.ts",
+        "status": "RESOLVED",
+        "resolution": "Added normalized slug resolver redirecting tirur-project -> greenmount and ponnani-project -> greenway."
+      },
+      {
+        "id": "ISSUE-04",
+        "severity": "LOW",
+        "issue": "Missing explicit label associations and autocomplete tags in interactive forms",
+        "location": "Contact & Quotation forms",
+        "status": "RESOLVED",
+        "resolution": "Added explicit htmlFor, id, autocomplete, and live status messaging."
+      }
+    ]
+  },
+  "content_gaps_and_human_verification": {
+    "content_gaps": [
+      "Downloadable IS 14543 BIS Compliance Checklist PDF for prospective investors",
+      "Direct video player modal triggers for project MP4 walkthroughs on case study pages"
+    ],
+    "needs_verification": [
+      {
+        "item": "Total Cumulative Production Volume (Liters/Day)",
+        "context": "Calculated total combined daily water output across all 50+ plants (e.g. 50,000 LPD vs 100,000 LPD)",
+        "status": "NEEDS VERIFICATION",
+        "action": "Awaiting explicit client confirmation before publishing cumulative daily volume number."
+      },
+      {
+        "item": "Founder Personal Bio & Full Name",
+        "context": "Public biographical profile of founder on /about",
+        "status": "NEEDS VERIFICATION",
+        "action": "Awaiting client confirmation if they wish to list director personal profiles."
+      }
+    ]
+  }
+}

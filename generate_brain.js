@@ -3,7 +3,7 @@ const path = require('path');
 
 const brainDir = path.join(__dirname, 'project-brain');
 if (!fs.existsSync(brainDir)) {
-    fs.mkdirSync(brainDir, { recursive: true });
+   fs.mkdirSync(brainDir, { recursive: true });
 }
 
 const companyContent = `# Company Identity
@@ -85,7 +85,7 @@ const projectsContent = `# Completed Projects
 
 const locationsContent = `# Office Locations
 Head Office:
-Seegahalli, KR Puram, Bangalore, India 560049
+Seegahalli, KR Puram, Bengaluru, India 560049
 
 Regional Office:
 Chennai
