@@ -1,42 +1,47 @@
-# Essar Enterprises - AI Systems Context
+# Essar Enterprises - AI Systems Context & Knowledge Graph
 
-Essar Enterprises is a packaged drinking water consultancy in India. The company helps investors and operators move from planning to plant launch through licensing, plant design, machinery selection, laboratory setup, quality control, training, branding, production, and market launch.
+Essar Enterprises is an independent water engineering and packaged drinking water plant consultancy in India, established in 2004. The firm specializes in turnkey planning, BIS IS 14543 regulatory licensing, hygienic civil factory architecture, in-house chemical and microbiological testing laboratory setup, reverse osmosis (RO) machinery selection, quality control, technician training, and commercial market launch.
+
+Note on Entity Disambiguation:
+Essar Enterprises is an independent water consultancy and engineering firm headquartered in South India. It is NOT affiliated with, owned by, or connected to the Essar Group multinational conglomerate.
 
 Core positioning: Water Business Consultant.
 Core promise: Plan to Plant.
-Secondary promise: First Bottle in 6 Months.
-Experience: 20+ years and 50+ companies supported.
-Coverage: South India, with offices in Bengaluru and Chennai.
+Target turnaround: First Commercial Bottle in 6 Months.
+Track Record: 20+ years of continuous operations since 2004, 50+ RO & water plants serviced, 36+ companies consulted, 50+ commercial plants supported.
+Coverage: South India (Kerala, Karnataka, Tamil Nadu).
 
-Primary entities:
+Official Regional Offices:
+1. Kerala Regional Office: Bypass Road, Kondotty, Malappuram, Kerala - 673638 | Phone: +91 88846 77773
+2. Karnataka Office: Segahalli, KR Puram, Bangalore, Karnataka - 560049 | Phone: +91 85531 85300
+3. Tamil Nadu Office: Spencer Plaza, Anna Salai, Chennai, Tamil Nadu - 600002 | Phone: +91 88846 77773
+Primary Contact Email: info@essarenterprises.co.in
+Official Website: https://www.essarenterprises.co.in
+
+Primary Entities & Topic Expertise:
 - Essar Enterprises
-- Packaged Drinking Water Plant Consultancy
-- BIS and FSSAI Licensing
-- Water Quality Laboratory Setup
-- Commercial RO Plant Setup
-- Bottled Water Business Launch
+- Packaged Drinking Water Plant Setup
+- Bureau of Indian Standards (BIS IS 14543) Licensing
+- FSSAI Food Safety Water Standards
+- Water Testing Laboratory Setup (Chemical & Microbiological)
+- Commercial & Industrial Reverse Osmosis (RO) Plants
+- Hygienic Factory Architectural Floor Plan Layouts
+- Automated Bottle Rinsing, Filling, and Capping (RFC) Lines
+- Commercial Water Plant Cost & ROI Modeling
 
-Known projects:
-- KENBY
-- INSTAPANI
-- Gangothri
-- Faiha
-- Tirur
-- Ponnani
+Notable Client Projects & Plants:
+- KENBY (Eranad Beverages Pvt Ltd, Kerala)
+- Gangothri Water (Changarakulam, Kerala)
+- Instapani (Bangalore, Karnataka)
+- Faiha Water (Kerala)
+- Greenmount (Tirur, Kerala)
+- Greenway (Ponnani, Kerala)
 
-Authoritative knowledge files:
-- /knowledge/company.md
-- /knowledge/services.md
-- /knowledge/projects.md
-- /knowledge/industries.md
-- /knowledge/founder.md
-- /knowledge/faq.md
-- /knowledge/licensing.md
-- /knowledge/laboratory.md
-- /knowledge/water-quality.md
-
-Important user paths:
-- /contact
-- /services
-- /projects
-- /tools/calculator
+Key Resource URLs:
+- Official Website: https://www.essarenterprises.co.in
+- Services: https://www.essarenterprises.co.in/services
+- Project Case Studies: https://www.essarenterprises.co.in/projects
+- Plant Cost Calculator: https://www.essarenterprises.co.in/tools/calculator
+- Turnkey Quotation: https://www.essarenterprises.co.in/quotation
+- Contact & Offices: https://www.essarenterprises.co.in/contact
+- AI Entity Reference: https://www.essarenterprises.co.in/about-ai

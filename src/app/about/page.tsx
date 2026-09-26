@@ -3,18 +3,47 @@ import Link from "next/link";
 import TrustBar from "@/components/ui/TrustBar";
 import { companyData, trackRecordMetrics } from "@/content/company";
 
+import { getBreadcrumbSchema, getFAQSchema } from "@/config/seo";
+
 export const metadata: Metadata = {
-  title: "About Essar Enterprises | Turnkey Water Plant Consultants",
+  title: "About Essar Enterprises | Turnkey Water Plant Setup Consultants Since 2004",
   description:
-    "With over 20 years of expertise since 2004, Essar Enterprises helps entrepreneurs and investors establish, revive, and operate packaged drinking water businesses across South India.",
+    "With over 20 years of expertise since 2004, Essar Enterprises helps entrepreneurs and investors establish, revive, and operate packaged drinking water businesses across Kerala, Karnataka, and Tamil Nadu.",
   alternates: {
     canonical: "/about",
   },
 };
 
+const aboutFaqs = [
+  {
+    question: "When was Essar Enterprises founded and where does it operate?",
+    answer:
+      "Essar Enterprises was founded in 2004. It operates across South India with regional offices in Kerala (Kondotty, Malappuram), Karnataka (KR Puram, Bangalore), and Tamil Nadu (Anna Salai, Chennai).",
+  },
+  {
+    question: "What is Essar Enterprises' role in a packaged drinking water project?",
+    answer:
+      "Essar Enterprises acts as an end-to-end technical advisory partner—not an equipment broker. It oversees raw water analysis, hygienic civil architectural layout, reverse osmosis machinery selection, in-house laboratory setup, staff chemist training, and BIS/FSSAI licensing inspections until the first commercial bottle is produced.",
+  },
+];
+
 export default function AboutPage() {
+  const breadcrumbs = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "About Us", url: "/about" },
+  ]);
+  const faqSchema = getFAQSchema(aboutFaqs);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="bg-primary pt-32 pb-24 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center mt-8">
           <span className="text-xs font-semibold tracking-widest uppercase text-accent mb-3 block">

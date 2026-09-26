@@ -7,38 +7,45 @@ import MegaMenu from "@/components/navigation/MegaMenu";
 import Footer from "@/app/components/Footer";
 import AosInitializer from "./components/AosInitializer";
 import LenisProvider from "./components/LenisProvider";
-import { organizationSchema, websiteSchema } from "@/seo/schema";
+import { SEO_CONFIG, getOrganizationSchema, getWebSiteSchema, getSiteNavigationSchema } from "@/config/seo";
 
 // SEO → Metadata + OpenGraph + Twitter + Canonical
 export const metadata: Metadata = {
-  title: "Essar Enterprises | Premium Water Business Consultants",
+  metadataBase: new URL(SEO_CONFIG.canonicalUrl),
+  title: {
+    default: `${SEO_CONFIG.brandName}™ Official Website | Packaged Drinking Water Plant Consultants South India`,
+    template: `%s | ${SEO_CONFIG.brandName}`,
+  },
   description:
-    "We engineer profitable packaged drinking water businesses. From planning and licensing to operational excellence.",
-  metadataBase: new URL("https://essarenterprises.co.in"),
+    "Essar Enterprises helps investors and plant owners build profitable packaged drinking water businesses across South India. Turnkey setup, BIS IS 14543 licensing, hygienic factory architecture, in-house lab setup, and operational launch.",
   alternates: {
-    canonical: "https://essarenterprises.co.in",
+    canonical: SEO_CONFIG.canonicalUrl,
   },
   icons: {
     icon: [
-      { url: "/logos/favicon-white.png", sizes: "any", type: "image/png" },
-      { url: "/logos/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/logos/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/logos/favicon.ico", sizes: "any" }
+      { url: "/logos/favicon-16x16.png?v=3", sizes: "16x16", type: "image/png" },
+      { url: "/logos/favicon-32x32.png?v=3", sizes: "32x32", type: "image/png" },
+      { url: "/logos/android-chrome-192.png?v=3", sizes: "192x192", type: "image/png" },
+      { url: "/logos/android-chrome-512.png?v=3", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico?v=3", sizes: "any" },
     ],
     apple: [
-      { url: "/logos/favicon-white.png", sizes: "180x180", type: "image/png" }
+      { url: "/logos/apple-touch-icon.png?v=3", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: [
+      { url: "/favicon.ico?v=3" },
     ],
     other: [
-      { rel: "manifest", url: "/site.webmanifest" }
-    ]
+      { rel: "manifest", url: "/site.webmanifest" },
+    ],
   },
   openGraph: {
     type: "website",
-    url: "https://essarenterprises.co.in",
-    title: "Essar Enterprises | Premium Water Business Consultants",
-    siteName: "Essar Enterprises",
+    url: SEO_CONFIG.canonicalUrl,
+    title: `${SEO_CONFIG.brandName}™ Official Website | Packaged Drinking Water Plant Consultants`,
+    siteName: SEO_CONFIG.brandName,
     description:
-      "We engineer profitable packaged drinking water businesses. From planning and licensing to operational excellence.",
+      "Turnkey bottled water plant setup, BIS IS 14543 licensing, in-house lab setup, and plant engineering across South India since 2004.",
     images: [
       {
         url: "/logos/logo-dark.png",
@@ -50,21 +57,23 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Essar Enterprises | Premium Water Business Consultants",
+    title: `${SEO_CONFIG.brandName}™ Official Website | Packaged Drinking Water Plant Consultants`,
     description:
-      "We don't just sell machinery. We engineer profitable packaged drinking water businesses.",
+      "Plan to Plant: Complete turnkey packaged drinking water plant advisory and engineering across South India.",
     images: ["/logos/logo-dark.png"],
     site: "@essar.enterprises",
   },
   keywords: [
+    "Essar Enterprises",
     "Packaged Drinking Water Plant Consultancy",
-    "Turnkey Water Plant Setup",
-    "BIS Licensing India",
-    "FSSAI Licensing Water",
-    "Water Business Consulting",
+    "Turnkey Water Plant Setup South India",
+    "BIS IS 14543 Licensing India",
+    "FSSAI Licensing Water Plant",
+    "Water Business Consulting Kerala Karnataka Tamil Nadu",
     "Commercial RO Plant Setup",
     "Packaged Drinking Water Project Report",
     "Water Quality Laboratory Setup",
+    "Bottled Water Plant Cost Calculator",
   ],
 };
 
@@ -75,7 +84,11 @@ export default function RootLayout({
 }) {
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
   const clarityId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
-  const structuredData = [organizationSchema(), websiteSchema()];
+  const structuredData = [
+    getOrganizationSchema(),
+    getWebSiteSchema(),
+    getSiteNavigationSchema(),
+  ];
 
   return (
     <html lang="en">
@@ -83,6 +96,7 @@ export default function RootLayout({
         {/* ⚡ Performance: DNS + Preconnect */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="shortcut icon" href="/favicon.ico?v=3" />
 
         {/* 📌 Schema Structured Data */}
         <script

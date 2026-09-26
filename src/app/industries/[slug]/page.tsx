@@ -27,6 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+import { getBreadcrumbSchema } from "@/config/seo";
+
 export default async function IndustryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const industry = getIndustry(slug);
@@ -35,9 +37,19 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
+  const breadcrumbs = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Industries", url: "/industries/packaged-drinking-water" },
+    { name: industry.title, url: `/industries/${slug}` },
+  ]);
+
   return (
     <>
       <SchemaMarkup type="Service" data={industryServiceSchema(industry)} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
 
       <div className="bg-primary pt-32 pb-24 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">

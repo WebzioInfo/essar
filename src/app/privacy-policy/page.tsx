@@ -1,14 +1,29 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { getBreadcrumbSchema } from "@/config/seo";
+
 export const metadata: Metadata = {
   title: "Privacy Policy | Essar Enterprises",
   description: "Privacy policy and client data handling practices of Essar Enterprises.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Privacy Policy", url: "/privacy-policy" },
+  ]);
+
   return (
-    <main className="min-h-screen pt-32 pb-24 bg-background text-primary">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <main className="min-h-screen pt-32 pb-24 bg-background text-primary">
       <div className="max-w-4xl mx-auto px-6 sm:px-12">
         <div className="mb-10 pb-6 border-b border-border">
           <Link href="/" className="text-xs uppercase tracking-widest text-text-secondary hover:text-primary transition-colors inline-block mb-4">
@@ -47,12 +62,13 @@ export default function PrivacyPolicyPage() {
             </p>
             <div className="mt-3 p-4 bg-surface rounded-sm border border-border text-sm">
               <p className="font-medium text-primary">Essar Enterprises</p>
-              <p>Email: webzio.info@gmail.com</p>
+              <p>Email: info@essarenterprises.co.in</p>
               <p>Phone: +91 88846 77773</p>
             </div>
           </section>
         </div>
       </div>
     </main>
+    </>
   );
 }
